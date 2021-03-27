@@ -1,4 +1,5 @@
 # oryantosyan-front-end
+Kitap, dizi , film ,oyun konularında tanıtımlara ulaşabilecek, konular üzerinden tartışma ve inceleme yapılabilecek, benzer içeriklere göz atan kişileri eşleyebilecek bir web sitesi.
 
 ## Clone project
 ```
