@@ -9,7 +9,7 @@
             <form v-show="!isReset" @submit.prevent="onSubmit()">
               <div class="text-center">
                 <img src="https://i.pinimg.com/originals/4d/eb/3c/4deb3c920b25c70288af20d66c559b72.png"
-                style="background-position: -130px 0; height: 96px; width: 96px;"
+                style="background-position: -130px 0; height: 30px; width: 30px;"
                 />
                 <h5><b>Giriş Yaparken Sorun mu Yaşıyorsun?</b></h5>
                 <div type="alert" class="alert alert-info" role="alert">
