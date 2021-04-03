@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="Multiselect">
     <h1>This is an multiselect page</h1>
     <div class="multiselect">
       <Multiselect
@@ -8,7 +8,7 @@
       aria-placeholder="Select a platform"
        />
     </div>
-     <pre class="language-json"><code>{{ value  }}</code></pre>
+     <pre class="language-json"><code>{{ dataItem  }}</code></pre>
   </div>
 </template>
 
