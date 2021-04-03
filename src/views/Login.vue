@@ -17,7 +17,7 @@
         placeholder="Şifre"
       />
     <br /><br />
-    <button type="button" class="btn btn-secondary btn-lg" v-on:click="login()">
+    <button type="button" class="btn btn-secondary btn-lg" @click="login()">
       Giriş
     </button>
     <br /><br />
