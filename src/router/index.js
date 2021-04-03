@@ -7,12 +7,12 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/home',
-    name: 'home',
+    name: 'Home',
     component: home,
   },
   {
     path: '/forgot-password',
-    name: 'forgot-password',
+    name: 'ForgotPassword',
     component: () => import('../views/forgot-password.vue'),
   },
 ];
