@@ -5,7 +5,7 @@
         type="text"
         id="username"
         name="username"
-        v-model="input.username"
+        v-model="username"
         placeholder="Kullanıcı Adı"
       />
       <br>
@@ -13,7 +13,7 @@
         type="password"
         id="password"
         name="password"
-        v-model="input.password"
+        v-model="password"
         placeholder="Şifre"
       />
     <br /><br />
@@ -22,7 +22,6 @@
     </button>
     <br /><br />
     <p style="color: red; font-weight: bold">{{ alert }}</p>
-    <router-view></router-view>
   </div>
 </template>
 
@@ -32,10 +31,8 @@ export default {
   data() {
     return {
       alert: '',
-      input: {
-        username: '',
-        password: '',
-      },
+      username: '',
+      password: '',
       users: [
         {
           username: 'deneme1',
@@ -50,11 +47,11 @@ export default {
   },
   methods: {
     login() {
-      if (this.input.username !== '' && this.input.password !== '') {
+      if (this.username !== '' && this.password !== '') {
         for (let i = 0; i < this.users.length; i += 1) {
           if (
-            this.input.username === this.users[i].username
-            && this.input.password === this.users[i].password
+            this.username === this.users[i].username
+            && this.password === this.users[i].password
           ) {
             this.$router.replace({ name: 'Home' });
           } else {
@@ -81,3 +78,4 @@ select {
   box-sizing: border-box;
 }
 </style>
+
