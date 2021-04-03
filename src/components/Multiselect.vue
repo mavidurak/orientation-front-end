@@ -2,7 +2,6 @@
   <div align="center">
     <label class="typo__label">Tagging</label>
     <multiselect
-      style="width: 100%"
       v-model="value"
       tag-placeholder="Add this as new tag"
       placeholder="Search or add a tag"
@@ -12,7 +11,6 @@
       :multiple="true"
       :taggable="true"
       @tag="addTag"
-      @input="$emit('getKey', value)"
     ></multiselect>
   </div>
 </template>
@@ -45,5 +43,7 @@ export default {
 };
 </script>
 <style src="vue-multiselect/dist/vue-multiselect.min.css">
-
+#typo_label{
+  width: 100%;
+}
 </style>
