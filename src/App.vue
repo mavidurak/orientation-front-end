@@ -106,6 +106,7 @@
       </div>
     </nav>
       <router-link to="/axios">Axios</router-link>
+      <router-link to="/login">Login</router-link>
     <router-view />
   </div>
 </template>
