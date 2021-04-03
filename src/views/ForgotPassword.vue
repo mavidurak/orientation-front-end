@@ -90,7 +90,7 @@
                         We are sorry."
                         <b>{{ mail }}</b
                         >" is incorrect or the account does not exist.Please
-                        enter correct mail address
+                        enter correct address
                       </h5>
                     </td>
                   </tr>
