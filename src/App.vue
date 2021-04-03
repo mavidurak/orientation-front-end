@@ -2,7 +2,9 @@
   <div id="app">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Good<b>reads</b></a>
+        <router-link to="/home" class="navbar-brand"
+          >Good<b>reads</b></router-link
+        >
         <button
           class="navbar-toggler"
           type="button"
@@ -16,10 +18,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mb-2 mb-lg-0">
-            <li class="nav-item">
-              <router-link to="/" class="nav-link">Anasayfa</router-link>
-            </li>
-
             <li class="nav-item">
               <router-link to="/benimkiler" class="nav-link"
                 >Benimkiler</router-link
@@ -105,9 +103,15 @@
         </div>
       </div>
     </nav>
+    <router-link to="/axios">Axios</router-link>
     <router-view />
   </div>
 </template>
+<script>
+export default {
+  name: 'App',
+};
+</script>
 
 <style lang="scss">
 #app {
@@ -135,7 +139,7 @@
   border: 1px solid grey;
   color: grey;
 }
-.btn:hover{
+.btn:hover {
   background-color: grey;
   color: white;
 }

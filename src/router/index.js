@@ -32,6 +32,11 @@ const routes = [{
   name: 'Kayit',
   component: () => import('../views/Kayit.vue'),
 },
+{
+  path: '/axios',
+  name: 'Axios',
+  component: () => import('../views/Axios.vue'),
+},
 ];
 
 const router = new VueRouter({
