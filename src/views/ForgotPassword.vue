@@ -13,7 +13,7 @@
                 />
                 <h5><b>Giriş Yaparken Sorun mu Yaşıyorsun?</b></h5>
                 <div type="alert" class="alert alert-info" role="alert">
-                  E-posta adresini gir , hesabına
+                  E-posta adresini gir, hesabına
                   yeniden girebilmen için sana bir bağlantı gönderelim.
                   <br />
                 </div>
