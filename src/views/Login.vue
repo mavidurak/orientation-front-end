@@ -31,7 +31,6 @@ export default {
   name: 'Login',
   data() {
     return {
-      authenticated: false,
       alert: '',
       input: {
         username: '',
@@ -57,7 +56,6 @@ export default {
             this.input.username === this.users[i].username
             && this.input.password === this.users[i].password
           ) {
-            this.authenticated = true;
             this.$router.replace({ name: 'Home' });
           } else {
             this.alert = 'Kullanıcı adınızı veya şifrenizi hatalı girdiniz!';
