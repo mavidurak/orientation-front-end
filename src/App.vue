@@ -105,9 +105,15 @@
         </div>
       </div>
     </nav>
+      <router-link to="/axios">Axios</router-link>
     <router-view />
   </div>
 </template>
+<script>
+export default {
+  name: 'App',
+};
+</script>
 
 <style lang="scss">
 #app {
