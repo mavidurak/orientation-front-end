@@ -23,11 +23,6 @@ const routes = [{
   component: () => import('../views/Benimkiler.vue'),
 },
 {
-  path: '/girisyap',
-  name: 'GirisYap',
-  component: () => import('../views/GirisYap.vue'),
-},
-{
   path: '/kayit',
   name: 'Kayit',
   component: () => import('../views/Kayit.vue'),
@@ -36,6 +31,11 @@ const routes = [{
   path: '/axios',
   name: 'Axios',
   component: () => import('../views/Axios.vue'),
+},
+{
+  path: '/login',
+  name: 'Login',
+  component: () => import('../views/Login.vue'),
 },
 ];
 

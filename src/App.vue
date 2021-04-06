@@ -89,7 +89,7 @@
               <button class="btn" type="submit">Ara</button>
             </form>
             <li class="nav-item">
-              <router-link to="/girisyap" class="nav-link"
+              <router-link to="/login" class="nav-link"
                 >Giriş Yap</router-link
               >
             </li>
@@ -103,7 +103,6 @@
         </div>
       </div>
     </nav>
-    <router-link to="/axios">Axios</router-link>
     <router-view />
   </div>
 </template>
