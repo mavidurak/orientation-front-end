@@ -40,6 +40,9 @@ export default {
       this.value.push(tag);
     },
   },
+  updated() {
+    this.$emit('getValue', this.value);
+  },
 };
 </script>
 <style src="vue-multiselect/dist/vue-multiselect.min.css">

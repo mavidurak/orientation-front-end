@@ -3,12 +3,18 @@
     <h1>This is an multiselect page</h1>
     <div class="multiselect">
       <Multiselect
-      :dataSource='dataItem'
-      :fields='dataFields'
-      aria-placeholder="Select a platform"
-       />
+        :dataSource="dataItem"
+        :fields="dataFields"
+        aria-placeholder="Select a platform"
+        @getValue="update"
+      />
     </div>
-     <pre class="language-json"><code>{{ dataItem  }}</code></pre>
+    <ul v-for="value in values" :key="value.name">
+      <li>
+        isim:{{ value.name }},
+        code: {{ value.code }},
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -22,6 +28,7 @@ export default {
   },
   data() {
     return {
+      values: null,
       dataItem: [
         { name: 'Vue.js', code: 'vu' },
         { name: 'Javascript', code: 'js' },
@@ -29,6 +36,11 @@ export default {
       ],
       dataFields: { text: 'name', value: 'code' },
     };
+  },
+  methods: {
+    update(text) {
+      this.values = text;
+    },
   },
 };
 </script>
