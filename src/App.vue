@@ -71,7 +71,7 @@
           </li>
         </ul>
         <span class="col-lg-4 col-md-4 col-sm-6 flex">
-          &#169; MaviDurakIO 2021</span
+          &#169; MaviDurak-IO 2021</span
         >
       </div>
     </footer>
@@ -133,8 +133,6 @@ footer {
   height: 150px;
 
   img {
-    -webkit-filter: drop-shadow(5px 5px 5px #222);
-    filter: drop-shadow(5px 5px 5px #222);
     border-radius: 100px;
   }
 }
