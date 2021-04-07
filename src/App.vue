@@ -5,52 +5,46 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view />
-    <footer class="footer">
-      <div class="container-fluid container-sm py-5">
+    <footer class="footer text-center">
+      <div class="container">
         <div class="row">
-          <div class="col-md-6 col-sm-8 col-xs-6">
+          <div class="col-lg-6 col-md-4 col-sm-4 col-12 mt-3 mb-4 mb-md-0 x">
             <div class="footer-brand">
-              <h3>ABOUT US</h3>
-              <a href="https://mavidurak.github.io/about" target="_blank"
-                ><img
-                  src="./assets/mavidurakio.png"
+              <h5>ABOUT US</h5>
+              <a href="https://mavidurak.github.io/about" target="_blank">
+                <img
+                  src="https://pbs.twimg.com/profile_images/581806417012658176/jpcs3K-H_400x400.png"
                   alt="MaviDurakIO Logo"
-                  width="150px"
-                  height="150px"
-              /></a>
+                  width="80px"
+                  height="80px"
+                />
+              </a>
             </div>
           </div>
-          <div class="col-md-6 col-sm-4 col-xs-6">
-            <div class="footer-sections">
-              <h3>COMPANY</h3>
-              <ul class="linklist list-unstyled">
-                <li><a href="">Lorem</a></li>
-                <li><a href="">Ipsum</a></li>
-                <li><a href="">Lorem</a></li>
-              </ul>
-            </div>
-            <div class="footer-sections">
-              <h3>WORK WITH US</h3>
-              <ul class="linklist list-unstyled">
-                <li><a href="">Lorem</a></li>
-                <li><a href="">Ipsum</a></li>
-                <li><a href="">Lorem</a></li>
-              </ul>
-            </div>
-            <div class="footer-sections">
-              <h3>EMPTY</h3>
-              <ul class="linklist list-unstyled">
-                <li><a href="">Lorem</a></li>
-                <li><a href="">Ipsum</a></li>
-                <li><a href="">Lorem</a></li>
-              </ul>
-            </div>
+          <div class="col-lg-3 col-md-4 col-sm-4 col-6 mt-3 mb-4 mb-md-0 x">
+            <h6 class="text-uppercase">work with us</h6>
+            <ul class="list-unstyled mb-0">
+              <li><a href="#!" class="text-dark">Link 1</a></li>
+              <li><a href="#!" class="text-dark">Link 2</a></li>
+              <li><a href="#!" class="text-dark">Link 3</a></li>
+              <li><a href="#!" class="text-dark">Link 4</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-4 col-6 mt-3 mb-4 mb-md-0 x">
+            <h6 class="text-uppercase">company</h6>
+            <ul class="list-unstyled">
+              <li><a href="#!" class="text-dark">Link 1</a></li>
+              <li><a href="#!" class="text-dark">Link 2</a></li>
+              <li><a href="#!" class="text-dark">Link 3</a></li>
+              <li><a href="#!" class="text-dark">Link 4</a></li>
+            </ul>
           </div>
         </div>
       </div>
-      <div class="socials">
-        <ul class="iconlist list-unstyled">
-          <li>
+      <div class="socials row">
+        <div class="col-lg-4 col-md-4 col-sm-0 emptyone"></div>
+        <ul class="iconlist list-unstyled col-lg-4 col-md-4 col-sm-6">
+          <li class="chosenone">
             <a href="https://www.instagram.com/mavidurak.io" target="_blank"
               ><i class="fab fa-instagram"></i
             ></a>
@@ -76,9 +70,9 @@
             ></a>
           </li>
         </ul>
-      </div>
-      <div class="copyright">
-        <h6>&#169; 2021 MaviDurakIO</h6>
+        <span class="col-lg-4 col-md-4 col-sm-6 flex">
+          &#169; MaviDurakIO 2021</span
+        >
       </div>
     </footer>
   </div>
@@ -118,64 +112,90 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 250px;
+  height: 150px;
   margin-top: 50px;
-  background-color: #dadde3;
+  background-color: #f9f8f4;
   border-top: 1px solid rgb(212, 204, 204);
-  box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-.container-fluid {
-  width: 1366px;
-  padding: 0 30px;
-  height: 250px;
-}
-
-.footer-brand {
+.container {
   height: 150px;
 
-  h3 {
-    display: inline;
-    position: relative;
-    top: 40%;
-    color: #29667e;
+  .row {
+    height: 150px;
   }
+}
+
+.row .x {
+  height: 130px;
+}
+.footer-brand {
+  height: 150px;
 
   img {
     -webkit-filter: drop-shadow(5px 5px 5px #222);
     filter: drop-shadow(5px 5px 5px #222);
     border-radius: 100px;
-    float: right;
-    position: relative;
-    left: -15%;
-    margin-bottom: 100px;
   }
 }
 
-.footer-sections {
-  display: inline-block;
-  margin: 20px;
+.socials {
+  margin: 0;
 
-  h3 {
-    font-size: 1.5rem;
-    color: #29667e;
+  span {
+    background-color: #1167b8;
+    text-align: right;
+    padding-right: 30px;
+    color: white;
+  }
+
+  .emptyone {
+    background-color: #1167b8;
   }
 }
 
 .iconlist {
+  background-color: #1167b8;
+  padding: 2px;
   text-align: center;
-  padding: 5px;
-  background-color: rgb(41, 102, 126);
-  box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin: 0;
 
   li {
-    margin-right: 30px;
+    margin-left: 30px;
     display: inline;
+  }
+  .chosenone {
+    margin-left: 0;
   }
 }
 
 .iconlist li i {
-  font-size: 30px;
+  font-size: 18px;
   color: #fff;
+}
+
+.copyright {
+  background-color: rgb(41, 102, 126);
+  color: white;
+  font-size: 14px;
+}
+
+@media (max-width: 576px) {
+  .footer {
+    height: 350px;
+  }
+  .container {
+    height: 350px;
+  }
+
+  .socials {
+    .iconlist {
+      text-align: center;
+    }
+    span {
+      text-align: center;
+      padding-right: 0;
+    }
+  }
 }
 </style>
