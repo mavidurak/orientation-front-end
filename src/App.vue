@@ -3,6 +3,7 @@
     <div id="nav">
       <router-link to="/home">Home</router-link> |
       <router-link to="/about">About</router-link> |
+      <router-link to="/multiselect">Multiselect</router-link> |
       <router-link to="/axios">Axios</router-link> |
       <router-link to="/forgot-password">forgot-password</router-link> |
       <router-link to="/login">Login</router-link>

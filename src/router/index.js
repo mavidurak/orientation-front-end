@@ -25,6 +25,12 @@ const routes = [
     name: 'Axios',
     component: () => import('../views/Axios.vue'),
   },
+  {
+    path: '/multiselect',
+    name: 'MultiselectView',
+    component: () => import('../views/Multiselect.vue'),
+  },
+
 ];
 
 const router = new VueRouter({
