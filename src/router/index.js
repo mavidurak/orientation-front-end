@@ -37,6 +37,11 @@ const routes = [{
   name: 'Login',
   component: () => import('../views/Login.vue'),
 },
+{
+  path: '/communities',
+  name: 'Communities',
+  component: () => import('../views/Communities.vue'),
+},
 ];
 
 const router = new VueRouter({

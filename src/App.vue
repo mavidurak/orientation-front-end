@@ -68,7 +68,11 @@
                 Topluluk
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Topluluklar</a></li>
+                <li>
+                  <router-link to="/communities" class="dropdown-item"
+                    >Topluluklar</router-link
+                  >
+                </li>
                 <li><a class="dropdown-item" href="#">Tartışmalar</a></li>
                 <li><a class="dropdown-item" href="#">Alıntılar</a></li>
                 <li><a class="dropdown-item" href="#">Yazara Sor </a></li>
@@ -89,9 +93,7 @@
               <button class="btn" type="submit">Ara</button>
             </form>
             <li class="nav-item">
-              <router-link to="/login" class="nav-link"
-                >Giriş Yap</router-link
-              >
+              <router-link to="/login" class="nav-link">Giriş Yap</router-link>
             </li>
             <li class="nav-item">
               <router-link to="/kayit" class="nav-link">Kayıt</router-link>
