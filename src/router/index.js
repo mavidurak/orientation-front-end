@@ -38,11 +38,6 @@ const routes = [{
   component: () => import('../views/Login.vue'),
 },
 {
-  path: '/communities',
-  name: 'Communities',
-  component: () => import('../views/Communities.vue'),
-},
-{
   path: '/forgot-password',
   name: 'ForgotPassword',
   component: () => import('../views/ForgotPassword.vue'),

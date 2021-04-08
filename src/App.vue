@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <router-link to="/home" class="navbar-brand"
-          >Good<b>reads</b></router-link
+          ><b>Mavidurak</b></router-link
         >
         <button
           class="navbar-toggler"
@@ -192,13 +192,6 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-.navbar-brand {
-  font-size: 25px;
-}
-.nav-item {
-  font-size: 20px;
-  margin-right: 40px;
-}
 
 html,
 body {
@@ -210,21 +203,32 @@ body {
 #nav {
   padding: 30px;
 
-.btn {
-  margin-right: 40px;
-  width: 100px;
-  border: 1px solid grey;
-  color: grey;
-}
-.btn:hover {
-  background-color: grey;
-  color: white;
-}
 }
 
 .navbar {
   height: 80px;
   padding: 0;
+  max-height: 80px;
+  .navbar-brand {
+    font-size: 25px;
+  }
+  .nav-item {
+    font-size: 20px;
+    margin-right: 40px;
+  }
+
+  .btn {
+    margin-right: 40px;
+    width: 100px;
+    border: 1px solid grey;
+    color: grey;
+  }
+
+  .btn:hover {
+    background-color: grey;
+    color: white;
+  }
+
 }
 
 footer {
@@ -316,5 +320,4 @@ footer {
     }
   }
 }
-
 </style>
