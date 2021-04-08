@@ -220,6 +220,7 @@ body {
   background-color: grey;
   color: white;
 }
+}
 
 .navbar {
   height: 80px;
@@ -315,5 +316,5 @@ footer {
     }
   }
 }
-}
+
 </style>
