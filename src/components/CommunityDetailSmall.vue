@@ -1,14 +1,14 @@
 <template>
-    
+<div></div>
 </template>
 <script>
 export default {
-    data: () => ({
-        community:{
-            
-        }
-    })
-}
+  data: () => ({
+    community: {
+
+    },
+  }),
+};
 </script>
 <style>
 

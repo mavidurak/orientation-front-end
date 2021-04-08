@@ -42,6 +42,17 @@ const routes = [{
   name: 'Communities',
   component: () => import('../views/Communities.vue'),
 },
+{
+  path: '/forgot-password',
+  name: 'ForgotPassword',
+  component: () => import('../views/ForgotPassword.vue'),
+},
+{
+  path: '/multiselect',
+  name: 'MultiselectView',
+  component: () => import('../views/Multiselect.vue'),
+},
+
 ];
 
 const router = new VueRouter({
