@@ -25,6 +25,11 @@ const routes = [
     name: 'Axios',
     component: () => import('../views/Axios.vue'),
   },
+  {
+    path: '/contents',
+    name: 'Contents',
+    component: () => import('../views/ListContent.vue'),
+  },
 ];
 
 const router = new VueRouter({
