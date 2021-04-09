@@ -1,37 +1,29 @@
 <template>
   <div id="app">
-    <Navbar />
-    <div class="main-content">
-      <div id="routes">
-        <router-link to="/multiselect">Multiselect</router-link> |
-        <router-link to="/axios">Axios</router-link> |
-        <router-link to="/forgot-password">Forgot Password</router-link> |
-      </div>
-      <router-view />
+    <div id="nav">
+      <router-link to="/home">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/multiselect">Multiselect</router-link> |
+      <router-link to="/axios">Axios</router-link> |
+      <router-link to="/forgot-password">forgot-password</router-link> |
+      <router-link to="/login">Login</router-link> |
+      <router-link to="/contents/1">Content Detail</router-link>
     </div>
-    <Footer />
+   <router-view />
   </div>
 </template>
 <script>
-import Navbar from './components/Navbar.vue';
-import Footer from './components/Footer.vue';
+import Vue from 'vue';
+import { Row, Column } from 'vue-grid-responsive';
 
+Vue.component('row', Row);
+Vue.component('column', Column);
 export default {
   name: 'App',
-  components: {
-    Navbar,
-    Footer,
-  },
 };
 </script>
 
 <style lang="scss">
-html, body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -40,17 +32,15 @@ html, body {
   color: #2c3e50;
 }
 
-.main-content{
-  padding: 10px;
+#nav {
+  padding: 30px;
 
-  #routes {
-    padding: 30px;
-    a {
-      font-weight: bold;
-      color: #2c3e50;
-      &.router-link-exact-active {
-        color: #42b983;
-      }
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
     }
   }
 }
