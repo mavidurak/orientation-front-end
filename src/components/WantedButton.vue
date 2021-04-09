@@ -30,7 +30,6 @@ export default {
   methods: {
     onChange(event) {
       this.$emit('wantedStatus', event.target.value);
-      console.log('buton', event.target.value);
     },
   },
 };
