@@ -37,6 +37,11 @@ const routes = [{
   name: 'MultiselectView',
   component: () => import('../views/Multiselect.vue'),
 },
+{
+  path: '/communities',
+  name: 'Communities',
+  component: () => import('../views/Communities.vue'),
+},
 
 ];
 
