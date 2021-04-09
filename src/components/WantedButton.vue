@@ -29,14 +29,9 @@ export default {
   },
   methods: {
     onChange(event) {
-      alert(event.target.value);
+      this.$emit('wantedStatus', event.target.value);
+      console.log('buton', event.target.value);
     },
   },
 };
 </script>
-
-<style>
-#dropdownMenuButton{
-  background-color: #42b983;
-}
-</style>
