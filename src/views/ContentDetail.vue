@@ -45,18 +45,23 @@
       <p>Published {{ content.createdAt }} by One World</p>
       <hr />
       <p>GET A COPY</p>
-      <row container gutter="{12}">
-        <column xs="{12}" md="{4}" lg="{3}">
-          <button
+      <div class="container">
+  <div class="row">
+    <div class="col-md-auto">
+      <button
             type="button"
             class="btn btn-outline-warning"
             onclick="window.location.href='#'"
           >
             Amazon
-          </button></column
-        >
-        <column xs="{12}" md="{4}" lg="{3}">
-          <div class="dropdown">
+          </button>
+          </div>
+           <div class="col-md-auto">
+             <button type="button" class="btn btn-outline-warning">
+            Libraries
+          </button></div>
+           <div class="col-md-auto">
+             <div class="dropdown">
             <button
               class="btn btn-outline-warning dropdown-toggle"
               type="button"
@@ -73,14 +78,10 @@
               <a class="dropdown-item" href="#">Indigo</a>
               <a class="dropdown-item" href="#">Book Depository</a>
             </div>
-          </div></column
-        >
-        <column xs="{12}" md="{4}" lg="{3}">
-          <button type="button" class="btn btn-outline-warning">
-            Libraries
-          </button></column
-        >
-      </row>
+          </div>
+          </div>
+      </div>
+    </div>
     </div>
     <div
       class="info-3"
