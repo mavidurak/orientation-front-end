@@ -25,6 +25,11 @@ const routes = [
     name: 'Axios',
     component: () => import('../views/Axios.vue'),
   },
+  {
+    path: '/review',
+    name: 'Review',
+    component: () => import('../views/Review.vue'),
+  },
 ];
 
 const router = new VueRouter({
