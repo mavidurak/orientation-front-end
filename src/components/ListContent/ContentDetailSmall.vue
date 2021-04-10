@@ -16,7 +16,9 @@
 import WantedButton from '@/components/WantedButton.vue';
 
 export default {
-  props: ['content'],
+  props: {
+    content: Object,
+  },
   components: {
     WantedButton,
   },
