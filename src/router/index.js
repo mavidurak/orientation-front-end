@@ -25,6 +25,11 @@ const routes = [
     name: 'Axios',
     component: () => import('../views/Axios.vue'),
   },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: () => import('../views/Profile.vue'),
+  },
 ];
 
 const router = new VueRouter({
