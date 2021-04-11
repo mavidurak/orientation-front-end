@@ -48,7 +48,7 @@
         name="reviewspoiler"
         id="reviewspoiler"
       />
-      <label for="reviewspoiler">Spoiler alarmı ! tüm incelemeyi gizle</label>
+      <label for="reviewspoiler">Spoiler! tüm incelemeyi gizle</label>
     </div>
     <hr />
     <b>Okuduğum tarihler</b> <br />
