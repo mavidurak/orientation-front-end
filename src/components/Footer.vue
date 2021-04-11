@@ -85,83 +85,83 @@ footer {
   height: 150px;
   background-color: #f9f8f4;
   border-top: 1px solid rgb(212, 204, 204);
-}
 
-.container {
-  height: 150px;
-
-  .row {
-    height: 150px;
-  }
-}
-
-.row .x {
-  height: 130px;
-}
-.footer-brand {
-  height: 150px;
-
-  img {
-    border-radius: 100px;
-  }
-}
-
-.socials {
-  margin: 0;
-
-  span {
-    background-color: #1167b8;
-    text-align: right;
-    padding-right: 30px;
-    color: white;
-  }
-
-  .emptyone {
-    background-color: #1167b8;
-  }
-}
-
-.iconlist {
-  background-color: #1167b8;
-  padding: 2px;
-  text-align: center;
-  margin: 0;
-
-  li {
-    margin-left: 30px;
-    display: inline;
-  }
-  .chosenone {
-    margin-left: 0;
-  }
-}
-
-.iconlist li i {
-  font-size: 18px;
-  color: #fff;
-}
-
-.copyright {
-  background-color: rgb(41, 102, 126);
-  color: white;
-  font-size: 14px;
-}
-
-@media (max-width: 576px) {
-  .footer {
-    height: 350px;
-  }
   .container {
-    height: 350px;
+    height: 150px;
+
+    .row {
+      height: 150px;
+    }
+  }
+
+  .row .x {
+    height: 130px;
+  }
+  .footer-brand {
+    height: 150px;
+
+    img {
+      border-radius: 100px;
+    }
   }
 
   .socials {
-    .iconlist {
-      text-align: center;
-    }
+    margin: 0;
+
     span {
-      text-align: center;
-      padding-right: 0;
+      background-color: #1167b8;
+      text-align: right;
+      padding-right: 30px;
+      color: white;
+    }
+
+    .emptyone {
+      background-color: #1167b8;
+    }
+  }
+
+  .iconlist {
+    background-color: #1167b8;
+    padding: 2px;
+    text-align: center;
+    margin: 0;
+
+    li {
+      margin-left: 30px;
+      display: inline;
+    }
+    .chosenone {
+      margin-left: 0;
+    }
+  }
+
+  .iconlist li i {
+    font-size: 18px;
+    color: #fff;
+  }
+
+  .copyright {
+    background-color: rgb(41, 102, 126);
+    color: white;
+    font-size: 14px;
+  }
+
+  @media (max-width: 576px) {
+    .footer {
+      height: 350px;
+    }
+    .container {
+      height: 350px;
+    }
+
+    .socials {
+      .iconlist {
+        text-align: center;
+      }
+      span {
+        text-align: center;
+        padding-right: 0;
+      }
     }
   }
 }
