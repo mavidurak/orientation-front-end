@@ -3,7 +3,7 @@ CommunityList
   <div>
     <h3 id="title">Popüler Gruplar</h3>
     <CommunityDetailSmall
-      :detail="grup"
+      :community="grup"
       v-for="grup in community"
       :key="grup.id"
     />
