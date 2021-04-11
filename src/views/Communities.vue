@@ -7,7 +7,7 @@
       id="grup-ismi"
       placeholder="Grup ismi"
     />
-    <button id="grup-ara" @click="grupara()">Grup ara</button>
+    <button id="grup-ara" @click="grupAra">Grup ara</button>
     <CommunityList v-show="kontrol" :community="communityes" />
     <div v-show="!kontrol" v-for="search in filtred" :key="search.id">
       <div>
@@ -140,7 +140,7 @@ export default {
     };
   },
   methods: {
-    grupara() {
+    grupAra() {
       if (this.grupara != null) {
         this.kontrol = false;
         this.lower = this.grup.toLowerCase();
