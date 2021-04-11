@@ -42,6 +42,12 @@ const routes = [{
   name: 'ContentDetail',
   component: () => import('../views/ContentDetail.vue'),
 },
+{
+  path: '/contents',
+  name: 'ListContent',
+  component: () => import('../views/ListContent.vue'),
+},
+
 ];
 
 const router = new VueRouter({

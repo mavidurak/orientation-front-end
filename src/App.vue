@@ -6,7 +6,8 @@
         <router-link to="/multiselect">Multiselect</router-link> |
         <router-link to="/axios">Axios</router-link> |
         <router-link to="/forgot-password">Forgot Password</router-link> |
-        <router-link to="/contents/1">Content Detail</router-link>
+        <router-link to="/contents/1">Content Detail</router-link> |
+        <router-link to="/contents">List Content</router-link>
       </div>
       <router-view />
     </div>
