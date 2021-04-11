@@ -11,6 +11,10 @@ cd orientation-front-end
 ```
 yarn install
 ```
+## Build Hooks
+```
+yarn run build-hooks
+```
 
 ### Compiles and hot-reloads for development
 ```

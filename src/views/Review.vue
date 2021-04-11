@@ -1,18 +1,20 @@
 <template>
-  <div id="app" class="container">
+  <div id="review">
+  <div class="container">
     <img
       class="book"
       src="https://i.dr.com.tr/cache/500x400-0/originals/0000000633872-1.jpg"
     />
+    <div id="info">
     <a><b>Hayvanlardan Tanrılara Sapiens: İnsan Türünün Kısa Bir Tarihi</b></a>
     <br />
     <a>Yazar: Yuval Noah Harari</a>
-    <hr />
+    <hr /> <br/>
     <label for="review_rating">Puanım: 6/10</label> <br />
     <div class="raf">
       <form>
         <label for="shelves">Raflar / durum: </label>
-        <select id="shelves" name="shelves">
+        <select v-model="status" id="shelves" name="shelves">
           <option value="past">Okudum</option>
           <option value="now">Okuyorum</option>
           <option value="future">Okuyacağım</option>
@@ -20,6 +22,7 @@
       </form>
     </div>
     <hr />
+    </div>
     <label for="reviewselect">Ne düşünüyorsun ?</label>
     <div class="right">
       <div class="reviewselectlist">
@@ -39,9 +42,9 @@
       style="display: block; height: 240px; margin-top: 0px; margin-bottom: 0px"
     ></textarea>
     <div class="spoiler">
-      <input name="reviewspoiler" type="hidden" value="0" /><input
+      <input
+        v-model="isSpoiler"
         type="checkbox"
-        value="1"
         name="reviewspoiler"
         id="reviewspoiler"
       />
@@ -58,11 +61,11 @@
     <tr class="datebooks">
       <td class="rereadingStartedAtHeader">
         <label id="date" for="dateofbirth">Başlama tarihi (isteğe bağlı)</label>
-        <input type="date" name="dateofbirth" id="dateofbirth" />
+        <input v-model="startDate" type="date" name="dateofbirth" id="dateofbirth" />
       </td>
       <td class="rereadingEndedAtHeader">
         <label id="date" for="dateofbirth">Bittiği tarih (isteğe bağlı)</label>
-        <input type="date" name="dateofbirth" id="dateofbirth" />
+        <input v-model="finishDate" type="date" name="dateofbirth" id="dateofbirth" />
       </td>
     </tr>
     <br />
@@ -110,7 +113,7 @@
           name="next"
           type="submit"
           value="Paylaş"
-          @click="log($event)"
+          @click="submit"
         />
         <span class="right">
           <input
@@ -134,88 +137,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
   </div>
+  </div>
 </template>
 <script>
 export default {
-
-  el: '#app',
+  el: '#review',
   data() {
     return {
       reviewtext: null,
+      isSpoiler: null,
+      startDate: null,
+      finishDate: null,
+      status: null,
     };
   },
   methods: {
-    log(e) {
-      console.log(e.reviewtext);
+    submit() {
+      console.table({
+        review: this.reviewtext,
+        isSpoiler: this.isSpoiler,
+        Date: this.startDate,
+        date2: this.finishDate,
+        status: this.status,
+      });
     },
   },
 };
 </script>
 
-<style scoped>
-a {
-  text-decoration: none;
-}
-.book {
-  height: 80px;
-  width: 70px;
-  padding: 0 10px 10px 0;
-  float: left;
-  margin-right: 10px;
-}
-.container {
-  margin: 0 auto;
-  width: 750px;
-  background: #ffffff;
-  text-align: left;
-}
-select {
-  width: 20%;
-  padding: 5px 15px;
-  border: 1px;
-  border-radius: 4px;
-  background-color: #f1f1f1;
-  color: rgb(187, 166, 133);
-}
-.right {
+<style lang="scss" scoped>
+hr{
+  width: 80%;
   float: right;
 }
-#usertext {
-  resize: vertical;
-  width: 100%;
-}
-span.info {
-  font-size: 12px;
-  color: #767676;
-}
-[type="date"] {
-  background: #fff
-    url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
-    97% 50% no-repeat;
-}
-[type="date"]::-webkit-inner-spin-button {
-  display: none;
-}
-[type="date"]::-webkit-calendar-picker-indicator {
-  opacity: 0;
-}
-#date {
-  display: block;
-  float: left;
-}
-#dateofbirth {
-  border: 1px solid #c4c4c4;
-  border-radius: 5px;
-  background-color: #fff;
-  padding: 3px 5px;
-  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
-  width: 190px;
-}
-.recommedation1 {
-  float: left;
-}
-.reviewselectlist {
-  font-size: 12px;
-  color: #767676;
+#review {
+  a {
+    text-decoration: none;
+  }
+  .book {
+    width: 120px;
+    padding: 0 10px 10px 0;
+    float: left;
+    margin-right: 20px;
+  }
+  .container {
+    margin: 0 auto;
+    width: 750px;
+    background: #ffffff;
+    text-align: left;
+  }
+  select {
+    width: 20%;
+    padding: 5px 15px;
+    border: 1px;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    color: rgb(187, 166, 133);
+  }
+  .right {
+    float: right;
+  }
+  #usertext {
+    resize: vertical;
+    width: 100%;
+  }
+  span.info {
+    font-size: 12px;
+    color: #767676;
+  }
+  [type="date"] {
+    background: #fff
+      url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
+      97% 50% no-repeat;
+  }
+  [type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+  [type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+  #date {
+    display: block;
+    float: left;
+  }
+  #dateofbirth {
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 3px 5px;
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+    width: 190px;
+  }
+  .recommedation1 {
+    float: left;
+  }
+  .reviewselectlist {
+    font-size: 12px;
+    color: #767676;
+  }
 }
 </style>
