@@ -108,10 +108,7 @@
 
 <script>
 export default {
-<<<<<<< HEAD
-=======
   name: 'Navbar',
->>>>>>> be7bba0c00ae372b6ad236ed8beb2da4602a9adc
 };
 </script>
 <style lang="scss">

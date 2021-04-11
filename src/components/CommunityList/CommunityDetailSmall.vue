@@ -1,18 +1,21 @@
 <template>
   <div>
-    <div class="card mb-3" style="max-width: 800px">
-      <div class="row g-0">
-        <div class="col-md-4" id="img">
-          <img src="" alt="">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-            </p>
-            <p class="card-text">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </p>
+    <div>
+      <div class="card mb-3" style="max-width: 800px">
+        <div class="row g-0">
+          <div class="col-md-4" style="width: 100px; margin-top: 10px">
+            <img :src="detail.image" id="img" />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ detail.name }}</h5>
+              <p class="card-text">
+                <small class="text-muted">{{ detail.members }} üye</small>
+              </p>
+              <p class="card-text" id="comment">
+                {{ detail.detail }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -21,17 +24,42 @@
 </template>
 <script>
 export default {
-  props: ['grupismi'],
+  props: ['detail'],
 };
 </script>
 <style lang="scss">
-.card{
+.card {
   position: relative;
   left: 500px;
+  width: 800px;
+  margin-top: 30px;
   height: 100px;
-  width: 700px;
-  #img{
+  border: none;
+  #img {
+    height: 80px;
     width: 100px;
+  }
+}
+.card-body {
+  .card-title {
+    text-align: left;
+    font-size: 17px;
+    color: #1167b8;
+  }
+  .text-muted {
+    position: relative;
+    right: 210px;
+    bottom: 10px;
+  }
+  #comment {
+    font-size: 12px;
+    position: relative;
+    bottom: 25px;
+    text-align: left;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 }
 </style>

@@ -1,56 +1,186 @@
 <template>
-  <div>
-    <h1 style="text-align: center; margin: 20px">Gruplar</h1>
-    <div class="arama">
-      <input
-        type="text"
-        placeholder="Grup ismi"
-        id="grupismi"
-        v-model="grupismi"
-      />
-      <button id="grupara">Grup Ara</button>
+  <div class="input">
+    <h1>Gruplar</h1>
+    <input
+      type="text"
+      v-model="grup"
+      id="grupismi"
+      placeholder="Grup ismi"
+    />
+    <button id="grupara" @click="grupara()">Grup ara</button>
+    <CommunityList v-show="kontrol" :community="communityes" />
+    <div v-show="!kontrol" v-for="search in filtred" :key="search.id">
+      <div>
+        <div class="card mb-3" style="max-width: 800px">
+          <div class="row g-0">
+            <div class="col-md-4" style="width: 100px; margin-top: 10px">
+              <img :src="search.image" id="img" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ search.name }}</h5>
+                <p class="card-text">
+                  <small class="text-muted">{{ search.members }} üye</small>
+                </p>
+                <p class="card-text" id="comment">
+                  {{ search.detail }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <CommunityList :grupismi="{grupismi}"/>
   </div>
 </template>
 <script>
-import CommunityList from '../components/CommunityList/CommunityDetailSmall.vue';
+import CommunityList from '../components/CommunityList/CommunityList.vue';
 
 export default {
   components: {
     CommunityList,
   },
+
   data() {
     return {
-      grupismi: '',
+      grup: '',
+      lower: '',
+      kontrol: true,
+      community: {
+        id: Number,
+        name: String,
+        image: String,
+        members: Number,
+        createdAt: Date,
+        updatedAt: Date,
+        detail: String,
+      },
+      communityes: [
+        {
+          id: 1,
+          name: 'Our Shared Shelf',
+          image: 'https://images.gr-assets.com/groups/1479936067p3/179584.jpg',
+          members: 232058,
+          detail:
+            'OUR SHARED SHELF IS CURRENTLY DORMANT AND NOT MANAGED BY EMMA AND HER TEAM.Dear Readers,As part of my work with UN Women, I have started reading as many books and essays about equality as I can get my hands on. There is so much amazing stuff out there! Funny, inspiring, sad, thought-provoking, empowering! I’ve been discovering so much that, at times, I’ve felt like my head was about to explode… I decided to start a Feminist book club, as I want to share what I’m learning and hear your thoughts too',
+          createdAt: 1,
+          updatedAt: 1,
+        },
+        {
+          id: 2,
+          name: "Oprah's Book Club ",
+          image: 'https://images.gr-assets.com/groups/1470141005p3/85538.jpg',
+          members: 56082,
+          detail:
+            "Welcome to the official Oprah's Book Club group. OBC is the interactive, multi-platform reading club bringing passionate readers together to discuss inspiring stories.",
+          createdAt: 1,
+          updatedAt: 1,
+        },
+        {
+          id: 3,
+          name: 'Goodreads Authors/Readers',
+          image: 'https://images.gr-assets.com/groups/1258849870p3/26989.jpg',
+          members: 39009,
+          detail:
+            'This group is dedicated to connecting readers with Goodreads authors. It is divided by genres, and includes folders for writing resources, book websites, videos/trailers, and blogs.',
+          createdAt: 1,
+          updatedAt: 1,
+        },
+        {
+          id: 4,
+          name: "What's the Name of That Book???",
+          image: 'https://images.gr-assets.com/groups/1181648880p3/185.jpg',
+          members: 71099,
+          detail:
+            "Can't remember the title of a book you read? Come search our bookshelves. If you don’t find it there, post a description on our UNSOLVED message board and we can try to help each other out.",
+          createdAt: 1,
+          updatedAt: 1,
+        },
+        {
+          id: 5,
+          name: 'Addicted to YA',
+          image: 'https://images.gr-assets.com/groups/1329254899p3/64233.jpg2',
+          members: 43907,
+          detail:
+            "'One must always be careful of books,' said Tessa, 'and what is inside them, for words have the power to change us.'― Cassandra Clare, Clockwork Angel",
+          createdAt: 1,
+          updatedAt: 1,
+        },
+        {
+          id: 6,
+          name: 'Ultimate Popsugar Reading Challenge',
+          image: 'https://images.gr-assets.com/groups/1418789182p3/152458.jpg',
+          members: 34490,
+          detail:
+            'This group is for people participating in the Popsugar reading challenge for 2021. The Popsugar website posted a reading challenge that included a list of 40 different ways to choose your next book to read plus an additional 10 for an "advanced challenge". In this group we will follow those lists (whether you do all 50 or stick to 40) to choose books to read for the year.',
+          createdAt: 1,
+          updatedAt: 1,
+        },
+        {
+          id: 7,
+          name: 'Goodreads Librarians Group',
+          image: 'https://images.gr-assets.com/groups/1269147049p3/220.jpg',
+          members: 123900,
+          detail:
+            'A place where all Goodreads members can work together to improve the Goodreads book catalog. Non-librarians are welcome to join the group as well, to comment or request changes to book records.',
+          createdAt: 1,
+          updatedAt: 1,
+        },
+        {
+          id: 8,
+          name: 'Audiobooks',
+          image: 'https://images.gr-assets.com/groups/1378328157p3/596.jpg',
+          members: 10613,
+          detail:
+            'Audio & audiobooks are getting more and more popular for commuters & those wanting to squeeze in another book or two a month while doing other activities.',
+          createdAt: 1,
+          updatedAt: 1,
+        },
+      ],
     };
+  },
+  methods: {
+    grupara() {
+      if (this.grupara != null) {
+        this.kontrol = false;
+        this.lower = this.grup.toLowerCase();
+      }
+    },
+  },
+  computed: {
+    filtred() {
+      return this.communityes.filter((search) => search.name.toLowerCase().includes(this.lower));
+    },
   },
 };
 </script>
+
 <style lang="scss">
-.arama {
-  margin: 40px;
-
+h1 {
+  margin-bottom: 20px;
+  position: relative;
+  right: 240px;
+}
+.input {
+  margin: 10px;
   #grupismi {
+    width: 500px;
+    height: 35px;
+    border-radius: 5px;
     border: 1px solid grey;
-    border-radius: 5px;
-    width: 400px;
-    height: 40px;
     padding: 10px;
-    margin-right: 15px;
+    margin-right: 10px;
   }
-
   #grupara {
-    border: 1px solid green;
-    border-radius: 5px;
     width: 100px;
-    height: 40px;
-    background-color: green;
+    height: 35px;
+    border: 1px solid #1167b8;
+    border-radius: 5px;
+    background-color: #1167b8;
     color: white;
   }
-
   #grupara:hover {
-    background-color: rgb(17, 90, 17);
+    background-color: rgb(10, 10, 114);
   }
 }
 </style>
