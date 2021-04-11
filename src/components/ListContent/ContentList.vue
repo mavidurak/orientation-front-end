@@ -1,6 +1,6 @@
 <template>
   <div class="list-group">
-      <ContentDetailSmall :content="item" v-for="item in content" :key="item.id"/>
+      <ContentDetailSmall :content="content" v-for="content in contents" :key="content.id"/>
   </div>
 </template>
 <script>
@@ -12,7 +12,7 @@ export default {
   },
   data() {
     return {
-      content: [
+      contents: [
         {
           id: 1,
           name: 'Hayvan Çiftliği',
