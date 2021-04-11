@@ -4,10 +4,10 @@
     <input
       type="text"
       v-model="grup"
-      id="grupismi"
+      id="grup-ismi"
       placeholder="Grup ismi"
     />
-    <button id="grupara" @click="grupara()">Grup ara</button>
+    <button id="grup-ara" @click="grupara()">Grup ara</button>
     <CommunityList v-show="kontrol" :community="communityes" />
     <div v-show="!kontrol" v-for="search in filtred" :key="search.id">
       <div>
@@ -163,7 +163,7 @@ h1 {
 }
 .input {
   margin: 10px;
-  #grupismi {
+  #grup-ismi {
     width: 500px;
     height: 35px;
     border-radius: 5px;
@@ -171,7 +171,7 @@ h1 {
     padding: 10px;
     margin-right: 10px;
   }
-  #grupara {
+  #grup-ara {
     width: 100px;
     height: 35px;
     border: 1px solid #1167b8;
@@ -179,7 +179,7 @@ h1 {
     background-color: #1167b8;
     color: white;
   }
-  #grupara:hover {
+  #grup-ara:hover {
     background-color: rgb(10, 10, 114);
   }
 }
