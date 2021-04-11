@@ -60,11 +60,11 @@
     </span>
     <tr class="datebooks">
       <td class="rereadingStartedAtHeader">
-        <label id="date" for="dateofbirth">Başlama tarihi (isteğe bağlı)</label>
+        <label id="date" for="dateofbirth">Başlama tarihi (İsteğe bağlı)</label>
         <input v-model="startDate" type="date" name="dateofbirth" id="dateofbirth" />
       </td>
       <td class="rereadingEndedAtHeader">
-        <label id="date" for="dateofbirth">Bittiği tarih (isteğe bağlı)</label>
+        <label id="date" for="dateofbirth">Bittiği tarih (İsteğe bağlı)</label>
         <input v-model="finishDate" type="date" name="dateofbirth" id="dateofbirth" />
       </td>
     </tr>
