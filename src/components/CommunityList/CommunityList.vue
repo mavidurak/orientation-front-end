@@ -1,7 +1,7 @@
 CommunityList
 <template>
   <div>
-    <h3>Popüler Gruplar</h3>
+    <h3 id="title">Popüler Gruplar</h3>
     <CommunityDetailSmall
       :detail="grup"
       v-for="grup in community"
@@ -20,7 +20,7 @@ export default {
 };
 </script>
 <style>
-h3 {
+#title {
   position: relative;
   right: 200px;
   margin-top: 40px;
