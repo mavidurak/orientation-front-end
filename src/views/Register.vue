@@ -94,7 +94,7 @@ export default {
 <style >
 input,
 select {
-  width: 14%;
+  width: 15%;
   padding: 10px 18px;
   margin: 6px 0;
   display: inline-block;
