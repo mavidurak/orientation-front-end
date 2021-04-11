@@ -37,6 +37,16 @@ const routes = [{
   name: 'MultiselectView',
   component: () => import('../views/Multiselect.vue'),
 },
+{
+  path: '/contents/:id',
+  name: 'ContentDetail',
+  component: () => import('../views/ContentDetail.vue'),
+},
+{
+  path: '/contents',
+  name: 'ListContent',
+  component: () => import('../views/ListContent.vue'),
+},
 
 {
   path: '/review',
