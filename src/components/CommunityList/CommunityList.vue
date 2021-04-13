@@ -1,4 +1,3 @@
-CommunityList
 <template>
   <div>
     <h3 id="title" v-show="community.grup == ''">Popüler Gruplar</h3>
