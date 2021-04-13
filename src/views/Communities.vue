@@ -4,33 +4,11 @@
     <input
       type="text"
       v-model="grup"
-      id="grupismi"
+      id="grup-ismi"
       placeholder="Grup ismi"
     />
-    <button id="grupara" @click="grupara()">Grup ara</button>
-    <CommunityList v-show="kontrol" :community="communityes" />
-    <div v-show="!kontrol" v-for="search in filtred" :key="search.id">
-      <div>
-        <div class="card mb-3" style="max-width: 800px">
-          <div class="row g-0">
-            <div class="col-md-4" style="width: 100px; margin-top: 10px">
-              <img :src="search.image" id="img" />
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">{{ search.name }}</h5>
-                <p class="card-text">
-                  <small class="text-muted">{{ search.members }} üye</small>
-                </p>
-                <p class="card-text" id="comment">
-                  {{ search.detail }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <button id="grup-ara">Grup ara</button>
+    <CommunityList :community="{communityes, grup}" />
   </div>
 </template>
 <script>
@@ -44,8 +22,6 @@ export default {
   data() {
     return {
       grup: '',
-      lower: '',
-      kontrol: true,
       community: {
         id: Number,
         name: String,
@@ -139,19 +115,6 @@ export default {
       ],
     };
   },
-  methods: {
-    grupara() {
-      if (this.grupara != null) {
-        this.kontrol = false;
-        this.lower = this.grup.toLowerCase();
-      }
-    },
-  },
-  computed: {
-    filtred() {
-      return this.communityes.filter((search) => search.name.toLowerCase().includes(this.lower));
-    },
-  },
 };
 </script>
 
@@ -163,7 +126,7 @@ h1 {
 }
 .input {
   margin: 10px;
-  #grupismi {
+  #grup-ismi {
     width: 500px;
     height: 35px;
     border-radius: 5px;
@@ -171,7 +134,7 @@ h1 {
     padding: 10px;
     margin-right: 10px;
   }
-  #grupara {
+  #grup-ara {
     width: 100px;
     height: 35px;
     border: 1px solid #1167b8;
@@ -179,7 +142,7 @@ h1 {
     background-color: #1167b8;
     color: white;
   }
-  #grupara:hover {
+  #grup-ara:hover {
     background-color: rgb(10, 10, 114);
   }
 }

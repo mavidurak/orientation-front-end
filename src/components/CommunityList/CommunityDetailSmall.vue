@@ -4,16 +4,16 @@
       <div class="card mb-3" style="max-width: 800px">
         <div class="row g-0">
           <div class="col-md-4" style="width: 100px; margin-top: 10px">
-            <img :src="detail.image" id="img" />
+            <img :src="community.image" id="img" />
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">{{ detail.name }}</h5>
+              <h5 class="card-title">{{ community.name }}</h5>
               <p class="card-text">
-                <small class="text-muted">{{ detail.members }} üye</small>
+                <small class="text-muted">{{ community.members }} üye</small>
               </p>
               <p class="card-text" id="comment">
-                {{ detail.detail }}
+                {{ community.detail }}
               </p>
             </div>
           </div>
@@ -24,7 +24,7 @@
 </template>
 <script>
 export default {
-  props: ['detail'],
+  props: ['community'],
 };
 </script>
 <style lang="scss">

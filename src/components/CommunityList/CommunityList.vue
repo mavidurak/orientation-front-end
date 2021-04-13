@@ -1,10 +1,10 @@
 CommunityList
 <template>
   <div>
-    <h3>Popüler Gruplar</h3>
+    <h3 id="title" v-show="community.grup == ''">Popüler Gruplar</h3>
     <CommunityDetailSmall
-      :detail="grup"
-      v-for="grup in community"
+      :community="grup"
+      v-for="grup in filtred"
       :key="grup.id"
     />
   </div>
@@ -17,10 +17,15 @@ export default {
   components: {
     CommunityDetailSmall,
   },
+  computed: {
+    filtred() {
+      return this.community.communityes.filter((grup) => grup.name.includes(this.community.grup));
+    },
+  },
 };
 </script>
 <style>
-h3 {
+#title {
   position: relative;
   right: 200px;
   margin-top: 40px;
