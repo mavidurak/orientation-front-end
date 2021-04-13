@@ -1,6 +1,6 @@
 <template>
   <div class="input">
-    <h1>Gruplar</h1>
+    <h1 id="grup">Gruplar</h1>
     <input
       type="text"
       v-model="grup"
@@ -119,7 +119,7 @@ export default {
 </script>
 
 <style lang="scss">
-h1 {
+#grup {
   margin-bottom: 20px;
   position: relative;
   right: 240px;
