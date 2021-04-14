@@ -1,14 +1,15 @@
 <template>
-  <div class="input">
-    <h1 id="grup">Gruplar</h1>
-    <input
-      type="text"
-      v-model="grup"
-      id="grup-ismi"
-      placeholder="Grup ismi"
-      @input="filtred"
-    />
-    <button id="grup-ara">Grup ara</button>
+  <div class="communities">
+    <div class="input">
+      <h1 id="grup">Gruplar</h1>
+      <input
+        type="text"
+        v-model="grup"
+        id="grup-ismi"
+        placeholder="Grup ismi"
+        @input="filtred"
+      />
+    </div>
     <div v-for="search in filtred" :key="search.id"></div>
     <CommunityList :communities="communitiesFilter" />
   </div>
@@ -133,31 +134,22 @@ export default {
 </script>
 
 <style lang="scss">
-#grup {
-  margin-bottom: 20px;
-  position: relative;
-  right: 240px;
-}
-.input {
-  margin: 10px;
-  #grup-ismi {
-    width: 500px;
-    height: 35px;
-    border-radius: 5px;
-    border: 1px solid grey;
-    padding: 10px;
-    margin-right: 10px;
+.communities {
+  #grup {
+    margin-bottom: 20px;
+    position: relative;
+    right: 240px;
   }
-  #grup-ara {
-    width: 100px;
-    height: 35px;
-    border: 1px solid #1167b8;
-    border-radius: 5px;
-    background-color: #1167b8;
-    color: white;
-  }
-  #grup-ara:hover {
-    background-color: rgb(10, 10, 114);
+  .input {
+    margin: 10px;
+    #grup-ismi {
+      width: 500px;
+      height: 35px;
+      border-radius: 5px;
+      border: 1px solid grey;
+      padding: 10px;
+      margin-right: 10px;
+    }
   }
 }
 </style>
