@@ -24,7 +24,9 @@
 </template>
 <script>
 export default {
-  props: ['community'],
+  props: {
+    community: Object,
+  },
 };
 </script>
 <style lang="scss">

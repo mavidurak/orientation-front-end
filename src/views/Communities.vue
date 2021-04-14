@@ -6,9 +6,11 @@
       v-model="grup"
       id="grup-ismi"
       placeholder="Grup ismi"
+      @input="filtred"
     />
     <button id="grup-ara">Grup ara</button>
-    <CommunityList :community="{communityes, grup}" />
+    <div v-for="search in filtred" :key="search.id"></div>
+    <CommunityList :communities="communitiesFilter" />
   </div>
 </template>
 <script>
@@ -22,6 +24,7 @@ export default {
   data() {
     return {
       grup: '',
+      value: null,
       community: {
         id: Number,
         name: String,
@@ -31,7 +34,8 @@ export default {
         updatedAt: Date,
         detail: String,
       },
-      communityes: [
+      communitiesFilter: [],
+      communities: [
         {
           id: 1,
           name: 'Our Shared Shelf',
@@ -114,6 +118,16 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    filtred() {
+      /* eslint-disable implicit-arrow-linebreak */
+      this.communitiesFilter = this.communities.filter((search) =>
+        search.name.toLowerCase().includes(this.grup.toLowerCase()));
+    },
+  },
+  mounted() {
+    this.communitiesFilter = this.communities;
   },
 };
 </script>

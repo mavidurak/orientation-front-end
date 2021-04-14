@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h3 id="title" v-show="community.grup == ''">Popüler Gruplar</h3>
+    <h3 id="title">Popüler Gruplar</h3>
     <CommunityDetailSmall
       :community="grup"
-      v-for="grup in filtred"
+      v-for="grup in communities"
       :key="grup.id"
     />
   </div>
@@ -12,14 +12,11 @@
 import CommunityDetailSmall from './CommunityDetailSmall.vue';
 
 export default {
-  props: ['community'],
+  props: {
+    communities: Array,
+  },
   components: {
     CommunityDetailSmall,
-  },
-  computed: {
-    filtred() {
-      return this.community.communityes.filter((grup) => grup.name.includes(this.community.grup));
-    },
   },
 };
 </script>
