@@ -6,9 +6,9 @@
         <router-link to="/multiselect">Multiselect</router-link> |
         <router-link to="/axios">Axios</router-link> |
         <router-link to="/forgot-password">Forgot Password</router-link> |
-        <router-link to="/review">Review</router-link>
+        <router-link to="/review/hayvanlardan-tanrılara-sapiens-i̇nsan-2a8Q">Review</router-link> |
         <router-link to="/contents/1">Content Detail</router-link> |
-        <router-link to="/contents">List Content</router-link>
+        <router-link to="/contents">List Content</router-link> |
       </div>
       <router-view />
     </div>
@@ -16,8 +16,8 @@
   </div>
 </template>
 <script>
-import Navbar from './components/Navbar.vue';
-import Footer from './components/Footer.vue';
+import Navbar from './components/Layout/Navbar.vue';
+import Footer from './components/Layout/Footer.vue';
 
 export default {
   name: 'App',

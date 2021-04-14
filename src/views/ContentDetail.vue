@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-auto">
           <img :src="content.image" /><br /><br />
-          <WantedButton @wantedStatus="changeStatus" />
+          <WantedButton :contentType="content.type" @wantedStatus="changeStatus" />
         </div>
         <div class="col-md-auto" style="width: 40%; text-align: left">
           <h3>
@@ -99,6 +99,7 @@
 </template>
 <script>
 import WantedButton from '../components/WantedButton.vue';
+import { CONTENT_TYPES } from '../constants';
 
 export default {
   components: {
@@ -107,6 +108,7 @@ export default {
   data() {
     return {
       readMoreActivated: false,
+      status: null,
       content: {
         id: '1',
         name: 'Minor Feelings: An Asian American Reckoning',
@@ -121,6 +123,7 @@ export default {
         createdAt: 'February 25th 2020',
         updatedAt: '',
         page: '210',
+        type: CONTENT_TYPES.BOOK,
       },
     };
   },
@@ -132,7 +135,9 @@ export default {
       this.readMoreActivated = false;
     },
     changeStatus(status) {
-      alert(status);
+      /* eslint-disable no-alert */
+      this.status = status;
+      alert(this.status);
     },
   },
 };
