@@ -141,7 +141,7 @@
 </template>
 <script>
 export default {
-  el: '#review',
+  name: 'Review',
   data() {
     return {
       reviewtext: null,
@@ -153,6 +153,7 @@ export default {
   },
   methods: {
     submit() {
+      // eslint-disable-next-line
       console.table({
         review: this.reviewtext,
         isSpoiler: this.isSpoiler,
@@ -166,26 +167,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-hr{
+#review {
+  hr{
   width: 80%;
   float: right;
-}
-#review {
+  }
+
   a {
     text-decoration: none;
   }
+
   .book {
     width: 120px;
     padding: 0 10px 10px 0;
     float: left;
     margin-right: 20px;
   }
+
   .container {
     margin: 0 auto;
     width: 750px;
     background: #ffffff;
     text-align: left;
   }
+
   select {
     width: 20%;
     padding: 5px 15px;
@@ -194,32 +199,40 @@ hr{
     background-color: #f1f1f1;
     color: rgb(187, 166, 133);
   }
+
   .right {
     float: right;
   }
+
   #usertext {
     resize: vertical;
     width: 100%;
   }
+
   span.info {
     font-size: 12px;
     color: #767676;
   }
+
   [type="date"] {
     background: #fff
       url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
       97% 50% no-repeat;
   }
+
   [type="date"]::-webkit-inner-spin-button {
     display: none;
   }
+
   [type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0;
   }
+
   #date {
     display: block;
     float: left;
   }
+
   #dateofbirth {
     border: 1px solid #c4c4c4;
     border-radius: 5px;
@@ -228,9 +241,11 @@ hr{
     box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
     width: 190px;
   }
+
   .recommedation1 {
     float: left;
   }
+
   .reviewselectlist {
     font-size: 12px;
     color: #767676;

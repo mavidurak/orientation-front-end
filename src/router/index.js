@@ -54,7 +54,7 @@ const routes = [{
 },
 
 {
-  path: '/review',
+  path: '/review/:content',
   name: 'Review',
   component: () => import('../views/Review.vue'),
 },

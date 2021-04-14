@@ -4,7 +4,8 @@
   </div>
 </template>
 <script>
-import ContentDetailSmall from '@/components/ListContent/ContentDetailSmall.vue';
+import ContentDetailSmall from '@/components/Content/ContentDetailSmall.vue';
+import { CONTENT_TYPES } from '@/constants';
 
 export default {
   components: {
@@ -23,6 +24,7 @@ export default {
           },
           createdAt: 1,
           updatedAt: 1,
+          type: CONTENT_TYPES.BOOK,
         },
         {
           id: 2,
@@ -34,6 +36,7 @@ export default {
           },
           createdAt: 1,
           updatedAt: 1,
+          type: CONTENT_TYPES.MOVIE,
         },
         {
           id: 3,
@@ -45,6 +48,7 @@ export default {
           },
           createdAt: 1,
           updatedAt: 1,
+          type: CONTENT_TYPES.GAME,
         },
       ],
     };

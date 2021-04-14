@@ -7,7 +7,7 @@
       by {{ content.user.name }} <br />
       {{ content.rate }}/10
       <div class="wantedbutton">
-        <WantedButton @wantedStatus="changeStatus" /> <br />
+        <WantedButton :contentType="content.type" @wantedStatus="changeStatus" /> <br />
         </div>
     </div>
   </div>
@@ -24,8 +24,8 @@ export default {
   },
   methods: {
     changeStatus(status) {
-      alert(status);
-      console.log('contentDetail', status);
+      // eslint-disable-next-line
+      console.log('wanted status', status);
     },
   },
 };
