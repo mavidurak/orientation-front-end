@@ -1,5 +1,11 @@
-# https://dbdiagram.io/
+## Basic database diagram
+[https://dbdiagram.io/](https://dbdiagram.io/ "Click to try it")
 
+### Preview
+![db.png](db.png)
+
+### Source
+```
 Table users{
   id int [pk, increment]
   friend_ids int [not null, ref: > users.id] // user id array
@@ -40,7 +46,7 @@ Table comments{
   review_id int [default: null, ref: > reviews.id]
   post_id int [default: null, ref: > posts.id]
   content varchar [not null]
-  is_parent boolean [default: 0] //commnets commnet
+  is_parent boolean [default: 0] // for nested comment
   parent_id int [not null, ref: > comments.id]
   created_at timestamp
   updated_at timestamp
@@ -107,3 +113,4 @@ table posts{
   updated_at timestamp
   deleted_at timestamp
 }
+```
