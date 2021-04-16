@@ -5,10 +5,10 @@
 ![db.png](db.png)
 
 ### Source
-```
-Table users{
+```js
+table users{
   id int [pk, increment]
-  friend_ids int [not null, ref: > users.id] // user id array
+  friend_ids int [not null, ref: > users.id] // User id, array
   username varchar
   full_name varchar
   password_salt varchar
@@ -18,12 +18,12 @@ Table users{
   deleted_at timestamp
 }
 
-Table contents{
+table contents{
   id int [pk, increment]
   user_id int [not null, ref: > users.id]
   image_id int [not null, ref: - images.id]
   name varchar [not null]
-  type varchar [not null, ref: > content_types.id]
+  type varchar [not null] // Game, movie, series, book
   description varchar [not null]
   views int [default: 0]
   rate int [default: null]
@@ -32,44 +32,36 @@ Table contents{
   deleted_at timestamp
 }
 
-Table content_types{
-  id int [pk, increment]
-  type varchar [not null] //game, movie ...
-  created_at timestamp
-  updated_at timestamp
-  deleted_at timestamp
-}
-
-Table comments{
+table comments{
   id int [pk, increment]
   user_id int [not null, ref: > users.id]
-  review_id int [default: null, ref: > reviews.id]
-  post_id int [default: null, ref: > posts.id]
-  content varchar [not null]
-  is_parent boolean [default: 0] // for nested comment
-  parent_id int [not null, ref: > comments.id]
+  content_review_id int [default: null, ref: > content_reviews.id]
+  discussion_id int [default: null, ref: > discussions.id]
+  parent_comment_id int [default: null, ref: > comments.id] // For nested comments
+  text varchar [not null]
+  is_spoiler bool [default: false]
   created_at timestamp
   updated_at timestamp
   deleted_at timestamp
 }
 
-
-table wanted_contents{
+table wanted_contents{ // 'my list' items 
   id int [pk, increment]
   user_id int [not null, ref: > users.id]
   content_id int [not null, ref: > contents.id]
-  status varchar [not null]
+  status varchar [not null] // Want to read, reading, readed, ...
   created_at timestamp
   updated_at timestamp
   deleted_at timestamp
 }
 
-table reviews{
+table content_reviews{
   id int [pk, increment]
   user_id int [not null, ref: > users.id]
   content_id int [not null, ref: > contents.id]
-  content varchar
+  text varchar
   score int
+  is_spoiler bool [default: false]
   created_at timestamp
   updated_at timestamp
   deleted_at timestamp
@@ -77,7 +69,6 @@ table reviews{
 
 table images{
   id int [pk, increment]
-  //owner_id int [not null, ref: < users.id]
   name varchar [not null]
   path varchar [not null]
   created_at timestamp
@@ -89,7 +80,7 @@ table messages{
   id int [pk, increment]
   from int [not null, ref: - users.id]
   to int [not null, ref: - users.id]
-  content varchar [not null]
+  text varchar [not null]
   created_at timestamp
   updated_at timestamp
   deleted_at timestamp
@@ -97,17 +88,24 @@ table messages{
 
 table communities{
   id int [pk, increment]
-  organizers int [not null, ref: > users.id] //user id array
-  members int [not null, ref: > users.id] //user id array
+  organizers int [not null, ref: > users.id] // user id array
+  members int [not null, ref: > users.id] // user id array
+  content_types varchar [not null] // String array
+  description varchar [not null]
+  tags varchar
+  website varchar
+  rules varchar
   created_at timestamp
   updated_at timestamp
   deleted_at timestamp
 }
 
-table posts{
+table discussions{ 
   id int [pk, increment]
   user_id int [not null, ref: > users.id]
-  content varchar [not null]
+  community_id int [not null, ref: > communities.id]
+  header varchar [not null]
+  text varchar [not null]
   is_privite boolean [default: 0]
   created_at timestamp
   updated_at timestamp
