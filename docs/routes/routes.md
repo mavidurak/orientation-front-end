@@ -1,6 +1,6 @@
 # Authentication
 
-## POST /authentication/register
+## `POST` /authentication/register
 ### Request
 ```json
 {
@@ -18,11 +18,11 @@
     "name": "String",
     "created_at": "Date",
     "updated_at": "Date",
-    "deleted_at": "Date"
+    "`DELETE`d_at": "Date"
 }
 ```
 
-## POST /authentication/login
+## `POST` /authentication/login
 ### Request
 ```json
 {
@@ -33,15 +33,15 @@
 ### Response
 ```json
 {
-    "token_id": "Number"
+    "token_id": "Number",
     "user_id": "Number",
     "token_value": "String",
     "created_at": "Date",
     "updated_at": "Date",
-    "deleted_at": "Date"
+    "`DELETE`d_at": "Date"
 }
 ```
-## GET /authentication/me
+## `GET` /authentication/me
 ### Request
 ### Response
 ```json
@@ -52,13 +52,13 @@
     "name": "String",
     "created_at": "Date",
     "updated_at": "Date",
-    "deleted_at": "Date"
+    "`DELETE`d_at": "Date"
 }
 ```
 
 # User
 
-## GET /users/:id
+## `GET` /users/:id
 ### Request
 ### Response
 ```json
@@ -90,15 +90,15 @@
             "is_spoiler":"bool",
             "created_at":"Date",
             "updated_at":"Date",
-            "deleted_at":"Date"
+            "`DELETE`d_at":"Date"
         }
     ],
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
-## PUT /users/:id
+## `PUT` /users/:id
 ### Request
 ```json
 {
@@ -114,20 +114,20 @@
     "name": "String",
     "created_at": "Date",
     "updated_at": "Date",
-    "deleted_at": "Date"
+    "`DELETE`d_at": "Date"
 }
 ```
-## DELETE /users/:id
+## `DELETE` /users/:id
 ### Request
 ### Response
 ```json
 {
-    "message": "User deleted successfully!"
+    "message": "User `DELETE`d successfully!"
 }
 ```
 
 # Contents
-## POST /contents/
+## `POST` /contents/
 ### Request
 ```json
 {
@@ -150,10 +150,10 @@
     "rate":"Number",
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
-## GET /contents/:id
+## `GET` /contents/:id
 ### Request
 ### Response
 ```json
@@ -170,10 +170,10 @@
     "wanted_status":"String",
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
-## PUT /contents/:id
+## `PUT` /contents/:id
 ### Request
 ```json
 {
@@ -193,20 +193,20 @@
     "rate":"Number",
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
-## DELETE /contents/:id
+## `DELETE` /contents/:id
 ### Request
 ### Response
 ```json
 {
-    "message": "User deleted successfully!"
+    "message": "User `DELETE`d successfully!"
 }
 ```
 
 # Comments
-## POST /comments/
+## `POST` /comments/
 ### Request
 ```json
 {
@@ -217,7 +217,7 @@
     "is_spoiler":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
 ### Response
@@ -232,10 +232,10 @@
     "is_spoiler":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
-## PUT /comments/:id
+## `PUT` /comments/:id
 ### Request
 ```json
 {
@@ -254,18 +254,18 @@
     "is_spoiler":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
-## DELETE /contents/:id
+## `DELETE` /contents/:id
 ### Request
 ### Response
 ```json
 {
-    "message": "Comment deleted successfully!"
+    "message": "Comment `DELETE`d successfully!"
 }
 ```
-## GET /users/:userId/comments
+## `GET` /users/:userId/comments
 ### Request
 ### Response
 ```json
@@ -280,12 +280,12 @@
             "is_spoiler":"Bool",
             "created_at":"Date",
             "updated_at":"Date",
-            "deleted_at":"Date"
+            "`DELETE`d_at":"Date"
         }
     ]
 }
 ```
-## GET /users/:userId/comments/:id
+## `GET` /users/:userId/comments/:id
 ### Request
 ### Response
 ```json
@@ -298,13 +298,13 @@
     "is_spoiler":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
 
 
 # Wanted Lists
-## POST /wanted-lists/
+## `POST` /wanted-lists/
 ### Request
 ```json
 {
@@ -323,10 +323,10 @@
     "my_score":"Number",
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
-## PUT /wanted-lists/:contentId
+## `PUT` /wanted-lists/:contentId
 ### Request
 ```json
 {
@@ -343,10 +343,10 @@
     "my_score":"Number",
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
-## GET /users/:userId/wanted-lists
+## `GET` /users/:userId/wanted-lists
 ### Request
 ### Response
 ```json
@@ -359,22 +359,22 @@
             "my_score":"Number",
             "created_at":"Date",
             "updated_at":"Date",
-            "deleted_at":"Date"
+            "`DELETE`d_at":"Date"
         }
     ]
 }
 ```
-## GET /users/:userId/wanted-lists
+## `GET` /users/:userId/wanted-lists
 ### Request
 ### Response
 ```json
 {
-    "message": "Comment deleted successfully!",
+    "message": "Comment `DELETE`d successfully!",
 }
 ```
 
 # Reviews
-## POST /reviews/
+## `POST` /reviews/
 ### Request
 ```json
 {
@@ -397,10 +397,10 @@
     "is_spoiler":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
-## PUT /reviews/:id
+## `PUT` /reviews/:id
 ### Request
 ```json
 {
@@ -419,10 +419,10 @@
     "is_spoiler":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
-## GET /users/:userId/reviews
+## `GET` /users/:userId/reviews
 ### Request
 ### Response
 ```json
@@ -435,12 +435,12 @@
             "my_score":"Number",
             "created_at":"Date",
             "updated_at":"Date",
-            "deleted_at":"Date"
+            "`DELETE`d_at":"Date"
         }
     ]
 }
 ```
-## GET /contents/:contentId/reviews
+## `GET` /contents/:contentId/reviews
 ### Request
 ### Response
 ```json
@@ -457,22 +457,22 @@
             "rate":"Number",
             "created_at":"Date",
             "updated_at":"Date",
-            "deleted_at":"Date"
+            "`DELETE`d_at":"Date"
         }
     ]
 }
 ```
-## DELETE /reviews/:id
+## `DELETE` /reviews/:id
 ### Request
 ### Response
 ```json
 {
-    "message": "Review deleted successfully!",
+    "message": "Review `DELETE`d successfully!",
 }
 ```
 
 # Communities
-## POST /reviews/
+## `POST` /reviews/
 ### Request
 ```json
 {
@@ -512,10 +512,10 @@
     "rules":"String",
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
-## PUT /communities/:id
+## `PUT` /communities/:id
 ### Request
 ```json
 {
@@ -542,10 +542,10 @@
     "rules":"String",
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
-## GET /communities/:id
+## `GET` /communities/:id
 ### Request
 ### Response
 ```json
@@ -567,20 +567,20 @@
     "rules":"String",
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
-## DELETE /communities/:id
+## `DELETE` /communities/:id
 ### Request
 ### Response
 ```json
 {
-    "message": "Community deleted successfully!",
+    "message": "Community `DELETE`d successfully!",
 }
 ```
 
 # Discussions
-## POST /discussions
+## `POST` /discussions
 ### Request
 ```json
 {
@@ -602,10 +602,10 @@
     "is_privite":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
-## PUT /discussions/:id
+## `PUT` /discussions/:id
 ### Request
 ```json
 {
@@ -623,10 +623,10 @@
     "is_privite":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
-## GET /discussions/:id
+## `GET` /discussions/:id
 ### Request
 ### Response
 ```json
@@ -639,10 +639,10 @@
     "is_privite":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "deleted_at":"Date"
+    "`DELETE`d_at":"Date"
 }
 ```
-## GET /communities/discussions
+## `GET` /communities/discussions
 ### Request
 ### Response
 ```json
@@ -656,16 +656,16 @@
             "is_privite":"Bool",
             "created_at":"Date",
             "updated_at":"Date",
-            "deleted_at":"Date"
+            "`DELETE`d_at":"Date"
         }
     ]
 }
 ```
-## GET /communities/discussions
+## `GET` /communities/discussions
 ### Request
 ### Response
 ```json
 {
-    "message": "Community deleted successfully!"
+    "message": "Community `DELETE`d successfully!"
 }
 ```
