@@ -18,7 +18,7 @@
     "name": "String",
     "created_at": "Date",
     "updated_at": "Date",
-    "`DELETE`d_at": "Date"
+    "deleted_at": "Date"
 }
 ```
 
@@ -38,7 +38,7 @@
     "token_value": "String",
     "created_at": "Date",
     "updated_at": "Date",
-    "`DELETE`d_at": "Date"
+    "deleted_at": "Date"
 }
 ```
 ## `GET` /authentication/me
@@ -52,7 +52,7 @@
     "name": "String",
     "created_at": "Date",
     "updated_at": "Date",
-    "`DELETE`d_at": "Date"
+    "deleted_at": "Date"
 }
 ```
 
@@ -90,12 +90,12 @@
             "is_spoiler":"bool",
             "created_at":"Date",
             "updated_at":"Date",
-            "`DELETE`d_at":"Date"
+            "deleted_at":"Date"
         }
     ],
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 ## `PUT` /users/:id
@@ -114,7 +114,7 @@
     "name": "String",
     "created_at": "Date",
     "updated_at": "Date",
-    "`DELETE`d_at": "Date"
+    "deleted_at": "Date"
 }
 ```
 ## `DELETE` /users/:id
@@ -150,7 +150,7 @@
     "rate":"Number",
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 ## `GET` /contents/:id
@@ -170,7 +170,7 @@
     "wanted_status":"String",
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 ## `PUT` /contents/:id
@@ -193,7 +193,7 @@
     "rate":"Number",
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 ## `DELETE` /contents/:id
@@ -217,7 +217,7 @@
     "is_spoiler":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 ### Response
@@ -232,7 +232,7 @@
     "is_spoiler":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 ## `PUT` /comments/:id
@@ -254,7 +254,7 @@
     "is_spoiler":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 ## `DELETE` /contents/:id
@@ -280,7 +280,7 @@
             "is_spoiler":"Bool",
             "created_at":"Date",
             "updated_at":"Date",
-            "`DELETE`d_at":"Date"
+            "deleted_at":"Date"
         }
     ]
 }
@@ -298,7 +298,7 @@
     "is_spoiler":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 
@@ -323,7 +323,7 @@
     "my_score":"Number",
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 ## `PUT` /wanted-lists/:contentId
@@ -343,7 +343,7 @@
     "my_score":"Number",
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 ## `GET` /users/:userId/wanted-lists
@@ -359,7 +359,7 @@
             "my_score":"Number",
             "created_at":"Date",
             "updated_at":"Date",
-            "`DELETE`d_at":"Date"
+            "deleted_at":"Date"
         }
     ]
 }
@@ -397,7 +397,7 @@
     "is_spoiler":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 ## `PUT` /reviews/:id
@@ -419,7 +419,7 @@
     "is_spoiler":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 ## `GET` /users/:userId/reviews
@@ -435,7 +435,7 @@
             "my_score":"Number",
             "created_at":"Date",
             "updated_at":"Date",
-            "`DELETE`d_at":"Date"
+            "deleted_at":"Date"
         }
     ]
 }
@@ -457,7 +457,7 @@
             "rate":"Number",
             "created_at":"Date",
             "updated_at":"Date",
-            "`DELETE`d_at":"Date"
+            "deleted_at":"Date"
         }
     ]
 }
@@ -512,7 +512,7 @@
     "rules":"String",
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 ## `PUT` /communities/:id
@@ -542,7 +542,7 @@
     "rules":"String",
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 ## `GET` /communities/:id
@@ -567,7 +567,7 @@
     "rules":"String",
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 ## `DELETE` /communities/:id
@@ -602,7 +602,7 @@
     "is_privite":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 ## `PUT` /discussions/:id
@@ -623,7 +623,7 @@
     "is_privite":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 ## `GET` /discussions/:id
@@ -639,7 +639,7 @@
     "is_privite":"Bool",
     "created_at":"Date",
     "updated_at":"Date",
-    "`DELETE`d_at":"Date"
+    "deleted_at":"Date"
 }
 ```
 ## `GET` /communities/discussions
@@ -656,7 +656,7 @@
             "is_privite":"Bool",
             "created_at":"Date",
             "updated_at":"Date",
-            "`DELETE`d_at":"Date"
+            "deleted_at":"Date"
         }
     ]
 }

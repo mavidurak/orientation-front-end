@@ -4,7 +4,6 @@
 ### Source
 [user_story/user_story.xlsx](user_story/user_story.xlsx)
 
-
 ## Basic database diagram
 [https://dbdiagram.io/](https://dbdiagram.io/ "Click to try it")
 ### Preview
@@ -12,7 +11,7 @@
 ### Source
 [database_schema/db_schema.md](database_schema/db_schema.md)
 
-## Routes
+## API Routes
 GitHub MarkDown files header routes shortcuts
 ### Preview
 ![routes/routes_usage.png](routes/routes_usage.png)
