@@ -5,7 +5,7 @@
 [user_story/user_story.xlsx](user_story/user_story.xlsx)
 
 ## Basic database diagram
-[https://dbdiagram.io/](https://dbdiagram.io/ "Click to try it")
+[PostgreSQL](https://www.postgresql.org/), [https://dbdiagram.io/](https://dbdiagram.io/ "Click to try it")
 ### Preview
 ![database_schema/db_schema.png](database_schema/db_schema.png)
 ### Source
