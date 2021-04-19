@@ -257,7 +257,7 @@
     "deleted_at":"Date"
 }
 ```
-## `DELETE` /contents/:id
+## `DELETE` /comments/:id
 ### Request
 ### Response
 ```json
@@ -472,7 +472,7 @@
 ```
 
 # Communities
-## `POST` /reviews/
+## `POST` /communities/
 ### Request
 ```json
 {
@@ -661,11 +661,11 @@
     ]
 }
 ```
-## `GET` /communities/discussions
+## `GET` /communities/:id
 ### Request
 ### Response
 ```json
 {
-    "message": "Community `DELETE`d successfully!"
+    "message": "Community deleted successfully!"
 }
 ```
