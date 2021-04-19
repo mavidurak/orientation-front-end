@@ -10,6 +10,7 @@ table users{
   id int [pk, increment]
   friend_ids int [not null, ref: > users.id] // User id, array
   username varchar
+  email varchar
   full_name varchar
   password_salt varchar
   password_hash varchar
@@ -50,6 +51,7 @@ table wanted_contents{ // 'my list' items
   user_id int [not null, ref: > users.id]
   content_id int [not null, ref: > contents.id]
   status varchar [not null] // Want to read, reading, readed, ...
+  my_score int
   created_at timestamp
   updated_at timestamp
   deleted_at timestamp
@@ -92,7 +94,8 @@ table communities{
   members int [not null, ref: > users.id] // user id array
   content_types varchar [not null] // String array
   description varchar [not null]
-  tags varchar
+  image varchar // image url
+  tags varchar // varchar array
   website varchar
   rules varchar
   created_at timestamp
