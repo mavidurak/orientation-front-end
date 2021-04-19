@@ -372,3 +372,300 @@
     "message": "Comment deleted successfully!",
 }
 ```
+
+# Reviews
+## POST /reviews/
+### Request
+```json
+{
+    "content_id":"Number",
+    "text":"String",
+    "status":"String",
+    "score":"Number",
+    "is_spoiler":"Bool",
+}
+```
+### Response
+```json
+{
+    "id":"Number",
+    "user_id":"Number",
+    "content_id":"Number",
+    "text":"String",
+    "status":"String",
+    "score":"Number",
+    "is_spoiler":"Bool",
+    "created_at":"Date",
+    "updated_at":"Date",
+    "deleted_at":"Date"
+}
+```
+## PUT /reviews/:id
+### Request
+```json
+{
+  "updatable-key": "value"
+}
+```
+### Response
+```json
+{
+    "id":"Number",
+    "user_id":"Number",
+    "content_id":"Number",
+    "text":"String",
+    "status":"String",
+    "score":"Number",
+    "is_spoiler":"Bool",
+    "created_at":"Date",
+    "updated_at":"Date",
+    "deleted_at":"Date"
+}
+```
+## GET /users/:userId/reviews
+### Request
+### Response
+```json
+{
+    "wanted_lists":[
+        {
+            "id":"Integer",
+            "content_id":"Integer",
+            "status":"String",
+            "my_score":"Number",
+            "created_at":"Date",
+            "updated_at":"Date",
+            "deleted_at":"Date"
+        }
+    ]
+}
+```
+## GET /contents/:contentId/reviews
+### Request
+### Response
+```json
+{
+    "reviews":[
+        {
+            "id":"Number",
+            "user_id":"Number",
+            "image":"String",
+            "name":"String",
+            "type":"String",
+            "description":"String",
+            "views":"Number",
+            "rate":"Number",
+            "created_at":"Date",
+            "updated_at":"Date",
+            "deleted_at":"Date"
+        }
+    ]
+}
+```
+## DELETE /reviews/:id
+### Request
+### Response
+```json
+{
+    "message": "Review deleted successfully!",
+}
+```
+
+# Communities
+## POST /reviews/
+### Request
+```json
+{
+    "organizers":[
+        "Number"
+    ],
+    "image":"String",
+    "name":"String",
+    "content_types":[
+        "String"
+    ],
+    "description":"String",
+    "tags":[
+        "String"
+    ],
+    "website":"String",
+    "rules":"String",
+}
+```
+### Response
+```json
+{
+    "id":"Number",
+    "organizers":[
+        "Number"
+    ],
+    "image":"String",
+    "name":"String",
+    "content_types":[
+        "String"
+    ],
+    "description":"String",
+    "tags":[
+        "String"
+    ],
+    "website":"String",
+    "rules":"String",
+    "created_at":"Date",
+    "updated_at":"Date",
+    "deleted_at":"Date"
+}
+```
+## PUT /communities/:id
+### Request
+```json
+{
+    "updatable-key": "value"
+}
+```
+### Response
+```json
+{
+    "id":"Number",
+    "organizers":[
+        "Number"
+    ],
+    "image":"String",
+    "name":"String",
+    "content_types":[
+        "String"
+    ],
+    "description":"String",
+    "tags":[
+        "String"
+    ],
+    "website":"String",
+    "rules":"String",
+    "created_at":"Date",
+    "updated_at":"Date",
+    "deleted_at":"Date"
+}
+```
+## GET /communities/:id
+### Request
+### Response
+```json
+{
+    "id":"Number",
+    "organizers":[
+        "Number"
+    ],
+    "image":"String",
+    "name":"String",
+    "content_types":[
+        "String"
+    ],
+    "description":"String",
+    "tags":[
+        "String"
+    ],
+    "website":"String",
+    "rules":"String",
+    "created_at":"Date",
+    "updated_at":"Date",
+    "deleted_at":"Date"
+}
+```
+## DELETE /communities/:id
+### Request
+### Response
+```json
+{
+    "message": "Community deleted successfully!",
+}
+```
+
+# Discussions
+## POST /discussions
+### Request
+```json
+{
+    "user_id":"Number",
+    "community_id":"Number",
+    "header":"String",
+    "text":"String",
+    "is_privite":"Bool",
+}
+```
+### Response
+```json
+{
+    "id":"Number",
+    "user_id":"Number",
+    "community_id":"Number",
+    "header":"String",
+    "text":"String",
+    "is_privite":"Bool",
+    "created_at":"Date",
+    "updated_at":"Date",
+    "deleted_at":"Date"
+}
+```
+## PUT /discussions/:id
+### Request
+```json
+{
+  "updatable-key": "value"
+}
+```
+### Response
+```json
+{
+    "id":"Number",
+    "user_id":"Number",
+    "community_id":"Number",
+    "header":"String",
+    "text":"String",
+    "is_privite":"Bool",
+    "created_at":"Date",
+    "updated_at":"Date",
+    "deleted_at":"Date"
+}
+```
+## GET /discussions/:id
+### Request
+### Response
+```json
+{
+    "id":"Number",
+    "user_id":"Number",
+    "community_id":"Number",
+    "header":"String",
+    "text":"String",
+    "is_privite":"Bool",
+    "created_at":"Date",
+    "updated_at":"Date",
+    "deleted_at":"Date"
+}
+```
+## GET /communities/discussions
+### Request
+### Response
+```json
+{
+    "discussions":[
+        {
+            "id":"Number",
+            "user_id":"Number",
+            "header":"String",
+            "text":"String",
+            "is_privite":"Bool",
+            "created_at":"Date",
+            "updated_at":"Date",
+            "deleted_at":"Date"
+        }
+    ]
+}
+```
+## GET /communities/discussions
+### Request
+### Response
+```json
+{
+    "message": "Community deleted successfully!"
+}
+```
