@@ -139,7 +139,7 @@ border-color: wheat;
 }
 #groupBox{
   text-align: left;
-  font-size: 10px;
+  font-size: 13px;
 }
 .discussion{
   width: 50%;

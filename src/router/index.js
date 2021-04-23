@@ -59,7 +59,7 @@ const routes = [{
   component: () => import('../views/Review.vue'),
 },
 {
-  path: '/communitydetail',
+  path: '/community-detail',
   name: 'CommunityDetail',
   component: () => import('../views/CommunityDetail.vue'),
 },
