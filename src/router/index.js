@@ -58,6 +58,11 @@ const routes = [{
   name: 'Review',
   component: () => import('../views/Review.vue'),
 },
+{
+  path: '/communitydetail',
+  name: 'CommunityDetail',
+  component: () => import('../views/CommunityDetail.vue'),
+},
 ];
 
 const router = new VueRouter({
