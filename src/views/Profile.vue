@@ -194,6 +194,10 @@ $shadow_hover: 0 6px 10px rgba(0, 0, 0, 0.16), 0 6px 10px rgba(0, 0, 0, 0.23);
 
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 .profile {
+    hr {
+    margin: 0;
+  }
+
   .card {
     text-align: left;
     .avatar {
@@ -221,10 +225,6 @@ $shadow_hover: 0 6px 10px rgba(0, 0, 0, 0.16), 0 6px 10px rgba(0, 0, 0, 0.23);
             font-size: 12px;
             text-decoration: none;
             color: rgb(158, 158, 158);
-          }
-
-          hr {
-            margin: 0;
           }
         }
 
