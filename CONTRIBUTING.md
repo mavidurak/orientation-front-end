@@ -10,7 +10,7 @@ Bu döküman bu koda katkıda bulunmak için izlemeniz gereken adımları ve uym
 * Url'ler: kebab-case
 * CSS class'ları ve id'leri: kebab-case
 * Environment değişkenleri, constants: MACRO_CASE
-* Veritabanı tablo isimleri: snake_case
+* Veritabanı tablo ve field isimleri: snake_case
 
 ## Katkı nasıl sağlanır?
  Projeye katkı yapmak istiyorsanız lütfen ilk önce yaptığınız işin halihazırda [issue](https://github.com/mavidurak/orientation-front-end/issues "issue'ları görüntülemek için tıklayın") olarak bulunup buşunmadığını kontrol edin.Eğer **issue** varsa ve issue üzerinde görevlendirilmiş birisi bulunuyorsa o kişi ile iletişime geçiniz.Eğer issue yoksa geliştirmenizi **pull request** açarak proje yetkililerine iletebilirsiniz.
