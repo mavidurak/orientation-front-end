@@ -1,4 +1,5 @@
 <template>
+
   <div class="row">
   <div class="col-8">  <div class="card">
       <div class="infos">
@@ -61,6 +62,7 @@ export default {
         dataType: 'json',
         success(data) {
           self.name = `${data.title} ${data.name} ${data.surname}`;
+
           self.gender = data.gender;
           self.email = data.email;
           self.picture = data.photo;
@@ -116,10 +118,10 @@ $shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 $shadow_hover: 0 6px 10px rgba(0, 0, 0, 0.16), 0 6px 10px rgba(0, 0, 0, 0.23);
 
 @import url("https://fonts.googleapis.com/css?family=Nunito");
-
 .body {
 
   .main {
+
     height: 100%;
     width: 100%;
 
