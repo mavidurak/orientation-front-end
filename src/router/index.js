@@ -52,11 +52,15 @@ const routes = [{
   name: 'ListContent',
   component: () => import('../views/ListContent.vue'),
 },
-
 {
   path: '/review/:content',
   name: 'Review',
   component: () => import('../views/Review.vue'),
+},
+{
+  path: '/profile',
+  name: 'Profile',
+  component: () => import('../views/Profile.vue'),
 },
 ];
 

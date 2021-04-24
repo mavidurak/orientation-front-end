@@ -9,6 +9,7 @@
         <router-link to="/review/hayvanlardan-tanrılara-sapiens-i̇nsan-2a8Q">Review</router-link> |
         <router-link to="/contents/1">Content Detail</router-link> |
         <router-link to="/contents">List Content</router-link> |
+        <router-link to="/profile">Profile</router-link>
       </div>
       <router-view />
     </div>
