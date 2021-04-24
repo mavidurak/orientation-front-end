@@ -4,7 +4,6 @@
     <div class="multiselect">
       <Multiselect
         :dataSource="dataItem"
-        :fields="dataFields"
         aria-placeholder="Select a platform"
         @getValue="update"
       />
@@ -34,7 +33,6 @@ export default {
         { name: 'Javascript', code: 'js' },
         { name: 'Open Source', code: 'os' },
       ],
-      dataFields: { text: 'name', value: 'code' },
     };
   },
   methods: {

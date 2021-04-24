@@ -20,7 +20,9 @@ import multiselect from 'vue-multiselect';
 
 export default {
   name: 'Multiselect',
-  props: ['dataSource', 'fields'],
+  props: {
+    dataSource: Array,
+  },
   components: {
     multiselect,
   },

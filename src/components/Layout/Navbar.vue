@@ -55,38 +55,21 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a
-              to="/topluluk"
-              class="nav-link dropdown-toggle"
+            <router-link
+              to="/communities"
+              class="nav-link"
               id="navbarDropdown"
-              href="#"
               role="button"
-              data-bs-toggle="dropdown"
               aria-expanded="false"
             >
               Topluluk
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
-                <router-link to="/communities" class="dropdown-item"
-                  >Topluluklar</router-link
-                >
-              </li>
-              <li><a class="dropdown-item" href="#">Tartışmalar</a></li>
-              <li><a class="dropdown-item" href="#">Alıntılar</a></li>
-              <li><a class="dropdown-item" href="#">Yazara Sor </a></li>
-              <li><a class="dropdown-item" href="#">Önemsiz Şeyler</a></li>
-              <li><a class="dropdown-item" href="#">Sınavlar</a></li>
-              <li><a class="dropdown-item" href="#">Yaratıcı Yazarlık</a></li>
-              <li><a class="dropdown-item" href="#">İnsanlar</a></li>
-              <li><a class="dropdown-item" href="#">Etkinlikler</a></li>
-            </ul>
+            </router-link>
           </li>
           <form class="d-flex">
             <input
               class="input"
               type="search"
-              placeholder="Kitap Ara"
+              placeholder="İçerik Ara"
               aria-label="Search"
             />
             <button class="btn" type="submit">Ara</button>
@@ -112,13 +95,15 @@ export default {
 };
 </script>
 <style lang="scss">
-.navbar {
+nav {
   height: 60px;
   padding: 0;
   max-height: 60px;
+
   .navbar-brand {
     font-size: 25px;
   }
+
   .nav-item {
     font-size: 18px;
     margin-right: 40px;
@@ -137,6 +122,7 @@ export default {
     background-color: grey;
     color: white;
   }
+
   .input {
     width: 300px;
     border-radius: 5px;

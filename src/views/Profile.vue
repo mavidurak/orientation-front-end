@@ -1,45 +1,121 @@
 <template>
-  <div class="main">
-    <div class="card">
-      <img id="avatar" :src="picture" />
-
-      <div class="infos">
-        <div class="name capitalize">
-          {{ name }}
-        </div>
-        <div class="birth"><i class="fas fa-fw fa-birthday-cake"></i>{{ birth }}</div>
-        <div class="email"><i class="fas fa-fw fa-envelope"></i>{{ email }}</div>
-        <div class="phone"><i class="fas fa-fw fa-phone"></i>{{ phone }}</div>
-        <div class="nationality capitalize">
-          <i class="fas fa-fw fa-globe-americas"></i>{{ nationality }}
+  <div class="profile container">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="card">
+          <div class="infos">
+            <div class="card-body row">
+              <div class="col-4">
+                <div class="avatar">
+                  <div class="row">
+                    <div class="col">
+                      <img
+                        id="image"
+                        src="https://image.flaticon.com/icons/svg/149/149992.svg"
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <a href="#">0 ratings (0.0 avg)</a><br />
+                      <a href="...">0 reviews</a><br />
+                      <a href="...">more photos (0)</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-8">
+                <div class="row">
+                  <div class="col">
+                    <div class="name">
+                      <span>
+                        {{ name }}
+                      </span>
+                      <a href="#">(edit profile)</a>
+                      <hr />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div>
+                      <h5>Details {{ details }}</h5>
+                    </div>
+                    <div>
+                      <h5>Activity {{ activity }}</h5>
+                    </div>
+                    <div><i class="fas fa-fw fa-envelope"></i>{{ email }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row refresh">
+              <div class="col">
+                <i
+                  class="fas fa-fw fa-random"
+                  @click="generate()"
+                  data-text="Random"
+                ></i>
+              </div>
+              <div class="col">
+                <i
+                  class="fas fa-fw fa-venus"
+                  @click="generate('female')"
+                  data-text="Female"
+                ></i>
+              </div>
+              <div class="col">
+                <i
+                  class="fas fa-fw fa-mars"
+                  @click="generate('male')"
+                  data-text="Male"
+                ></i>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <span>{{ name }} Book</span>
+                <hr />
+                <div>
+                  TODO
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <span>{{ name }} Upda</span>
+                <hr />
+                <div>
+                  TODO
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <span>{{ name }} friends com</span>
+                <hr />
+                <div>
+                  TODO
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="refresh">
-      <i class="fas fa-fw fa-random" @click="generate()" data-text="Random"></i>
-      <i class="fas fa-fw fa-venus" @click="generate('female')" data-text="Female"></i>
-      <i class="fas fa-fw fa-mars" @click="generate('male')" data-text="Male"></i>
-    </div>
-
-    <div class="copy">
-      Made with <a href="https://uinames.com/">UI Names API</a> and
-      <a href="https://fr.vuejs.org/">Vue.js</a>
+      <div class="col-sm-4">col-4</div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  el: 'Profile',
+  name: 'Profile',
   data() {
     return {
       back: '',
-      picture: 'https://image.flaticon.com/icons/svg/149/149992.svg',
-      name: '',
-      birth: '',
-      email: '',
-      phone: '',
-      nationality: '',
+      name: 'Şule Koç',
+      details: 'Istanbul 34',
+      email: 'sulekooc@gmail.com',
+      activity: 'Joined in March 2021, last active this month',
     };
   },
   beforeMount() {
@@ -51,26 +127,16 @@ export default {
 
       this.$.ajax({
         url: `https://uinames.com/api/?ext&maxlen=15${
-          gender !== null && (gender === 'male' || gender === 'female') ? `&gender=${gender}` : ''
+          gender !== null && (gender === 'male' || gender === 'female')
+            ? `&gender=${gender}`
+            : ''
         }`,
         dataType: 'json',
         success(data) {
           self.name = `${data.title} ${data.name} ${data.surname}`;
 
           self.gender = data.gender;
-
-          self.birth = `${new Date(data.birthday.raw * 1000).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })} (${data.age} years old)`;
-
           self.email = data.email;
-
-          self.phone = data.phone;
-
-          self.nationality = data.region;
-
           self.picture = data.photo;
 
           /* eslint-disable no-use-before-define */
@@ -89,8 +155,11 @@ function getRandomColor() {
 
   const rgb = [Math.random() * 256, Math.random() * 256, Math.random() * 256];
   const mix = [brightness * 51, brightness * 51, brightness * 51]; // 51 => 255/5
-  const mixedrgb = [rgb[0] + mix[0], rgb[1] + mix[1], rgb[2] + mix[2]]
-    .map((x) => Math.round(x / 2.0));
+  const mixedrgb = [
+    rgb[0] + mix[0],
+    rgb[1] + mix[1],
+    rgb[2] + mix[2],
+  ].map((x) => Math.round(x / 2.0));
   return rgbToHex(mixedrgb[0], mixedrgb[1], mixedrgb[2]);
 }
 
@@ -124,153 +193,91 @@ $shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 $shadow_hover: 0 6px 10px rgba(0, 0, 0, 0.16), 0 6px 10px rgba(0, 0, 0, 0.23);
 
 @import url("https://fonts.googleapis.com/css?family=Nunito");
+.profile {
+  .card {
+    text-align: left;
+    .avatar {
+      //margin-right: $global_gap;
+      //box-shadow: $shadow;
+      //border: 4px solid rgba(255, 255, 255, .5);
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-
-  font-family: "Nunito", sans-serif;
-  color: rgb(50, 50, 50);
-
-  .main {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-
-    .card {
-      width: 470px;
-      min-height: 185px;
-      display: flex;
-      padding: $global_gap;
-      border-radius: 5px;
-      box-shadow: $shadow;
-
-      #avatar {
+      #image {
+        text-align: center;
         width: 100px;
-        margin-right: $global_gap;
-        border-radius: 50%;
-        //box-shadow: $shadow;
-        //border: 4px solid rgba(255, 255, 255, .5);
-      }
-
-      .infos {
-        flex: 1 1 auto;
-        display: flex;
-        flex-direction: column;
-
-        div {
-          &:not(:last-child) {
-            margin-bottom: $global_gap;
-          }
-
-          &.capitalize {
-            text-transform: capitalize;
-          }
-
-          &.name {
-            font-size: 150%;
-            font-weight: bold;
-          }
-
-          i {
-            margin-right: $global_gap;
-          }
-        }
       }
     }
 
-    .refresh {
-      display: flex;
-      flex-direction: column;
+    .infos {
+      div {
+        &:not(:last-child) {
+          margin-bottom: $global_gap;
+        }
 
-      margin-left: $global_gap * 4;
+        .name {
+          font-size: 150%;
+          font-weight: bold;
 
-      i {
-        position: relative;
-        height: 40px;
-        width: 40px;
-        margin: $global_gap 0;
-        font-size: 110%;
-        line-height: 40px;
-        background: rgba(255, 255, 255, 0.8);
-        box-shadow: $shadow;
-        border-radius: 50%;
-        cursor: pointer;
+          a {
+            font-size: 12px;
+            text-decoration: none;
+            color: rgb(158, 158, 158);
+          }
 
-        transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-
-        &:hover {
-          background: white;
-          box-shadow: $shadow_hover;
-
-          &:after {
-            opacity: 1;
+          hr {
+            margin: 0;
           }
         }
-
-        &:after {
-          content: attr(data-text);
-          position: absolute;
-          left: calc(100% + #{$global_gap});
-          top: 50%;
-          transform: translateY(-50%);
-          font-size: 80%;
-          font-family: "Nunito", sans-serif;
-          line-height: initial;
-          background: white;
-          padding: ($global_gap / 4) $global_gap;
-          border-radius: 1000px;
-          box-shadow: $shadow;
-          pointer-events: none;
-          opacity: 0;
-          transition: opacity 0.2s ease-in-out;
-        }
-      }
-    }
-  }
-
-  @media only screen and (max-width: 800px) {
-    main {
-      flex-direction: column !important;
-      font-size: 80%;
-
-      .card {
-        max-width: 80%;
-        width: auto;
-        min-height: 150px;
-      }
-
-      .refresh {
-        flex-direction: row;
-
-        margin-left: 0;
-        margin-top: $global_gap * 3;
 
         i {
-          margin: 0 $global_gap;
-
-          &:after {
-            display: none;
-          }
+          margin-right: $global_gap;
         }
       }
     }
   }
 
-  .copy {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: ($global_gap / 2) $global_gap;
-    color: white;
+  .refresh {
+    margin-left: $global_gap * 4;
 
-    a {
-      color: inherit;
+    i {
+      position: relative;
+      height: 40px;
+      width: 40px;
+      margin: $global_gap 0;
+      font-size: 110%;
+      line-height: 40px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: $shadow;
+      border-radius: 50%;
+      cursor: pointer;
+
+      transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+      &:hover {
+        background: white;
+        box-shadow: $shadow_hover;
+
+        &:after {
+          opacity: 1;
+        }
+      }
+
+      &:after {
+        content: attr(data-text);
+        position: absolute;
+        left: calc(100% + #{$global_gap});
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 80%;
+        font-family: "Nunito", sans-serif;
+        line-height: initial;
+        background: white;
+        padding: ($global_gap / 4) $global_gap;
+        border-radius: 1000px;
+        box-shadow: $shadow;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
     }
   }
 }
