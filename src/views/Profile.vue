@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="main">
     <div class="card">
-      <img class="avatar" :src="picture" />
+      <img id="avatar" :src="picture" />
 
       <div class="infos">
         <div class="name capitalize">
@@ -30,7 +30,7 @@
 </template>
 <script>
 export default {
-  el: 'main',
+  el: 'Profile',
   data() {
     return {
       back: '',
@@ -126,10 +126,6 @@ $shadow_hover: 0 6px 10px rgba(0, 0, 0, 0.16), 0 6px 10px rgba(0, 0, 0, 0.23);
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 
 body {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -138,10 +134,9 @@ body {
   font-family: "Nunito", sans-serif;
   color: rgb(50, 50, 50);
 
-  main {
+  .main {
     height: 100%;
     width: 100%;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,17 +145,13 @@ body {
     .card {
       width: 470px;
       min-height: 185px;
-
       display: flex;
-
       padding: $global_gap;
       border-radius: 5px;
       box-shadow: $shadow;
-      background: rgba(255, 255, 255, 0.8);
 
-      .avatar {
+      #avatar {
         width: 100px;
-        height: 100px;
         margin-right: $global_gap;
         border-radius: 50%;
         //box-shadow: $shadow;

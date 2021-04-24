@@ -31,6 +31,7 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: #f8f8f8;
 }
 
 #app {
