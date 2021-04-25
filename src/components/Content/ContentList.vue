@@ -4,8 +4,8 @@
   </div>
 </template>
 <script>
-import ContentDetailSmall from '@/components/Content/ContentDetailSmall.vue';
 import { CONTENT_TYPES } from '@/constants';
+import ContentDetailSmall from './ContentDetailSmall.vue';
 
 export default {
   components: {

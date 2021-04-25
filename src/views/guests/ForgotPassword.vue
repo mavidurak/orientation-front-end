@@ -109,6 +109,7 @@
 </template>
 <script>
 export default {
+  name: 'ForgotPassword',
   data: () => ({
     mail: '',
     password: '',
