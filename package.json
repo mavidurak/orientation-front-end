@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build-hooks": "cp -R hooks ./.git/ && chmod +x ./.git/hooks/pre-commit"
+    "build-hooks": "cp -R hooks ./.git/ && chmod +x ./.git/hooks/commit-msg"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
