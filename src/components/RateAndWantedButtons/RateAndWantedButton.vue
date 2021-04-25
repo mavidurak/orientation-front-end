@@ -10,11 +10,11 @@
   </div>
 </template>
 <script>
-import WantedButton from '@/components/WantedButton.vue';
-import Rate from '@/components/Rate.vue';
+import WantedButton from './WantedButton.vue';
+import Rate from './Rate.vue';
 
 export default {
-  name: 'WantedButtonAndRate',
+  name: 'RateAndWantedButton',
   props: {
     content: Object,
   },

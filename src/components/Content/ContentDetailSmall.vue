@@ -7,20 +7,21 @@
       by {{ content.user.name }} <br />
       {{ content.rate }}/10
       <div class="wantedbutton">
-        <WantedButtonAndRate :content="content" @select="changeStatus" @rate="rated"/>
+        <RateAndWantedButton :content="content" @select="changeStatus" @rate="rated"/>
       </div>
     </div>
   </div>
 </template>
 <script>
-import WantedButtonAndRate from '@/components/WantedButtonAndRate.vue';
+import RateAndWantedButton from '@/components/RateAndWantedButtons/RateAndWantedButton.vue';
 
 export default {
+  name: 'ContentDetailSmall',
   props: {
     content: Object,
   },
   components: {
-    WantedButtonAndRate,
+    RateAndWantedButton,
   },
   methods: {
     changeStatus(status) {

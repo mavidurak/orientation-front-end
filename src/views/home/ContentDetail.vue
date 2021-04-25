@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-auto">
           <img :src="content.image" /><br /><br />
-          <WantedButtonAndRate :content="content" @select="changeStatus" @rate="rated"/>
+          <RateAndWantedButton :content="content" @select="changeStatus" @rate="rated"/>
         </div>
         <div class="col-md-auto" style="width: 40%; text-align: left">
           <h3>
@@ -98,13 +98,13 @@
   </div>
 </template>
 <script>
-import WantedButtonAndRate from '@/components/WantedButtonAndRate.vue';
-import { WANTED_STATUS, CONTENT_TYPES } from '../constants';
+import RateAndWantedButton from '@/components/RateAndWantedButtons/RateAndWantedButton.vue';
+import { WANTED_STATUS, CONTENT_TYPES } from '@/constants';
 
 export default {
   name: 'ContentDetail',
   components: {
-    WantedButtonAndRate,
+    RateAndWantedButton,
   },
   data() {
     return {

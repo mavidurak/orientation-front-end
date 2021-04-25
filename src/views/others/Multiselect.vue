@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import Multiselect from '../components/Multiselect.vue';
+import Multiselect from '@/components/Multiselect.vue';
 
 export default {
   name: 'MultiselectView',

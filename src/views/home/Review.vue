@@ -10,7 +10,7 @@
     <br />
     <a>Yazar: Yuval Noah Harari</a>
     <hr /> <br/>
-    <label for="review_rating">Puanım: 6/10</label> <br />
+    <label for="review_rating">Puanım: <Rate @rate="rated"/></label> <br />
     <div class="raf">
       <form>
         <label for="shelves">Raflar / durum: </label>
@@ -140,8 +140,13 @@
   </div>
 </template>
 <script>
+import Rate from '@/components/RateAndWantedButtons/Rate.vue';
+
 export default {
   name: 'Review',
+  components: {
+    Rate,
+  },
   data() {
     return {
       reviewtext: null,
@@ -149,6 +154,7 @@ export default {
       startDate: null,
       finishDate: null,
       status: null,
+      rate: null,
     };
   },
   methods: {
@@ -160,7 +166,11 @@ export default {
         Date: this.startDate,
         date2: this.finishDate,
         status: this.status,
+        rate: this.rate,
       });
+    },
+    rated(r) {
+      this.rate = r;
     },
   },
 };

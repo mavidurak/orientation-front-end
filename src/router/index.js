@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
+import Home from '../views/home/Home.vue';
 
 Vue.use(VueRouter);
 
@@ -15,12 +15,12 @@ const routes = [{
   // route level code-splitting
   // this generates a separate chunk (about.[hash].js) for this route
   // which is lazy-loaded when the route is visited.
-  component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+  component: () => import(/* webpackChunkName: "about" */ '../views/home/About.vue'),
 },
 {
   path: '/axios',
   name: 'Axios',
-  component: () => import('../views/other/Axios.vue'),
+  component: () => import('../views/others/Axios.vue'),
 },
 {
   path: '/login',
@@ -35,28 +35,28 @@ const routes = [{
 {
   path: '/multiselect',
   name: 'MultiselectView',
-  component: () => import('../views/Multiselect.vue'),
+  component: () => import('../views/others/Multiselect.vue'),
 },
 {
   path: '/communities',
   name: 'Communities',
-  component: () => import('../views/Communities.vue'),
+  component: () => import('../views/home/Communities.vue'),
 },
 {
   path: '/contents/:id',
   name: 'ContentDetail',
-  component: () => import('../views/ContentDetail.vue'),
+  component: () => import('../views/home/ContentDetail.vue'),
 },
 {
   path: '/contents',
   name: 'ListContent',
-  component: () => import('../views/ListContent.vue'),
+  component: () => import('../views/home/ListContent.vue'),
 },
 
 {
   path: '/review/:content',
   name: 'Review',
-  component: () => import('../views/Review.vue'),
+  component: () => import('../views/home/Review.vue'),
 },
 ];
 

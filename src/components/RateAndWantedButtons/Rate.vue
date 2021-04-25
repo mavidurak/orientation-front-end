@@ -18,16 +18,21 @@ export default {
   props: {
     rate: Number,
   },
+  data() {
+    return {
+      myRate: 0,
+    };
+  },
   methods: {
     submit(r) {
-      this.rate = r;
+      this.myRate = r;
       this.$emit('rate', r);
     },
     changeColor(n) {
       /* eslint-disable no-plusplus */
-      const stars = document.getElementById('rate-stars').children;
-      if (this.rate) {
-        for (let i = 0; i < this.rate; i++) {
+      const stars = this.$el.children[0].children;
+      if (this.myRate) {
+        for (let i = 0; i < this.myRate; i++) {
           stars[i].children[0].style.color = '#805919';
         }
       }
@@ -37,22 +42,21 @@ export default {
     },
     clear() {
       /* eslint-disable no-param-reassign */
-      const stars = document.getElementById('rate-stars').children;
+      const stars = this.$el.children[0].children;
       stars.forEach((s) => {
         s.children[0].style.color = 'rgb(209, 209, 209)';
       });
       this.setRate();
     },
     setRate() {
-      if (this.rate) {
-        this.changeColor(this.rate);
+      if (this.myRate) {
+        this.changeColor(this.myRate);
       }
     },
   },
   mounted() {
-    console.log(this);
     /* 6/10 => 3/5 */
-    this.rate = Math.floor(this.rate > 5 ? (this.rate / 2) : this.rate);
+    this.myRate = this.rate ? Math.floor(this.rate > 5 ? (this.rate / 2) : this.rate) : 0;
     this.setRate();
   },
   updated() {
