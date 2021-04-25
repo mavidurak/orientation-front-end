@@ -20,17 +20,17 @@ const routes = [{
 {
   path: '/axios',
   name: 'Axios',
-  component: () => import('../views/Axios.vue'),
+  component: () => import('../views/other/Axios.vue'),
 },
 {
   path: '/login',
   name: 'Login',
-  component: () => import('../views/Login.vue'),
+  component: () => import('../views/guests/Login.vue'),
 },
 {
   path: '/forgot-password',
   name: 'ForgotPassword',
-  component: () => import('../views/ForgotPassword.vue'),
+  component: () => import('../views/guests/ForgotPassword.vue'),
 },
 {
   path: '/multiselect',

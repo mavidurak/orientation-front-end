@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-auto">
           <img :src="content.image" /><br /><br />
-          <WantedButton :contentType="content.type" @wantedStatus="changeStatus" />
+          <WantedButtonAndRate :content="content" @select="changeStatus" @rate="rated"/>
         </div>
         <div class="col-md-auto" style="width: 40%; text-align: left">
           <h3>
@@ -98,12 +98,13 @@
   </div>
 </template>
 <script>
-import WantedButton from '../components/WantedButton.vue';
-import { CONTENT_TYPES } from '../constants';
+import WantedButtonAndRate from '@/components/WantedButtonAndRate.vue';
+import { WANTED_STATUS, CONTENT_TYPES } from '../constants';
 
 export default {
+  name: 'ContentDetail',
   components: {
-    WantedButton,
+    WantedButtonAndRate,
   },
   data() {
     return {
@@ -114,7 +115,7 @@ export default {
         name: 'Minor Feelings: An Asian American Reckoning',
         image:
           'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1580788273l/52845775._SX318_SY475_.jpg',
-        rate: '6.5/10',
+        rate: 6.5,
         description:
           'Poet and essayist Cathy Park Hong blends memoir, cultural criticism, and history to expose the truth of racialized consciousness in America. Binding these essays together is Hongs theory of "minor feelings".As the daughter of Korean immigrants, Cathy Park Hong grew up steeped in shame, suspicion, and melancholy. She would later understand that these "minor feelings" occur when American optimism contradicts your own reality—when you believe the lies you are told about your own racial identity.Hong uses her own story as a portal into a deeper examination of racial consciousness in America today. This book traces her relationship to the English language, to shame and depression, to poetry and artmaking, and to family and female friendship in a search to both uncover and speak the truth.',
         user: {
@@ -124,6 +125,7 @@ export default {
         updatedAt: '',
         page: '210',
         type: CONTENT_TYPES.BOOK,
+        wantedStatus: WANTED_STATUS[CONTENT_TYPES.BOOK].CURRENTLY_READING,
       },
     };
   },
@@ -139,8 +141,12 @@ export default {
       this.status = status;
       alert(this.status);
     },
+    rated(rate) {
+      this.content.rate = rate;
+      alert(rate);
+    },
   },
 };
 </script>
-<style>
+<style lang="scss" scoped>
 </style>

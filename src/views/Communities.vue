@@ -18,6 +18,7 @@
 import CommunityList from '../components/Community/CommunityList.vue';
 
 export default {
+  name: 'Communuties',
   components: {
     CommunityList,
   },
