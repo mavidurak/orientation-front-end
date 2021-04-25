@@ -3,7 +3,7 @@
     <WantedButton
       :contentType="content.type"
       :selectedStatus="content.wantedStatus"
-      @wantedStatus="changeStatus"
+      @select="changeStatus"
     />
     <p id="rate-label">Rate this {{ content.type.toLowerCase() }}</p>
     <Rate :rate="content.rate" @rate="changeRate" />

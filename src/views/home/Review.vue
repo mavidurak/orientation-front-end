@@ -3,22 +3,18 @@
   <div class="container">
     <img
       class="book"
-      src="https://i.dr.com.tr/cache/500x400-0/originals/0000000633872-1.jpg"
+      :src="content.avatar"
     />
     <div id="info">
-    <a><b>Hayvanlardan Tanrılara Sapiens: İnsan Türünün Kısa Bir Tarihi</b></a>
+    <a><strong> {{ content.name }} </strong></a>
     <br />
-    <a>Yazar: Yuval Noah Harari</a>
+    <a>Yazar: {{ content.owner }}</a>
     <hr /> <br/>
     <label for="review_rating">Puanım: <Rate @rate="rated"/></label> <br />
     <div class="raf">
       <form>
         <label for="shelves">Raflar / durum: </label>
-        <select v-model="status" id="shelves" name="shelves">
-          <option value="past">Okudum</option>
-          <option value="now">Okuyorum</option>
-          <option value="future">Okuyacağım</option>
-        </select>
+        <WantedButton :contentType="content.type" @select="selectStatus"/>
       </form>
     </div>
     <hr />
@@ -51,7 +47,7 @@
       <label for="reviewspoiler">Spoiler! tüm incelemeyi gizle</label>
     </div>
     <hr />
-    <b>Okuduğum tarihler</b> <br />
+    <strong>Okuduğum tarihler</strong> <br />
     <span class="info">
       <a>Yeniden mi okuyorsun?</a> <br />
       <a
@@ -134,21 +130,27 @@
         </span>
       </div>
     </div>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
   </div>
   </div>
 </template>
 <script>
 import Rate from '@/components/RateAndWantedButtons/Rate.vue';
+import WantedButton from '@/components/RateAndWantedButtons/WantedButton.vue';
 
 export default {
   name: 'Review',
   components: {
     Rate,
+    WantedButton,
   },
   data() {
     return {
+      content: {
+        name: 'Hayvanlardan Tanrılara Sapiens: İnsan Türünün Kısa Bir Tarihi',
+        avatar: 'https://i.dr.com.tr/cache/500x400-0/originals/0000000633872-1.jpg',
+        owner: 'Yuval Noah Harari',
+        type: 'BOOK',
+      },
       reviewtext: null,
       isSpoiler: null,
       startDate: null,
@@ -171,6 +173,9 @@ export default {
     },
     rated(r) {
       this.rate = r;
+    },
+    selectStatus(s) {
+      this.status = s;
     },
   },
 };

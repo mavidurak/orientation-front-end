@@ -55,7 +55,7 @@ export default {
     /* eslint-disable prefer-destructuring */
     select(value) {
       this.selected = value;
-      this.$emit('wantedStatus', value);
+      this.$emit('select', value);
     },
     addWantedList() {
       this.selected = 'Added to Shelf';
