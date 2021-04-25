@@ -5,4 +5,4 @@ for file in $(git diff --diff-filter=d --name-only | grep -E '\.(js|vue|html|css
 do
   echo "<--------| $file |-------->"
   yarn lint "$file" # we use 'lint' command to lint and auto fix 
-done  
+done
