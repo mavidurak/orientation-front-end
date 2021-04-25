@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "Pre-commit hook started..."
+yarn lint # we use 'lint' command to lint and auto fix 

@@ -1,8 +1,0 @@
-#!/bin/bash
-
-echo "Pre-commit hook started..."
-for file in $(git diff --diff-filter=d --name-only | grep -E '\.(js|vue|html|css)$') # find changed file
-do
-  echo "<--------| $file |-------->"
-  yarn lint "$file" # we use 'lint' command to lint and auto fix 
-done
