@@ -99,14 +99,14 @@ export default {
         } if (this.password.search(/[A-Z]/) < 0) {
           this.controlPass5 += 'Şifre en az bir Büyük harf içermelidir. ';
         } if (this.password.search(/[0-9]/) < 0) {
-          this.controlPass6 += 'Şifre en az bir rakam içermelidir. ';
+          this.controlPass6 += 'Şifre en az bir rakam içermelidir.';
         }
       }
     },
   },
 };
 </script>
-<style >
+<style>
 input {
   width: 15%;
   padding: 10px 18px;
