@@ -4868,6 +4868,11 @@
     "minimalistic-assert" "^1.0.0"
     "minimalistic-crypto-utils" "^1.0.1"
 
+"hooks@^0.3.2":
+  "integrity" "sha1-ox8GDCAmzqbPHKPrF4Qw5xjhxKM="
+  "resolved" "https://registry.npmjs.org/hooks/-/hooks-0.3.2.tgz"
+  "version" "0.3.2"
+
 "hoopy@^0.1.4":
   "integrity" "sha512-HRcs+2mr52W0K+x8RzcLzuPPmVIKMSv97RGHy0Ea9y/mpcaK+xTrjICA04KAHi4GRzxliNqNJEFYWHghy3rSfQ=="
   "resolved" "https://registry.npmjs.org/hoopy/-/hoopy-0.1.4.tgz"

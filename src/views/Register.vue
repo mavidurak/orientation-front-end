@@ -1,6 +1,7 @@
 <template>
   <div class="register">
-    <h1>Kayıt ol</h1>
+    <div class="registerdiv">
+    <h1> Kayıt ol</h1>
     <input
       type="text"
       id="email"
@@ -42,7 +43,9 @@
     <button type="button" class="btn btn-secondary btn-lg" @click="register">
       Kayıt ol
     </button>
+    <p class="alreadyregister">Zaten kayıt olduysanız <a href="../login">Giriş Yap</a> </p>
     <br /><br />
+    </div>
   </div>
 </template>
 <script>
@@ -93,7 +96,7 @@ export default {
         if (this.password !== this.passwordAgain) {
           this.controlPass2 += 'Şifreler aynı olmalıdır.';
         } if (this.password.length < 8) {
-          this.controlPass3 += 'Şifre 8 karakter veya daha büyük olmalıdır. ';
+          this.controlPass3 += 'Şifre 8 karakter veya daha büyük olmalıdır.';
         } if (this.password.search(/[a-z]/) < 0) {
           this.controlPass4 += 'Şifre en az bir Küçük harf içermelidir. ';
         } if (this.password.search(/[A-Z]/) < 0) {
@@ -106,18 +109,32 @@ export default {
   },
 };
 </script>
-<style>
+<style lang="scss">
 input {
-  width: 15%;
-  padding: 10px 18px;
-  margin: 6px 0;
+  width: 80%;
+  align-items: center;
+  padding: 10px 17px;
+  margin: 10px 0px;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
 }
+.register{
+  background: #f9f8f4;
+}
+.registerdiv{
+  background: #3E5A5B;
+  margin-left:40%;
+  margin-right:40%;
+}
 #controlwarning{
   color:rgba(255,46,67,0.8);
-
+}
+.alreadyregister{
+  color: #f9f8f4;
+}
+h1{
+  color:#f9f8f4;
 }
 </style>
