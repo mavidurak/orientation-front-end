@@ -1,7 +1,8 @@
 <template>
   <div class="register">
     <div class="registerdiv">
-    <h1> Kayıt ol</h1>
+    <br>
+    <h1 class="registerh1"> Kayıt ol</h1>
     <input
       type="text"
       id="email"
@@ -134,7 +135,7 @@ input {
 .alreadyregister{
   color: #f9f8f4;
 }
-h1{
+.registerh1{
   color:#f9f8f4;
 }
 </style>

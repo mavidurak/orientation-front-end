@@ -1,6 +1,8 @@
 <template>
   <div class="login">
-    <h1>Üye Girişi</h1>
+    <div class="loginin">
+    <br>
+    <h1 class="loginh1">Üye Girişi</h1>
       <input
         type="text"
         id="username"
@@ -22,6 +24,7 @@
     </button>
     <br /><br />
     <p style="color: red; font-weight: bold">{{ alert }}</p>
+    </div>
   </div>
 </template>
 
@@ -67,7 +70,21 @@ export default {
 </script>
 
 <style>
-input,
+input {
+  width: 80%;
+  align-items: center;
+  padding: 10px 17px;
+  margin: 10px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.loginin{
+  background: #3E5A5B;
+  margin-left:40%;
+  margin-right:40%;
+}
 select {
   width: 15%;
   padding: 10px 18px;
@@ -76,5 +93,11 @@ select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+.loginh1{
+  color: #f9f8f4;
+}
+.login{
+  background-color: #f9f8f4;
 }
 </style>
