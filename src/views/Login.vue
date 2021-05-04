@@ -22,7 +22,9 @@
     <button type="button" class="btn btn-secondary btn-lg" @click="login()">
       Giriş
     </button>
-    <br /><br />
+    <br />
+    <a href="../forgot-password">Şifreni mi unuttun?</a>
+    <br />
     <p style="color: red; font-weight: bold">{{ alert }}</p>
     </div>
   </div>
@@ -93,6 +95,9 @@ select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+.areuforgotpassword{
+  color: #f9f8f4;
 }
 .loginh1{
   color: #f9f8f4;
