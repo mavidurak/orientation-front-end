@@ -23,7 +23,7 @@
       Giriş
     </button>
     <br />
-    <a href="../forgot-password">Şifreni mi unuttun?</a>
+    <a class="areuforgotpaswordlink" href="../forgot-password">Şifreni mi unuttun?</a>
     <br />
     <p style="color: red; font-weight: bold">{{ alert }}</p>
     </div>
@@ -86,6 +86,7 @@ input {
   background: #3E5A5B;
   margin-left:40%;
   margin-right:40%;
+  border-radius: 10px;
 }
 select {
   width: 15%;
@@ -104,5 +105,12 @@ select {
 }
 .login{
   background-color: #f9f8f4;
+}
+.areuforgotpaswordlink:hover{
+  text-decoration: none;
+  color:red;
+}
+.areuforgotpaswordlink{
+  color: #f9f8f4;
 }
 </style>

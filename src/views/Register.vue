@@ -44,7 +44,9 @@
     <button type="button" class="btn btn-secondary btn-lg" @click="register">
       Kayıt ol
     </button>
-    <p class="alreadyregister">Zaten kayıt olduysanız <a href="../login">Giriş Yap</a> </p>
+    <br />
+    <p class="alreadyregister">Zaten kayıt olduysanız
+    <a class="alreadyregisterlink" href="../login">Giriş Yap</a> </p>
     <br /><br />
     </div>
   </div>
@@ -128,6 +130,7 @@ input {
   background: #3E5A5B;
   margin-left:40%;
   margin-right:40%;
+  border-radius: 10px;
 }
 #controlwarning{
   color:rgba(255,46,67,0.8);
@@ -137,5 +140,12 @@ input {
 }
 .registerh1{
   color:#f9f8f4;
+}
+.alreadyregisterlink{
+  color:#f9f8f4;
+}
+.alreadyregisterlink:hover{
+  text-decoration: none;
+  color:red;
 }
 </style>
