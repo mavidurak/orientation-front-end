@@ -1,9 +1,8 @@
 <template>
   <div class="login">
-    <div class="loginin">
-    <br>
-    <h1 class="loginh1">Login</h1>
-    <form >
+    <div class="login-in">
+      <br />
+      <h1 class="login-h1">Login</h1>
       <input
         type="text"
         id="username"
@@ -12,7 +11,7 @@
         placeholder="Username"
         require
       />
-      <br>
+      <br />
       <input
         type="password"
         id="password"
@@ -21,14 +20,17 @@
         placeholder="Password"
         require
       />
-    <br /><br />
-    <button type="submit" class="btn btn-success btn-lg mb-3 " @click="login()">
-      Login
-    </button>
-    </form>
-    <br />
-    <router-link to="/forgot-password">Are you forgot password?</router-link>
-    <p style="color: red; font-weight: bold">{{ alert }}</p>
+      <br />
+      <p class="warning-login">{{ alert }}</p>
+      <button
+        type="submit"
+        class="btn btn-success btn-lg mb-3"
+        @click="login()"
+      >
+        Login
+      </button>
+      <br />
+      <router-link to="/forgot-password">Are you forgot password?</router-link>
     </div>
   </div>
 </template>
@@ -85,36 +87,20 @@ input {
   border-radius: 4px;
   box-sizing: border-box;
 }
-.loginin{
+.login-in {
   background: white;
   border: 1px hsl(0, 5%, 73%) solid;
   margin-left: 40%;
   margin-right: 40%;
   border-radius: 10px;
 }
-select {
-  width: 15%;
-  padding: 10px 18px;
-  margin: 6px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-.areuforgotpassword{
-  color: #535455;
-}
-.loginh1{
+.login-h1 {
   color: #212529;
 }
-.login{
+.login {
   background-color: #f9f8f4;
 }
-.areuforgotpaswordlink:hover{
-  text-decoration: none;
-  color:red;
-}
-.areuforgotpaswordlink{
-  color: #535455;
+.warning-login {
+  color: rgba(255, 46, 67, 0.8);
 }
 </style>

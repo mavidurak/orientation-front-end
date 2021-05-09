@@ -1,9 +1,8 @@
 <template>
   <div class="register">
-    <div class="registerdiv">
+    <div class="register-div">
       <br />
-      <h1 class="registerh1">Register</h1>
-      <form>
+      <h1 class="register-h1">Register</h1>
       <input
         type="text"
         id="email"
@@ -12,16 +11,16 @@
         placeholder="E-mail"
         require
       />
-      <h6 class="controlwarning">{{ controlEmail }}</h6>
+      <h6 class="control-warning">{{ controlEmail }}</h6>
       <input
-        type="email"
+        type="text"
         id="username"
         name="username"
         v-model="username"
         placeholder="Username"
         require
       />
-      <h6 class="controlwarning">{{ controlUser }}</h6>
+      <h6 class="control-warning">{{ controlUser }}</h6>
       <input
         type="password"
         id="password"
@@ -31,8 +30,8 @@
         require
       />
       <br />
-      <h6 class="controlwarning" v-show="controlPass1"> Required field </h6>
-      <h6 class="controlwarning" v-show="controlPass">
+      <h6 class="control-warning" v-show="controlPass1"> Required field </h6>
+      <h6 class="control-warning" v-show="controlPass">
         The password must contain lowercase and uppercase letters
         and must consist of at least 8 characters.
       </h6>
@@ -44,7 +43,7 @@
         placeholder="Password again"
         require
       />
-      <h6 class="controlwarning" v-show="controlPass2">Passwords must be same.</h6>
+      <h6 class="control-warning" v-show="controlPass2">Passwords must be same.</h6>
       <br />
       <button
         type="submit"
@@ -53,9 +52,8 @@
       >
         Register
       </button>
-      </form>
       <br />
-      <p class="alreadyregister">
+      <p class="already-register">
         If you have already registered
         <router-link to="/login">Login</router-link>
       </p>
@@ -126,27 +124,20 @@ input {
 .register {
   background: #f9f8f4;
 }
-.registerdiv {
+.register-div {
   background: white;
   border: 1px hsl(0, 5%, 73%) solid;
   margin-left: 40%;
   margin-right: 40%;
   border-radius: 10px;
 }
-.controlwarning {
+.control-warning {
   color: rgba(255, 46, 67, 0.8);
 }
-.alreadyregister {
+.already-register {
   color: #535455;
 }
-.registerh1 {
+.register-h1 {
   color: #212529;
-}
-.alreadyregisterlink {
-  color: #0d5980;
-}
-.alreadyregisterlink:hover {
-  text-decoration: none;
-  color: red;
 }
 </style>
