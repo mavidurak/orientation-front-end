@@ -1,5 +1,5 @@
 {
-  "name": "oryantosyan-front-end",
+  "name": "orientation-front-end",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,13 +13,12 @@
     "@popperjs/core": "^2.9.2",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+    "bootstrap-icons": "*",
     "core-js": "^3.6.5",
     "font-awesome": "^4.7.0",
-    "hooks": "^0.3.2",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
     "vue": "^2.6.11",
-    "vue-cli": "^2.9.6",
     "vue-multiselect": "^2.1.6",
     "vue-router": "^3.2.0",
     "yarn": "^1.22.10"
@@ -56,13 +55,5 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ],
-  "description": "Kitap, dizi , film ,oyun konularında tanıtımlara ulaşabilecek, konular üzerinden tartışma ve inceleme yapılabilecek, benzer içeriklere göz atan kişileri eşleyebilecek bir web sitesi.",
-  "main": "babel.config.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "author": "",
-  "license": "ISC",
-  "keywords": []
+  ]
 }

@@ -4,7 +4,6 @@
     <div class="multiselect">
       <Multiselect
         :dataSource="dataItem"
-        :fields="dataFields"
         aria-placeholder="Select a platform"
         @getValue="update"
       />
@@ -19,7 +18,7 @@
 </template>
 
 <script>
-import Multiselect from '../components/Multiselect.vue';
+import Multiselect from '@/components/Multiselect.vue';
 
 export default {
   name: 'MultiselectView',
@@ -34,7 +33,6 @@ export default {
         { name: 'Javascript', code: 'js' },
         { name: 'Open Source', code: 'os' },
       ],
-      dataFields: { text: 'name', value: 'code' },
     };
   },
   methods: {

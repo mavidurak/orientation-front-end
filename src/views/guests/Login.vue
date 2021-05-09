@@ -2,13 +2,13 @@
   <div class="login">
     <div class="loginin">
     <br>
-    <h1 class="loginh1">Üye Girişi</h1>
+    <h1 class="loginh1">Login</h1>
       <input
         type="text"
         id="username"
         name="username"
         v-model="username"
-        placeholder="Kullanıcı Adı"
+        placeholder="Username"
       />
       <br>
       <input
@@ -16,15 +16,16 @@
         id="password"
         name="password"
         v-model="password"
-        placeholder="Şifre"
+        placeholder="Password"
       />
     <br /><br />
-    <button type="button" class="btn btn-secondary btn-lg" @click="login()">
-      Giriş
+    <button type="button" class="btn btn-success btn-lg mb-3 " @click="login()">
+      Login
     </button>
     <br />
-    <a class="areuforgotpaswordlink" href="../forgot-password">Şifreni mi unuttun?</a>
-    <br />
+    <p class="areuforgotpassword"> <a class="areuforgotpaswordlink" href="../forgot-password">
+    Are you forgot password?
+    </a> </p>
     <p style="color: red; font-weight: bold">{{ alert }}</p>
     </div>
   </div>
@@ -60,11 +61,11 @@ export default {
           ) {
             this.$router.replace({ name: 'Home' });
           } else {
-            this.alert = 'Kullanıcı adınızı veya şifrenizi hatalı girdiniz!';
+            this.alert = 'Incorrect username or password';
           }
         }
       } else {
-        this.alert = 'Lütfen kullanıcı adınızı ve şifrenizi giriniz!';
+        this.alert = 'Please enter your username and password';
       }
     },
   },
@@ -83,9 +84,10 @@ input {
   box-sizing: border-box;
 }
 .loginin{
-  background: #3E5A5B;
-  margin-left:40%;
-  margin-right:40%;
+  background: white;
+  border: 1px hsl(0, 5%, 73%) solid;
+  margin-left: 40%;
+  margin-right: 40%;
   border-radius: 10px;
 }
 select {
@@ -98,10 +100,10 @@ select {
   box-sizing: border-box;
 }
 .areuforgotpassword{
-  color: #f9f8f4;
+  color: #535455;
 }
 .loginh1{
-  color: #f9f8f4;
+  color: #212529;
 }
 .login{
   background-color: #f9f8f4;
@@ -111,6 +113,6 @@ select {
   color:red;
 }
 .areuforgotpaswordlink{
-  color: #f9f8f4;
+  color: #535455;
 }
 </style>

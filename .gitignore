@@ -2,8 +2,8 @@
 node_modules
 /dist
 
-
 # local env files
+.env
 .env.local
 .env.*.local
 
@@ -14,6 +14,7 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Editor directories and files
+.editorconfig
 .idea
 .vscode
 *.suo
@@ -21,3 +22,5 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+*.swap
+*.swp
