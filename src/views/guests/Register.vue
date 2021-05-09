@@ -3,31 +3,36 @@
     <div class="registerdiv">
       <br />
       <h1 class="registerh1">Register</h1>
+      <form>
       <input
         type="text"
         id="email"
         name="email"
         v-model="email"
         placeholder="E-mail"
+        require
       />
-      <h6 id="controlwarning">{{ controlEmail }}</h6>
+      <h6 class="controlwarning">{{ controlEmail }}</h6>
       <input
-        type="text"
+        type="email"
         id="username"
         name="username"
         v-model="username"
         placeholder="Username"
+        require
       />
-      <h6 id="controlwarning">{{ controlUser }}</h6>
+      <h6 class="controlwarning">{{ controlUser }}</h6>
       <input
         type="password"
         id="password"
         name="password"
         v-model="password"
         placeholder="Password"
+        require
       />
       <br />
-      <h6 id="controlwarning" v-show="controlPass">
+      <h6 class="controlwarning" v-show="controlPass1"> Required field </h6>
+      <h6 class="controlwarning" v-show="controlPass">
         The password must contain lowercase and uppercase letters
         and must consist of at least 8 characters.
       </h6>
@@ -37,21 +42,22 @@
         name="passwordAgain"
         v-model="passwordAgain"
         placeholder="Password again"
+        require
       />
-      <h6 id="controlwarning" v-html="controlPass2"></h6>
-      <h6 id="controlwarning" v-html="controlPass3"></h6>
+      <h6 class="controlwarning" v-show="controlPass2">Passwords must be same.</h6>
       <br />
       <button
-        type="button"
+        type="submit"
         class="btn btn-success btn-lg mb-3"
         @click="register"
       >
         Register
       </button>
+      </form>
       <br />
       <p class="alreadyregister">
         If you have already registered
-        <a class="alreadyregisterlink" href="../login"> Login</a>
+        <router-link to="/login">Login</router-link>
       </p>
     </div>
   </div>
@@ -75,25 +81,19 @@ export default {
   methods: {
     register() {
       this.controlPass = false;
+      this.controlPass1 = '';
       this.controlPass2 = '';
-      this.controlPass3 = '';
       this.controlUser = '';
       this.controlEmail = '';
       if (this.email === '') {
         this.controlEmail = 'Required field';
       } else if (this.email.search('@') < 0) {
         this.controlEmail = 'Not valid';
-      } else {
-        this.controlEmail = '';
-      }
-      if (this.username === '') {
+      } if (this.username === '') {
         this.controlUser = 'Required field';
       } else if (this.username.length < 3) {
         this.controlUser = 'Please specify the user name field to be at least 3 characters';
-      } else {
-        this.controlUser = '';
-      }
-      if (this.password === '') {
+      } if (this.password === '') {
         this.controlPass1 += 'Required field';
       } else {
         if (this.password !== this.passwordAgain) {
@@ -133,7 +133,7 @@ input {
   margin-right: 40%;
   border-radius: 10px;
 }
-#controlwarning {
+.controlwarning {
   color: rgba(255, 46, 67, 0.8);
 }
 .alreadyregister {

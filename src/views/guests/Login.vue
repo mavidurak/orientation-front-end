@@ -3,12 +3,14 @@
     <div class="loginin">
     <br>
     <h1 class="loginh1">Login</h1>
+    <form >
       <input
         type="text"
         id="username"
         name="username"
         v-model="username"
         placeholder="Username"
+        require
       />
       <br>
       <input
@@ -17,15 +19,15 @@
         name="password"
         v-model="password"
         placeholder="Password"
+        require
       />
     <br /><br />
-    <button type="button" class="btn btn-success btn-lg mb-3 " @click="login()">
+    <button type="submit" class="btn btn-success btn-lg mb-3 " @click="login()">
       Login
     </button>
+    </form>
     <br />
-    <p class="areuforgotpassword"> <a class="areuforgotpaswordlink" href="../forgot-password">
-    Are you forgot password?
-    </a> </p>
+    <router-link to="/forgot-password">Are you forgot password?</router-link>
     <p style="color: red; font-weight: bold">{{ alert }}</p>
     </div>
   </div>
