@@ -65,11 +65,11 @@ export default {
           ) {
             this.$router.replace({ name: 'Home' });
           } else {
-            this.alert = 'Incorrect username or password';
+            this.alert = 'Incorrect username or password.';
           }
         }
       } else {
-        this.alert = 'Please enter your username and password';
+        this.alert = 'Please enter your username and password.';
       }
     },
   },
