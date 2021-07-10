@@ -1,6 +1,7 @@
 <template>
-  <div class="register">
-    <div class="register-div">
+  <div class="register row">
+    <div class="col-3 col-md-5 col-sm-4 "></div>
+    <div class="register-div col-6 col-md-2 col-sm-4">
       <br />
       <h1 class="register-h1">Register</h1>
       <input
@@ -58,6 +59,7 @@
         <router-link to="/login">Login</router-link>
       </p>
     </div>
+    <div class="col-3 col-md-5 col-sm-4 "></div>
   </div>
 </template>
 <script>
@@ -127,8 +129,6 @@ input {
 .register-div {
   background: white;
   border: 1px hsl(0, 5%, 73%) solid;
-  margin-left: 40%;
-  margin-right: 40%;
   border-radius: 10px;
 }
 .control-warning {

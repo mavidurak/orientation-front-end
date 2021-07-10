@@ -1,6 +1,7 @@
 <template>
-  <div class="login">
-    <div class="login-in">
+  <div class="login row">
+    <div class="col-3 col-md-5 col-sm-4 "></div>
+    <div class="login-in col-6 col-md-2 col-sm-4">
       <br />
       <h1 class="login-h1">Login</h1>
       <input
@@ -32,6 +33,7 @@
       <br />
       <router-link to="/forgot-password">Are you forgot password?</router-link>
     </div>
+    <div class="col-3 col-md-5 col-sm-4"></div>
   </div>
 </template>
 
@@ -90,8 +92,6 @@ input {
 .login-in {
   background: white;
   border: 1px hsl(0, 5%, 73%) solid;
-  margin-left: 40%;
-  margin-right: 40%;
   border-radius: 10px;
 }
 .login-h1 {
