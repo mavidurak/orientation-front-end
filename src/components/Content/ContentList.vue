@@ -1,10 +1,11 @@
 <template>
   <div class="list-group">
-      <ContentDetailSmall :content="item" v-for="item in content" :key="item.id"/>
+      <ContentDetailSmall :content="content" v-for="content in contents" :key="content.id"/>
   </div>
 </template>
 <script>
-import ContentDetailSmall from '@/components/ListContent/ContentDetailSmall.vue';
+import { CONTENT_TYPES } from '@/constants';
+import ContentDetailSmall from './ContentDetailSmall.vue';
 
 export default {
   components: {
@@ -12,7 +13,7 @@ export default {
   },
   data() {
     return {
-      content: [
+      contents: [
         {
           id: 1,
           name: 'Hayvan Çiftliği',
@@ -23,6 +24,7 @@ export default {
           },
           createdAt: 1,
           updatedAt: 1,
+          type: CONTENT_TYPES.BOOK,
         },
         {
           id: 2,
@@ -34,6 +36,7 @@ export default {
           },
           createdAt: 1,
           updatedAt: 1,
+          type: CONTENT_TYPES.MOVIE,
         },
         {
           id: 3,
@@ -45,6 +48,7 @@ export default {
           },
           createdAt: 1,
           updatedAt: 1,
+          type: CONTENT_TYPES.GAME,
         },
       ],
     };

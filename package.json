@@ -1,5 +1,5 @@
 {
-  "name": "oryantosyan-front-end",
+  "name": "orientation-front-end",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,9 +12,12 @@
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@popperjs/core": "^2.9.2",
     "axios": "^0.21.1",
-    "bootstrap": "^5.0.0-beta3",
+    "bootstrap": "^4.6.0",
+    "bootstrap-icons": "*",
     "core-js": "^3.6.5",
     "font-awesome": "^4.7.0",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1",
     "vue": "^2.6.11",
     "vue-multiselect": "^2.1.6",
     "vue-router": "^3.2.0",

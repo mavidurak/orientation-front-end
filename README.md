@@ -37,5 +37,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## Contributing
 [CONTRIBUTING.md](CONTRIBUTING.md)
 
+## Docs
+[docs/docs.md](docs/docs.md)
+
 ## License
 [MIT License](LICENSE)

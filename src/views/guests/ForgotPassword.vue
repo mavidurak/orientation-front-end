@@ -13,7 +13,7 @@
                 />
                 <h5><b>Giriş Yaparken Sorun mu Yaşıyorsun?</b></h5>
                 <div type="alert" class="alert alert-info" role="alert">
-                  E-posta adresini gir , hesabına
+                  E-posta adresini gir, hesabına
                   yeniden girebilmen için sana bir bağlantı gönderelim.
                   <br />
                 </div>
@@ -90,7 +90,7 @@
                         We are sorry."
                         <b>{{ mail }}</b
                         >" is incorrect or the account does not exist.Please
-                        enter correct mail address
+                        enter correct address
                       </h5>
                     </td>
                   </tr>
@@ -109,6 +109,7 @@
 </template>
 <script>
 export default {
+  name: 'ForgotPassword',
   data: () => ({
     mail: '',
     password: '',
