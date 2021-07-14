@@ -36,6 +36,9 @@
 </template>
 
 <script>
+import axios from 'axios';
+import swal from 'sweetalert';
+
 export default {
   name: 'Login',
   data() {
@@ -43,37 +46,45 @@ export default {
       alert: '',
       username: '',
       password: '',
-      users: [
-        {
-          username: 'deneme1',
-          password: '147258369',
-        },
-        {
-          username: 'deneme2',
-          password: '369258147',
-        },
-      ],
     };
   },
   methods: {
     login() {
       if (this.username !== '' && this.password !== '') {
-        for (let i = 0; i < this.users.length; i += 1) {
-          if (
-            this.username === this.users[i].username
-            && this.password === this.users[i].password
-          ) {
-            this.$router.replace({ name: 'Home' });
-          } else {
-            this.alert = 'Incorrect username or password';
-          }
-        }
+        axios.post('api/authentication/login', {
+          username: this.username,
+          password: this.password,
+        })
+          .then((res) => {
+            if (res.status === 200) {
+              localStorage.setItem('x-access-token', res.data.token.value);
+              axios.get('api/authentication/me', {
+                headers: {
+                  'x-access-token': res.data.token.value,
+                },
+              });
+              this.$router.push('/home');
+              window.location.reload();
+            }
+          })
+          .catch((err) => {
+            const message = err.response.data.errors
+              .map((e) => e.message);
+            const content = document.createElement('div');
+            content.innerHTML = message;
+            swal({
+              title: 'Validation Failed!',
+              content,
+              icon: 'error',
+            });
+          });
       } else {
         this.alert = 'Please enter your username and password';
       }
     },
   },
 };
+
 </script>
 
 <style>

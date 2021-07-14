@@ -23,11 +23,6 @@ const routes = [{
   component: () => import('../views/others/Axios.vue'),
 },
 {
-  path: '/login',
-  name: 'Login',
-  component: () => import('../views/guests/Login.vue'),
-},
-{
   path: '/forgot-password',
   name: 'ForgotPassword',
   component: () => import('../views/guests/ForgotPassword.vue'),
@@ -67,6 +62,11 @@ const routes = [{
   path: '/register',
   name: 'Register',
   component: () => import('../views/guests/Register.vue'),
+},
+{
+  path: '/',
+  name: 'Login',
+  component: () => import('../views/guests/Login.vue'),
 },
 ];
 
