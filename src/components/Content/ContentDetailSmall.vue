@@ -1,13 +1,26 @@
 <template>
-  <div class="list-group-item">
-    <div class="content">
-      <strong class="id">{{ content.id }} </strong>
-      <div class="image"><img :src="content.image" alt="content.name" /></div>
-      <strong>{{ content.name }}</strong> <br />
-      by {{ content.user.name }} <br />
-      {{ content.rate }}/10
-      <div class="wantedbutton">
-        <RateAndWantedButton :content="content" @select="changeStatus" @rate="rated"/>
+  <div>
+    <div class="list-group">
+      <div class="list-group-item">
+        <div class="row">
+          <div class="col-md-1">
+            <strong>{{ content.id }}</strong>
+          </div>
+          <div class="col-md-1">
+            <img class="img-fluid" :src="content.image.path" :alt="content.image.name" />
+          </div>
+          <div class="col-md-6 text-left">
+            <p id="type" class="badge badge-info">{{content.type}}</p>
+            <h2> <b>{{content.name}}</b> <span class="badge badge-success">
+              Views: {{content.views}}</span> <span class="badge badge-secondary">
+              Rate: {{content.rate}}</span></h2>
+            <p>{{content.description}}</p>
+          </div>
+          <div class="col-md-3">
+            <RateAndWantedButton :content="content" @select="changeStatus" @rate="rated"
+            id="wantedButton"/>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -37,36 +50,21 @@ export default {
 </script>
 <style lang="scss">
 .list-group-item {
-  img {
-    width: 105px;
-    height: 140px;
-    padding-right: 5px;
+  #type {
+    font-size:small;
   }
-  .image {
-    float: left;
+  #wantedButton {
+    padding-top: 50px;
   }
-  .content {
-    float: left;
-    text-align: justify;
-    width: 500px;
-    height: 150px;
-    padding-top: 5px;
-  }
-  .id {
-    float: left;
-    padding-right: 10px;
-  }
-  .wantedbutton {
-    float: right;
-    padding-right: 10px;
-  }
-
   #rate-label{
     margin: 0;
     margin-top: 15px;
     font-size: 12px;
     color: darken(rgb(209, 209, 209), 16);
     line-height: .5;
+  }
+  .badge{
+    font-size: 12px;
   }
 }
 </style>
