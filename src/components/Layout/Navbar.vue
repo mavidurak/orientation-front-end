@@ -74,12 +74,14 @@
             />
             <button class="btn" type="submit">Ara</button>
           </form>
-          <li class="nav-item" v-if="!isLogin">
+          <div v-if="!isLogin" style="display: flex">
+          <li class="nav-item" >
             <router-link to="/register" class="nav-link">Kayıt</router-link>
           </li>
-          <li class="nav-item" v-if="!isLogin">
+          <li class="nav-item">
             <router-link to="/login" class="nav-link">Giriş Yap</router-link>
           </li>
+          </div>
           <li class="nav-item" v-else>
             <a class="nav-link" href="" @click="logout()">Çıkış Yap</a>
           </li>
@@ -103,10 +105,9 @@ export default {
     };
   },
   mounted() {
-    this.isLogin = localStorage.getItem('x-access-token');
     axios.get('api/authentication/me', {
       headers: {
-        'x-access-token': this.isLogin,
+        'x-access-token': localStorage.getItem('x-access-token'),
       },
     })
       .then((res) => {
