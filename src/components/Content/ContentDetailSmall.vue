@@ -40,7 +40,6 @@ export default {
   },
   methods: {
     changeStatus(status) {
-      // eslint-disable-next-line
       axios.get('/api/wanted-list', {
         headers: {
           'x-access-token': window.localStorage.getItem('x-access-token'),
