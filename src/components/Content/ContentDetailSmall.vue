@@ -27,6 +27,8 @@
 </template>
 <script>
 import RateAndWantedButton from '@/components/RateAndWantedButtons/RateAndWantedButton.vue';
+import axios from 'axios';
+import swal from 'sweetalert';
 
 export default {
   name: 'ContentDetailSmall',
@@ -40,6 +42,62 @@ export default {
     changeStatus(status) {
       // eslint-disable-next-line
       console.log("wanted status", status);
+      axios.get('/api/wanted-list', {
+        headers: {
+          'x-access-token': window.localStorage.getItem('x-access-token'),
+        },
+      }).then((res) => {
+        const wanted = res.data.wantedList.find((wantedList) => wantedList.content_id
+        === this.$props.content.id);
+        if (!wanted) {
+          axios.post('/api/wanted-list', {
+            content_id: this.$props.content.id,
+            status,
+          }, {
+            headers: {
+              'x-access-token': window.localStorage.getItem('x-access-token'),
+            },
+          })
+            .then((response) => {
+              if (response.status === 201) {
+                swal({
+                  title: 'Success!',
+                  text: 'Wanted status added successfully!',
+                  icon: 'success',
+                });
+              } else {
+                swal({
+                  title: 'Error!',
+                  text: 'Wanted status added failed!',
+                  icon: 'error',
+                });
+              }
+            });
+        } else if (wanted) {
+          axios.put(`/api/wanted-list/${this.$props.content.id}`, {
+            status,
+          }, {
+            headers: {
+              'x-access-token': window.localStorage.getItem('x-access-token'),
+            },
+          })
+            .then((response) => {
+              if (response.status === 200) {
+                swal({
+                  title: 'Success!',
+                  text: 'Wanted updated successfully!',
+                  icon: 'success',
+                });
+              } else {
+                swal({
+                  title: 'Error!',
+                  text: 'Wanted status update failed',
+                  icon: 'error',
+                });
+              }
+            });
+        }
+      });
     },
     rated(r) {
       // eslint-disable-next-line

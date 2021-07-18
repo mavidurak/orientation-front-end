@@ -13,8 +13,7 @@ export default {
   },
   data() {
     return {
-      contents: [
-      ],
+      contents: [],
     };
   },
   name: 'ContentList',
