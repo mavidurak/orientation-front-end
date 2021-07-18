@@ -41,17 +41,16 @@ export default {
   methods: {
     changeStatus(status) {
       // eslint-disable-next-line
-      console.log("wanted status", status);
       axios.get('/api/wanted-list', {
         headers: {
           'x-access-token': window.localStorage.getItem('x-access-token'),
         },
       }).then((res) => {
         const wanted = res.data.wantedList.find((wantedList) => wantedList.content_id
-        === this.$props.content.id);
+        === this.content.id);
         if (!wanted) {
           axios.post('/api/wanted-list', {
-            content_id: this.$props.content.id,
+            content_id: this.content.id,
             status,
           }, {
             headers: {
@@ -74,7 +73,7 @@ export default {
               }
             });
         } else if (wanted) {
-          axios.put(`/api/wanted-list/${this.$props.content.id}`, {
+          axios.put(`/api/wanted-list/${this.content.id}`, {
             status,
           }, {
             headers: {
@@ -85,7 +84,7 @@ export default {
               if (response.status === 200) {
                 swal({
                   title: 'Success!',
-                  text: 'Wanted updated successfully!',
+                  text: 'Wanted status updated successfully!',
                   icon: 'success',
                 });
               } else {
