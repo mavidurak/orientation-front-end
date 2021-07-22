@@ -1,141 +1,167 @@
 <template>
   <div id="review">
-  <div class="container">
-    <img
-      class="book"
-      :src="content.avatar"
-    />
-    <div id="info">
-    <a><strong> {{ content.name }} </strong></a>
-    <br />
-    <a>Yazar: {{ content.owner }}</a>
-    <hr /> <br/>
-    <label for="review_rating">Puanım: <Rate @rate="rated"/></label> <br />
-    <div class="raf">
-      <form>
-        <label for="shelves">Raflar / durum: </label>
-        <WantedButton :contentType="content.type" @select="selectStatus"/>
-      </form>
-    </div>
-    <hr />
-    </div>
-    <label for="reviewselect">Ne düşünüyorsun ?</label>
-    <div class="right">
-      <div class="reviewselectlist">
-        <a style="color: #767676" href="#">Biçimlendirme ipuçları</a> |
-        <a style="color: #767676" href="#">Kitap/yazar ekle</a> |
-        <a style="color: #767676" href="#">Metin alanını büyüt</a>
-      </div>
-    </div>
-    <textarea
-      v-model="reviewtext"
-      class="textBox"
-      id="usertext"
-      maxlength="15000"
-      name="review[review]"
-      placeholder="Kitap hakkında görüşlerinizi yazabilirsiniz"
-      rows="12"
-      style="display: block; height: 240px; margin-top: 0px; margin-bottom: 0px"
-    ></textarea>
-    <div class="spoiler">
-      <input
-        v-model="isSpoiler"
-        type="checkbox"
-        name="reviewspoiler"
-        id="reviewspoiler"
-      />
-      <label for="reviewspoiler">Spoiler! tüm incelemeyi gizle</label>
-    </div>
-    <hr />
-    <strong>Okuduğum tarihler</strong> <br />
-    <span class="info">
-      <a>Yeniden mi okuyorsun?</a> <br />
-      <a
-        >Yeniden okuduğun tarihleri de ekleyip meydan okumana ekleyebilirsin.</a
-      >
-    </span>
-    <tr class="datebooks">
-      <td class="rereadingStartedAtHeader">
-        <label id="date" for="dateofbirth">Başlama tarihi (İsteğe bağlı)</label>
-        <input v-model="startDate" type="date" name="dateofbirth" id="dateofbirth" />
-      </td>
-      <td class="rereadingEndedAtHeader">
-        <label id="date" for="dateofbirth">Bittiği tarih (İsteğe bağlı)</label>
-        <input v-model="finishDate" type="date" name="dateofbirth" id="dateofbirth" />
-      </td>
-    </tr>
-    <br />
-    <div class="details">
-      <details>
-        <summary style="font-size: 12px; color: #767676">Daha fazlası</summary>
-        <span class="recommendation1">
-          <label for="review_recommendation">Şunları tavsiye ederim:</label>
-          <input
-            class="w3-input w3-border w3-animate-input"
-            type="text"
-            style="width: 30%"
-          />
-        </span>
-        <span class="recommendation2">
-          <br />
-          <label for="review_recommender_user_name1"
-            >Bu tavsiyeyi bana kim verdi:</label
-          >
-          <input
-            class="w3-input w3-border w3-animate-input"
-            type="text"
-            style="width: 30%"
-          />
-        </span>
-        <div class="privatenotes">
-          <label style="display: inline-block" for="review_notes"
-            >Özel notlar, sadece siz görebilirsiniz:</label
-          >
-          <textarea
-            class="textBox largeTextBox"
-            id="review_notes"
-            maxlength="512"
-            name="review[notes]"
-            rows="4"
-            style="width: 100%"
-          ></textarea>
+    <div class="container">
+      <img class="book" :src="content.image.path" />
+      <div id="info">
+        <a
+          ><strong> {{ content.name }} </strong></a
+        >
+        <br />
+        <a>Yazar: {{ content.user.name }}</a>
+        <hr />
+        <br />
+        <label for="review_rating">Puanım: <Rate @rate="rated" /></label> <br />
+        <div class="raf">
+          <form>
+            <label for="shelves">Raflar / durum: </label>
+            <WantedButton :contentType="content.type" @select="selectStatus" />
+          </form>
         </div>
-      </details>
-      <hr />
-      <div class="formitem">
+        <hr />
+      </div>
+      <label for="reviewselect">Ne düşünüyorsun ?</label>
+      <div class="right">
+        <div class="reviewselectlist">
+          <a style="color: #767676" href="#">Biçimlendirme ipuçları</a> |
+          <a style="color: #767676" href="#">Kitap/yazar ekle</a> |
+          <a style="color: #767676" href="#">Metin alanını büyüt</a>
+        </div>
+      </div>
+      <textarea
+        v-model="reviewtext"
+        class="textBox"
+        id="usertext"
+        maxlength="15000"
+        name="review[review]"
+        placeholder="Kitap hakkında görüşlerinizi yazabilirsiniz"
+        rows="12"
+        style="
+          display: block;
+          height: 240px;
+          margin-top: 0px;
+          margin-bottom: 0px;
+        "
+      ></textarea>
+      <div class="spoiler">
         <input
-          class="gr-button"
-          id="review_submit_for_52845775"
-          name="next"
-          type="submit"
-          value="Paylaş"
-          @click="submit"
+          v-model="isSpoiler"
+          type="checkbox"
+          name="reviewspoiler"
+          id="reviewspoiler"
         />
-        <span class="right">
+        <label for="reviewspoiler">Spoiler! tüm incelemeyi gizle</label>
+      </div>
+      <hr />
+      <strong>Okuduğum tarihler</strong> <br />
+      <span class="info">
+        <a>Yeniden mi okuyorsun?</a> <br />
+        <a
+          >Yeniden okuduğun tarihleri de ekleyip meydan okumana
+          ekleyebilirsin.</a
+        >
+      </span>
+      <tr class="datebooks">
+        <td class="rereadingStartedAtHeader">
+          <label id="date" for="dateofbirth"
+            >Başlama tarihi (İsteğe bağlı)</label
+          >
           <input
-            id="add_to_blog"
-            name="add_to_blog"
-            type="checkbox"
-            value="1"
+            v-model="startDate"
+            type="date"
+            name="dateofbirth"
+            id="dateofbirth"
           />
-          <label for="add_to_blog">Sayfamda paylaş</label> |
+        </td>
+        <td class="rereadingEndedAtHeader">
+          <label id="date" for="dateofbirth"
+            >Bittiği tarih (İsteğe bağlı)</label
+          >
           <input
-            id="add_update"
-            name="add_update"
-            type="checkbox"
-            value="1"
-            checked='"true"/'
+            v-model="finishDate"
+            type="date"
+            name="dateofbirth"
+            id="dateofbirth"
           />
-          <label for="add_update" id="add_update_text">Özet akışıma ekle</label>
-        </span>
+        </td>
+      </tr>
+      <br />
+      <div class="details">
+        <details>
+          <summary style="font-size: 12px; color: #767676">
+            Daha fazlası
+          </summary>
+          <span class="recommendation1">
+            <label for="review_recommendation">Şunları tavsiye ederim:</label>
+            <input
+              class="w3-input w3-border w3-animate-input"
+              type="text"
+              style="width: 30%"
+            />
+          </span>
+          <span class="recommendation2">
+            <br />
+            <label for="review_recommender_user_name1"
+              >Bu tavsiyeyi bana kim verdi:</label
+            >
+            <input
+              class="w3-input w3-border w3-animate-input"
+              type="text"
+              style="width: 30%"
+            />
+          </span>
+          <div class="privatenotes">
+            <label style="display: inline-block" for="review_notes"
+              >Özel notlar, sadece siz görebilirsiniz:</label
+            >
+            <textarea
+              class="textBox largeTextBox"
+              id="review_notes"
+              maxlength="512"
+              name="review[notes]"
+              rows="4"
+              style="width: 100%"
+            ></textarea>
+          </div>
+        </details>
+        <hr />
+        <div class="formitem">
+          <input
+            class="gr-button"
+            id="review_submit_for_52845775"
+            name="next"
+            type="submit"
+            value="Paylaş"
+            @click="submit"
+          />
+          <span class="right">
+            <input
+              id="add_to_blog"
+              name="add_to_blog"
+              type="checkbox"
+              value="1"
+            />
+            <label for="add_to_blog">Sayfamda paylaş</label> |
+            <input
+              id="add_update"
+              name="add_update"
+              type="checkbox"
+              value="1"
+              checked='"true"/'
+            />
+            <label for="add_update" id="add_update_text"
+              >Özet akışıma ekle</label
+            >
+          </span>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 <script>
 import Rate from '@/components/RateAndWantedButtons/Rate.vue';
 import WantedButton from '@/components/RateAndWantedButtons/WantedButton.vue';
+import axios from 'axios';
+import swal from 'sweetalert';
 
 export default {
   name: 'Review',
@@ -145,31 +171,41 @@ export default {
   },
   data() {
     return {
-      content: {
-        name: 'Hayvanlardan Tanrılara Sapiens: İnsan Türünün Kısa Bir Tarihi',
-        avatar: 'https://i.dr.com.tr/cache/500x400-0/originals/0000000633872-1.jpg',
-        owner: 'Yuval Noah Harari',
-        type: 'BOOK',
-      },
+      content: {},
       reviewtext: null,
       isSpoiler: null,
+      rate: null,
       startDate: null,
       finishDate: null,
       status: null,
-      rate: null,
     };
   },
   methods: {
     submit() {
       // eslint-disable-next-line
-      console.table({
-        review: this.reviewtext,
-        isSpoiler: this.isSpoiler,
-        Date: this.startDate,
-        date2: this.finishDate,
-        status: this.status,
-        rate: this.rate,
-      });
+      axios
+        .post('/api/reviews/',
+          {
+            content_id: this.content.id,
+            text: this.reviewtext,
+            score: this.rate,
+            is_spoiler: this.isSpoiler,
+          },
+          {
+            headers: {
+              'x-access-token': window.localStorage.getItem('x-access-token'),
+            },
+          })
+        .then((res) => {
+          const div = document.createElement('div');
+          swal({
+            icon: 'success',
+            div,
+            text: `${res.data.contentReview.score} 
+            ${res.data.contentReview.text} 
+            ${res.data.contentReview.is_spoiler} `,
+          });
+        });
     },
     rated(r) {
       this.rate = r;
@@ -178,14 +214,25 @@ export default {
       this.status = s;
     },
   },
+  mounted() {
+    axios
+      .get(`/api/contents/${this.$route.params.content}`, {
+        headers: {
+          'x-access-token': window.localStorage.getItem('x-access-token'),
+        },
+      })
+      .then((res) => {
+        this.content = res.data;
+      });
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 #review {
-  hr{
-  width: 80%;
-  float: right;
+  hr {
+    width: 80%;
+    float: right;
   }
 
   a {
