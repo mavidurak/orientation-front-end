@@ -203,7 +203,7 @@ export default {
             div,
             text: `${res.data.contentReview.score} 
             ${res.data.contentReview.text} 
-            ${res.data.contentReview.is_spoiler} `,
+            ${res.data.contentReview.is_spoiler}`,
           });
         });
     },
