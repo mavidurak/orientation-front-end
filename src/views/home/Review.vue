@@ -7,40 +7,33 @@
           ><strong> {{ content.name }} </strong></a
         >
         <br />
-        <a>Yazar: {{ content.user.name }}</a>
+        <a>Author:{{ content.user.name }}</a>
         <hr />
         <br />
-        <label for="review_rating">Puanım: <Rate @rate="rated" /></label> <br />
+        <label for="review-rating">Rate: <Rate @rate="rated" /></label> <br />
         <div class="raf">
           <form>
-            <label for="shelves">Raflar / durum: </label>
+            <label for="shelves">Shelves / status: </label>
             <WantedButton :contentType="content.type" @select="selectStatus" />
           </form>
         </div>
         <hr />
       </div>
-      <label for="reviewselect">Ne düşünüyorsun ?</label>
+      <label for="review-select">What are you thinking ?</label>
       <div class="right">
-        <div class="reviewselectlist">
-          <a style="color: #767676" href="#">Biçimlendirme ipuçları</a> |
-          <a style="color: #767676" href="#">Kitap/yazar ekle</a> |
-          <a style="color: #767676" href="#">Metin alanını büyüt</a>
+        <div class="review-selectlist">
+          <a href="#">Formatting tips</a> |
+          <a href="#">Add book/author</a> |
+          <a href="#">Enlarge text field</a>
         </div>
       </div>
       <textarea
         v-model="reviewtext"
-        class="textBox"
+        class="text-box"
         id="usertext"
         maxlength="15000"
-        name="review[review]"
-        placeholder="Kitap hakkında görüşlerinizi yazabilirsiniz"
+        placeholder="You can write your opinion about the book."
         rows="12"
-        style="
-          display: block;
-          height: 240px;
-          margin-top: 0px;
-          margin-bottom: 0px;
-        "
       ></textarea>
       <div class="spoiler">
         <input
@@ -49,32 +42,31 @@
           name="reviewspoiler"
           id="reviewspoiler"
         />
-        <label for="reviewspoiler">Spoiler! tüm incelemeyi gizle</label>
+        <label for="review-spoiler">Spoilers! hide all review</label>
       </div>
       <hr />
-      <strong>Okuduğum tarihler</strong> <br />
+      <strong>The dates I read</strong> <br />
       <span class="info">
-        <a>Yeniden mi okuyorsun?</a> <br />
+        <a>Are you re-reading?</a> <br />
         <a
-          >Yeniden okuduğun tarihleri de ekleyip meydan okumana
-          ekleyebilirsin.</a
+          >You can add reread dates to the challenge.</a
         >
       </span>
-      <tr class="datebooks">
-        <td class="rereadingStartedAtHeader">
-          <label id="date" for="dateofbirth"
-            >Başlama tarihi (İsteğe bağlı)</label
+      <tr class="date-books">
+        <td class="rereading-started-at-header">
+          <label id="date" for="date-of-birth"
+            >starting date (optional)</label
           >
           <input
             v-model="startDate"
             type="date"
-            name="dateofbirth"
+            name="date-of-birth"
             id="dateofbirth"
           />
         </td>
-        <td class="rereadingEndedAtHeader">
-          <label id="date" for="dateofbirth"
-            >Bittiği tarih (İsteğe bağlı)</label
+        <td class="rereading-ended-at-header">
+          <label id="date" for="date-of-birth"
+            >End date (optional)</label
           >
           <input
             v-model="finishDate"
@@ -87,11 +79,11 @@
       <br />
       <div class="details">
         <details>
-          <summary style="font-size: 12px; color: #767676">
-            Daha fazlası
+          <summary>
+            More
           </summary>
           <span class="recommendation1">
-            <label for="review_recommendation">Şunları tavsiye ederim:</label>
+            <label for="review-recommendation">I recommend:</label>
             <input
               class="w3-input w3-border w3-animate-input"
               type="text"
@@ -100,8 +92,8 @@
           </span>
           <span class="recommendation2">
             <br />
-            <label for="review_recommender_user_name1"
-              >Bu tavsiyeyi bana kim verdi:</label
+            <label for="review-recommender-user-name1"
+              >Who gave me this advice:</label
             >
             <input
               class="w3-input w3-border w3-animate-input"
@@ -109,28 +101,26 @@
               style="width: 30%"
             />
           </span>
-          <div class="privatenotes">
+          <div class="private-notes">
             <label style="display: inline-block" for="review_notes"
-              >Özel notlar, sadece siz görebilirsiniz:</label
+              >Private notes, only you can see:</label
             >
             <textarea
-              class="textBox largeTextBox"
+              class="text-box largeTextBox"
               id="review_notes"
               maxlength="512"
-              name="review[notes]"
               rows="4"
               style="width: 100%"
             ></textarea>
           </div>
         </details>
-        <hr />
-        <div class="formitem">
+        <div class="form-item">
           <input
             class="gr-button"
             id="review_submit_for_52845775"
             name="next"
             type="submit"
-            value="Paylaş"
+            value="Share"
             @click="submit"
           />
           <span class="right">
@@ -140,7 +130,7 @@
               type="checkbox"
               value="1"
             />
-            <label for="add_to_blog">Sayfamda paylaş</label> |
+            <label for="add-to-blog">Share on my page</label> |
             <input
               id="add_update"
               name="add_update"
@@ -148,8 +138,8 @@
               value="1"
               checked='"true"/'
             />
-            <label for="add_update" id="add_update_text"
-              >Özet akışıma ekle</label
+            <label for="add-update" id="add_update_text"
+              >Add to my feed</label
             >
           </span>
         </div>
@@ -197,13 +187,19 @@ export default {
             },
           })
         .then((res) => {
-          const div = document.createElement('div');
+          if (res.status === 200) {
+            swal({
+              icon: 'success',
+              text: `${this.content.name} review created successfully`,
+            });
+          }
+        })
+        .catch((err) => {
+          const message = err.response.data.errors
+            .map((e) => e.message);
           swal({
-            icon: 'success',
-            div,
-            text: `${res.data.contentReview.score} 
-            ${res.data.contentReview.text} 
-            ${res.data.contentReview.is_spoiler}`,
+            icon: 'error',
+            text: `${message}`,
           });
         });
     },
@@ -230,6 +226,10 @@ export default {
 
 <style lang="scss" scoped>
 #review {
+  summary{
+    font-size: 12px;
+    color: #767676;
+  }
   hr {
     width: 80%;
     float: right;
@@ -269,6 +269,10 @@ export default {
   #usertext {
     resize: vertical;
     width: 100%;
+    display: block;
+    height: 240px;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
 
   span.info {
@@ -308,9 +312,12 @@ export default {
     float: left;
   }
 
-  .reviewselectlist {
+  .review-selectlist {
     font-size: 12px;
     color: #767676;
+    a {
+      color: #767676;
+    }
   }
 }
 </style>
