@@ -39,7 +39,6 @@
         <input
           v-model="isSpoiler"
           type="checkbox"
-          name="reviewspoiler"
           id="reviewspoiler"
         />
         <label for="review-spoiler">Spoilers! hide all review</label>
@@ -60,7 +59,6 @@
           <input
             v-model="startDate"
             type="date"
-            name="date-of-birth"
             id="dateofbirth"
           />
         </td>
@@ -71,7 +69,6 @@
           <input
             v-model="finishDate"
             type="date"
-            name="dateofbirth"
             id="dateofbirth"
           />
         </td>
@@ -118,7 +115,6 @@
           <input
             class="gr-button"
             id="review_submit_for_52845775"
-            name="next"
             type="submit"
             value="Share"
             @click="submit"
@@ -126,14 +122,12 @@
           <span class="right">
             <input
               id="add_to_blog"
-              name="add_to_blog"
               type="checkbox"
               value="1"
             />
             <label for="add-to-blog">Share on my page</label> |
             <input
               id="add_update"
-              name="add_update"
               type="checkbox"
               value="1"
               checked='"true"/'
