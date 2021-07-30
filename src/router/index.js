@@ -68,6 +68,11 @@ const routes = [{
   name: 'Register',
   component: () => import('../views/guests/Register.vue'),
 },
+{
+  path: '/explore',
+  name: 'Explore',
+  component: () => import('../views/home/Explore.vue'),
+},
 ];
 
 const router = new VueRouter({
