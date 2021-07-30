@@ -5,6 +5,16 @@
         <h1 class="register-h1">Let's Start!</h1>
         <input
           type="text"
+          id="name"
+          name="name"
+          v-model="name"
+          placeholder=" "
+          require
+        />
+        <label for="name">Name Surname</label><br />
+        <h6 class="control-warning">{{ controlName }}</h6>
+        <input
+          type="text"
           id="email"
           name="email"
           v-model="email"
@@ -64,10 +74,12 @@ export default {
   },
   data() {
     return {
+      name: '',
       email: '',
       username: '',
       password: '',
       passwordAgain: '',
+      controlName: '',
       controlEmail: '',
       controlUser: '',
       controlPass: '',
@@ -82,6 +94,9 @@ export default {
       this.controlPass2 = '';
       this.controlUser = '';
       this.controlEmail = '';
+      if (this.name === '') {
+        this.controlName = 'Required field';
+      }
       if (this.email === '') {
         this.controlEmail = 'Required field';
       } else if (this.email.search('@') < 0) {
@@ -159,7 +174,7 @@ input:not(:placeholder-shown) + label {
 }
 .register-h1 {
   color: #212529;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 .control-warning {
   color: rgba(255, 46, 67, 0.8);
