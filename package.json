@@ -13,7 +13,7 @@
     "@popperjs/core": "^2.9.2",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
-    "bootstrap-icons": "*",
+    "bootstrap-icons": "^1.5.0",
     "core-js": "^3.6.5",
     "font-awesome": "^4.7.0",
     "jquery": "^3.6.0",
