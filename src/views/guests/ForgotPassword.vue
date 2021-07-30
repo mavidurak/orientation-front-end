@@ -1,4 +1,5 @@
 <template>
+<div class="forgot-password">
   <div class="container">
     <div class="row">
       <div class="col-sm-3"></div>
@@ -8,13 +9,18 @@
           <div class="card-body">
             <form v-show="!isReset" @submit.prevent="onSubmit()">
               <div class="text-center">
-                <img src="https://i.pinimg.com/originals/4d/eb/3c/4deb3c920b25c70288af20d66c559b72.png"
-                style="background-position: -130px 0; height: 30px; width: 30px;"
+                <img
+                  src="https://i.pinimg.com/originals/4d/eb/3c/4deb3c920b25c70288af20d66c559b72.png"
+                  style="
+                    background-position: -130px 0;
+                    height: 30px;
+                    width: 30px;
+                  "
                 />
                 <h5><b>Giriş Yaparken Sorun mu Yaşıyorsun?</b></h5>
                 <div type="alert" class="alert alert-info" role="alert">
-                  E-posta adresini gir, hesabına
-                  yeniden girebilmen için sana bir bağlantı gönderelim.
+                  E-posta adresini gir, hesabına yeniden girebilmen için sana
+                  bir bağlantı gönderelim.
                   <br />
                 </div>
               </div>
@@ -31,7 +37,9 @@
               </div>
               <div>
                 <br />
-              <button type="submit" class="btn btn-outline-primary">Giriş Bağlantısı Gönder</button>
+                <button type="submit" class="btn btn-outline-primary">
+                  Giriş Bağlantısı Gönder
+                </button>
               </div>
             </form>
             <div v-show="isReset">
@@ -106,6 +114,7 @@
       <div class="col-sm-3"></div>
     </div>
   </div>
+</div>
 </template>
 <script>
 export default {
@@ -129,3 +138,15 @@ export default {
   created: () => {},
 };
 </script>
+
+<style scoped>
+.forgot-password {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  background-color: rgb(236, 235, 233);
+}
+</style>
