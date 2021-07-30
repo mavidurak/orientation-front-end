@@ -20,6 +20,13 @@
         placeholder="Username"
         require
       />
+      <input
+        type="text"
+        id="name"
+        v-model="name"
+        placeholder="name"
+        require
+      />
       <h6 class="control-warning">{{ controlUser }}</h6>
       <input
         type="password"
@@ -30,10 +37,10 @@
         require
       />
       <br />
-      <h6 class="control-warning" v-show="controlPass1"> Required field </h6>
+      <h6 class="control-warning" v-show="controlPass1">Required field</h6>
       <h6 class="control-warning" v-show="controlPass">
-        The password must contain lowercase and uppercase letters
-        and must consist of at least 8 characters.
+        The password must contain lowercase and uppercase letters and must
+        consist of at least 8 characters.
       </h6>
       <input
         type="password"
@@ -43,7 +50,9 @@
         placeholder="Password again"
         require
       />
-      <h6 class="control-warning" v-show="controlPass2">Passwords must be same.</h6>
+      <h6 class="control-warning" v-show="controlPass2">
+        Passwords must be same.
+      </h6>
       <br />
       <button
         type="submit"
@@ -61,12 +70,16 @@
   </div>
 </template>
 <script>
+import Axios from 'axios';
+import swal from 'sweetalert';
+
 export default {
   name: 'Register',
   data() {
     return {
       email: '',
-      nickname: '',
+      username: '',
+      name: '',
       password: '',
       passwordAgain: '',
       controlEmail: '',
@@ -105,6 +118,27 @@ export default {
         ) {
           this.controlPass = true;
         }
+      }
+      if (this.controlPass1 === ''
+      && this.controlPass2 === ''
+      && this.controlUser === ''
+      && this.controlEmail === ''
+      && this.controlPass === false) {
+        Axios.post('api/authentication/register/', {
+          username: this.username,
+          password: this.password,
+          email: this.email,
+          name: this.name,
+        })
+          .then((response) => {
+            if (response.status === 201) {
+              this.$router.push('/login');
+            }
+          })
+          .catch((error) => {
+            console.log(error.response.data.errors);
+          });
+        swal('Good job!', 'You clicked the button!', 'success');
       }
     },
   },
