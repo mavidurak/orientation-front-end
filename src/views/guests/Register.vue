@@ -133,6 +133,7 @@ export default {
           name: this.name,
         })
           .then((response) => {
+            swal('Aferin!', 'Kayıt başarılı!', 'success');
             if (response.status === 201) {
               this.$router.push('/login');
             }
@@ -140,7 +141,7 @@ export default {
           .catch((error) => {
             console.log(error.response.data.errors);
           });
-        swal('Good job!', 'You clicked the button!', 'success');
+        swal('Hayda', 'Senden önce birisi bunları denemiş!', 'error');
       }
     },
   },
