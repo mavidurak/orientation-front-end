@@ -1,7 +1,6 @@
 <template>
-<div>
-
-     <div class="container">
+<div class="iconDiv">
+     <div>
       <img class="img-fluid icon" :src="content.image.path" :alt="content.image.name"
       data-placement="right" data-toggle="tooltip" data-html="true" :title="tooltip(content)"/>
     </div>
@@ -38,20 +37,21 @@ export default {
 </script>
 <style lang="scss" >
 .icon{
-  height: 180px;
+  height: 200px;
   width: 130px;
   padding-bottom: 10px;
+  padding-left: 10px;
 }
 span{
     padding-left: 10px;
   }
-   div{
+   .iconDiv{
      display: inline-block;
    }
   .tooltip {
-    background-color: #DADDE4;
+    background-color: #BCBEC2;
     color: black;
-    padding: 10px;
+    padding: 6px;
     border-radius: 10px;
   }
   .tooltip-inner {
