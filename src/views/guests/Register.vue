@@ -1,6 +1,6 @@
 <template>
   <div class="register row">
-    <div class="col-3 col-md-5 col-sm-4 "></div>
+    <div class="col-3 col-md-5 col-sm-4"></div>
     <div class="register-div col-6 col-md-2 col-sm-4">
       <br />
       <h1 class="register-h1">Register</h1>
@@ -21,13 +21,7 @@
         placeholder="Username"
         require
       />
-      <input
-        type="text"
-        id="name"
-        v-model="name"
-        placeholder="name"
-        require
-      />
+      <input type="text" id="name" v-model="name" placeholder="name" require />
       <h6 class="control-warning">{{ controlUser }}</h6>
       <input
         type="password"
@@ -68,7 +62,7 @@
         <router-link to="/login">Login</router-link>
       </p>
     </div>
-    <div class="col-3 col-md-5 col-sm-4 "></div>
+    <div class="col-3 col-md-5 col-sm-4"></div>
   </div>
 </template>
 <script>
@@ -132,16 +126,31 @@ export default {
           email: this.email,
           name: this.name,
         })
-          .then((response) => {
-            swal('Aferin!', 'Kayıt başarılı!', 'success');
-            if (response.status === 201) {
-              this.$router.push('/login');
+          .then((respose) => {
+            if (respose.status === 201) {
+              swal({
+                title: `Thank you ${this.name}.Your acount has been succesfully created.`,
+                text: 'Please check your mailbox.We send a information mail ...',
+                icon: 'success',
+              }).then(() => {
+                this.$router.push('login');
+              });
             }
           })
-          .catch((error) => {
-            console.log(error.response.data.errors);
+          .catch((err) => {
+            if (err.response.status === 400) {
+              const message = err.response.data.errors
+                .map((e) => e.message)
+                .join('<br/>');
+              const content = document.createElement('div');
+              content.innerHTML = message;
+              swal({
+                title: 'Error!',
+                content,
+                icon: 'error',
+              });
+            }
           });
-        swal('Hayda', 'Senden önce birisi bunları denemiş!', 'error');
       }
     },
   },
