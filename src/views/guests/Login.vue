@@ -1,17 +1,16 @@
 <template>
   <div class="login">
     <div class="login-in">
-      <h1 class="login-h1" style="margin-top: 5%">WELCOME</h1>
+      <h1>WELCOME</h1>
       <form>
         <input
           type="text"
           id="username"
-          name="username"
           v-model="username"
           placeholder=" "
         />
         <label for="email">Username</label>
-        <Password @password="password = $event" />
+        <Password @password="emitPassword($event)" />
       </form>
       <p class="warning-login">{{ alert }}</p>
       <button type="submit" class="btn btn-info btn-lg mb-3" @click="login()">
@@ -22,7 +21,9 @@
         If you are not registered
         <router-link to="/register">Sign Up</router-link>
       </p>
+      <p>
       <router-link to="/forgot-password">Forgotten your password?</router-link>
+      </p>
     </div>
   </div>
 </template>
@@ -58,6 +59,9 @@ export default {
       });
   },
   methods: {
+    emitPassword(password) {
+      this.password = password;
+    },
     login() {
       if (this.username !== '' && this.password !== '') {
         axios
@@ -120,7 +124,7 @@ input {
   margin-top: 10px;
   border: none;
   border-bottom: 1px solid rgb(187, 179, 212);
-  font-size: 1em;
+  font-size: 16px;
   outline: none;
 }
 form {
@@ -133,6 +137,7 @@ label {
   color: rgb(68, 65, 65);
   transform-origin: 0 0;
   transition: transform 0.2s ease-in-out;
+  font-size: 16px;
 }
 input:focus + label,
 input:not(:placeholder-shown) + label {
@@ -142,10 +147,14 @@ input:not(:placeholder-shown) + label {
 input:focus {
   border-bottom: 2px solid rgb(8, 84, 114);
 }
-.login-h1 {
+h1 {
+  margin-top: 5%;
   color: #212529;
 }
 .warning-login {
   color: rgba(255, 46, 67, 0.8);
+}
+p {
+  font-size: 16px;
 }
 </style>

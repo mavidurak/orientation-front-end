@@ -3,7 +3,7 @@
     <input
       type="password"
       id="password"
-      v-on:keyup="keyupEvent"
+      @keyup="keyupEvent"
       v-model="password"
       placeholder=" "
     />
@@ -27,15 +27,15 @@ export default {
       this.$emit('password', this.password);
     },
     toggle() {
-      const x = document.getElementById('password');
-      const y = document.getElementById('hidePassword');
+      const password = document.getElementById('password');
+      const hidePassword = document.getElementById('hidePassword');
 
-      if (x.type === 'password') {
-        x.type = 'text';
-        y.setAttribute('class', 'fa fa-eye');
+      if (password.type === 'password') {
+        password.type = 'text';
+        hidePassword.setAttribute('class', 'fa fa-eye');
       } else {
-        x.type = 'password';
-        y.setAttribute('class', 'fa fa-eye-slash');
+        password.type = 'password';
+        hidePassword.setAttribute('class', 'fa fa-eye-slash');
       }
     },
   },
@@ -68,6 +68,7 @@ label {
   color: rgb(68, 65, 65);
   transform-origin: 0 0;
   transition: transform 0.2s ease-in-out;
+  font-size: 16px;
 }
 input:focus + label,
 input:not(:placeholder-shown) + label {

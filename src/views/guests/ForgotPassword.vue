@@ -148,5 +148,7 @@ export default {
   align-items: center;
   font-size: 1.2rem;
   background-color: rgb(236, 235, 233);
+  /* display: flex;
+  margin: auto; */
 }
 </style>

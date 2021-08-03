@@ -6,7 +6,6 @@
         <input
           type="text"
           id="name"
-          name="name"
           v-model="name"
           placeholder=" "
           require
@@ -16,7 +15,6 @@
         <input
           type="text"
           id="email"
-          name="email"
           v-model="email"
           placeholder=" "
           require
@@ -26,22 +24,21 @@
         <input
           type="text"
           id="username"
-          name="username"
           v-model="username"
           placeholder=" "
           require
         />
         <label for="username">Username</label><br />
         <h6 class="control-warning">{{ controlUser }}</h6>
-        <Password @password="password = $event" />
+        <Password @password="emitPassword($event)" />
         <br />
         <h6 class="control-warning" v-show="controlPass1">Required field</h6>
         <h6 class="control-warning" v-show="controlPass">
           The password must contain lowercase and uppercase letters and must
           consist of at least 8 characters.
         </h6>
-        <PasswordAgain @passwordAgain="passwordAgain = $event" />
-        <br />
+        <PasswordAgain @passwordAgain="emitPasswordAgain($event)" />
+      </form>
         <h6 class="control-warning" v-show="controlPass2">
           Passwords must be same.
         </h6>
@@ -58,7 +55,6 @@
           If you have already registered
           <router-link to="/login">Sign In</router-link>
         </p>
-      </form>
     </div>
   </div>
 </template>
@@ -88,6 +84,12 @@ export default {
     };
   },
   methods: {
+    emitPassword(password) {
+      this.password = password;
+    },
+    emitPasswordAgain(passwordAgain) {
+      this.passwordAgain = passwordAgain;
+    },
     register() {
       this.controlPass = false;
       this.controlPass1 = '';
@@ -166,6 +168,7 @@ label {
   color: rgb(68, 65, 65);
   transform-origin: 0 0;
   transition: transform 0.2s ease-in-out;
+  font-size: 16px;
 }
 input:focus + label,
 input:not(:placeholder-shown) + label {
@@ -181,5 +184,6 @@ input:not(:placeholder-shown) + label {
 }
 .already-register {
   color: #535455;
+  font-size: 16px;
 }
 </style>
