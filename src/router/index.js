@@ -63,6 +63,11 @@ const routes = [
     name: 'CommunityDetail',
     component: () => import('../views/CommunityDetail.vue'),
   },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: () => import('../views/Profile.vue'),
+  },
 ];
 
 const router = new VueRouter({
