@@ -15,9 +15,10 @@
   </div>
 </template>
 <script>
-import CommunityList from '../components/Community/CommunityList.vue';
+import CommunityList from '@/components/Community/CommunityList.vue';
 
 export default {
+  name: 'Communuties',
   components: {
     CommunityList,
   },

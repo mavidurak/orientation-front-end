@@ -2042,9 +2042,14 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.npmjs.org/boolbase/-/boolbase-1.0.0.tgz"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
+bootstrap-icons@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/bootstrap-icons/-/bootstrap-icons-1.5.0.tgz#2cb19da148aa9105cb3174de2963564982d3dc55"
+  integrity sha512-44feMc7DE1Ccpsas/1wioN8ewFJNquvi5FewA06wLnqct7CwMdGDVy41ieHaacogzDqLfG8nADIvMNp9e4bfbA==
+
 bootstrap@^4.6.0:
   version "4.6.0"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.6.0.tgz#97b9f29ac98f98dfa43bf7468262d84392552fd7"
+  resolved "https://registry.npmjs.org/bootstrap/-/bootstrap-4.6.0.tgz"
   integrity sha512-Io55IuQY3kydzHtbGvQya3H+KorS/M9rSNyfCGCg9WZ4pyT/lCxIlpJgG1GXW/PswzC84Tr2fBYi+7+jFVQQBw==
 
 brace-expansion@^1.1.7:
@@ -3466,6 +3471,11 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
+es6-object-assign@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/es6-object-assign/-/es6-object-assign-1.1.0.tgz"
+  integrity sha1-wsNYJlYkfDnqEHyx5mUrb58kUjw=
+
 escalade@^3.1.1:
   version "3.1.1"
   resolved "https://registry.npmjs.org/escalade/-/escalade-3.1.1.tgz"
@@ -4121,7 +4131,7 @@ fs.realpath@^1.0.0:
 
 fsevents@^1.2.7:
   version "1.2.13"
-  resolved "https://registry.npmjs.org/fsevents/-/fsevents-1.2.13.tgz"
+  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-1.2.13.tgz#f325cb0455592428bcf11b383370ef70e3bfcc38"
   integrity sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==
   dependencies:
     bindings "^1.5.0"
@@ -4129,7 +4139,7 @@ fsevents@^1.2.7:
 
 fsevents@~2.3.1:
   version "2.3.2"
-  resolved "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
+  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
   integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
 
 function-bind@^1.1.1:
@@ -5104,7 +5114,7 @@ jest-worker@^25.4.0:
 
 jquery@^3.6.0:
   version "3.6.0"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
+  resolved "https://registry.npmjs.org/jquery/-/jquery-3.6.0.tgz"
   integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
 
 js-message@1.0.7:
@@ -5733,9 +5743,9 @@ mz@^2.4.0:
     thenify-all "^1.0.0"
 
 nan@^2.12.1:
-  version "2.14.2"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
-  integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.15.0.tgz#3f34a473ff18e15c1b5626b62903b5ad6e665fee"
+  integrity sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -6416,7 +6426,7 @@ pnp-webpack-plugin@^1.6.4:
 
 popper.js@^1.16.1:
   version "1.16.1"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
+  resolved "https://registry.npmjs.org/popper.js/-/popper.js-1.16.1.tgz"
   integrity sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==
 
 portfinder@^1.0.26:
@@ -6811,6 +6821,11 @@ promise-inflight@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/promise-inflight/-/promise-inflight-1.0.1.tgz"
   integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
+
+promise-polyfill@^6.0.2:
+  version "6.1.0"
+  resolved "https://registry.npmjs.org/promise-polyfill/-/promise-polyfill-6.1.0.tgz"
+  integrity sha1-36lpQ+qcEh/KTem1hoyznTRy4Fc=
 
 proxy-addr@~2.0.5:
   version "2.0.6"
@@ -7921,6 +7936,14 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
+sweetalert@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.npmjs.org/sweetalert/-/sweetalert-2.1.2.tgz"
+  integrity sha512-iWx7X4anRBNDa/a+AdTmvAzQtkN1+s4j/JJRWlHpYE8Qimkohs8/XnFcWeYHH2lMA8LRCa5tj2d244If3S/hzA==
+  dependencies:
+    es6-object-assign "^1.1.0"
+    promise-polyfill "^6.0.2"
+
 table@^5.2.3:
   version "5.4.6"
   resolved "https://registry.npmjs.org/table/-/table-5.4.6.tgz"
@@ -8496,7 +8519,7 @@ vue@^2.6.11:
 
 watchpack-chokidar2@^2.0.1:
   version "2.0.1"
-  resolved "https://registry.npmjs.org/watchpack-chokidar2/-/watchpack-chokidar2-2.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/watchpack-chokidar2/-/watchpack-chokidar2-2.0.1.tgz#38500072ee6ece66f3769936950ea1771be1c957"
   integrity sha512-nCFfBIPKr5Sh61s4LPpy1Wtfi0HE8isJ3d2Yb5/Ppw2P2B/3eVSEBjKfN0fmHJSK14+31KwMKmcrzs2GM4P0Ww==
   dependencies:
     chokidar "^2.1.8"

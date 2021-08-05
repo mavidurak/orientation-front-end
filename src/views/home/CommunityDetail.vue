@@ -1,5 +1,7 @@
 <template>
-  <div class="community-detail content">
+
+  <div class="community-detail">
+    <div class="content">
     <div class="row">
       <div class="col">
         <div class="background">
@@ -99,6 +101,7 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
@@ -140,12 +143,14 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .community-detail {
-  padding: 15%;
+  display: flex;
   .content {
     top: 50%;
     left: 50%;
+    max-width: 920px;
+    margin: auto;
   }
   #padding-content {
     padding: 8px;
@@ -158,7 +163,8 @@ export default {
     position: absolute;
     display: block;
     text-align: center;
-    top: -12%;
+    top: -50px;
+    left: 28px;
     .afis {
       background:wheat;
       padding: 4px;
