@@ -9,6 +9,7 @@
         <router-link to="/review/1">Review</router-link> |
         <router-link to="/contents/1">Content Detail</router-link> |
         <router-link to="/contents">List Content</router-link> |
+        <router-link to="/communities/1">Community Detail</router-link> |
         <router-link to="/login">Login</router-link> |
         <router-link to="/Register">Register</router-link>
       </div>
