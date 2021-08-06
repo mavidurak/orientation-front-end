@@ -1,6 +1,5 @@
 <template>
 <div>
-
      <div class="container">
       <img class="img-fluid icon" :src="content.image.path" :alt="content.image.name"
       data-placement="right" data-toggle="tooltip" data-html="true" :title="tooltip(content)"/>
