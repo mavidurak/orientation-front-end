@@ -46,11 +46,18 @@
             />
             <button class="btn" type="submit">Ara</button>
           </form>
-          <li class="nav-item">
-            <router-link to="/login" class="nav-link">Giriş Yap</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/register" class="nav-link">Kayıt</router-link>
+          <div v-if="!isLogin" style="display: flex">
+            <li class="nav-item">
+              <router-link to="/register" class="nav-link">Kayıt</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/login" class="nav-link">Giriş Yap</router-link>
+            </li>
+          </div>
+          <li class="nav-item" v-else>
+            <p class="nav-link" style="cursor: pointer" @click="logout()">
+              Çıkış Yap
+            </p>
           </li>
           <li class="nav-item">
             <router-link to="/about" class="nav-link">Hakkımda</router-link>
@@ -62,8 +69,34 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'Navbar',
+  data() {
+    return {
+      isLogin: '',
+    };
+  },
+  mounted() {
+    axios
+      .get('api/authentication/me', {
+        headers: {
+          'x-access-token': localStorage.getItem('x-access-token'),
+        },
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          this.isLogin = true;
+        }
+      });
+  },
+  methods: {
+    logout() {
+      localStorage.clear();
+      this.$router.push('/');
+    },
+  },
 };
 </script>
 <style lang="scss">
