@@ -13,7 +13,6 @@
       <hr>
       <ContentIcon :content="content" v-for="content in filterMovies"
       :key="content.id"/>
-      <br>
     </div>
     <div id="series">
       <h3 class="text-left">Series</h3>
@@ -41,6 +40,7 @@
 </template>
 <script>
 import axios from 'axios';
+import { CONTENT_TYPES } from '@/constants';
 import ContentIcon from './ContentIcon.vue';
 
 export default {
@@ -64,16 +64,16 @@ export default {
   },
   computed: {
     filterMovies() {
-      return this.contents.filter((item) => item.type === 'MOVIE');
+      return this.contents.filter((item) => item.type === CONTENT_TYPES.MOVIE);
     },
     filterBooks() {
-      return this.contents.filter((item) => item.type === 'BOOK');
+      return this.contents.filter((item) => item.type === CONTENT_TYPES.BOOK);
     },
     filterGames() {
-      return this.contents.filter((item) => item.type === 'GAME');
+      return this.contents.filter((item) => item.type === CONTENT_TYPES.GAME);
     },
     filterSeries() {
-      return this.contents.filter((item) => item.type === 'SERIES');
+      return this.contents.filter((item) => item.type === CONTENT_TYPES.SERIES);
     },
   },
 };
