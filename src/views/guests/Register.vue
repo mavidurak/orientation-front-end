@@ -62,6 +62,9 @@
 import Password from '@/components/Input/Password.vue';
 import PasswordAgain from '@/components/Input/PasswordAgain.vue';
 
+import Axios from 'axios';
+import swal from 'sweetalert';
+
 export default {
   name: 'Register',
   components: {
@@ -123,6 +126,43 @@ export default {
         ) {
           this.controlPass = true;
         }
+      }
+      if (this.controlPass1 === ''
+      && this.controlPass2 === ''
+      && this.controlUser === ''
+      && this.controlEmail === ''
+      && this.controlPass === false) {
+        Axios.post('api/authentication/register/', {
+          username: this.username,
+          password: this.password,
+          email: this.email,
+          name: this.name,
+        })
+          .then((respose) => {
+            if (respose.status === 201) {
+              swal({
+                title: `Thank you ${this.name}.Your acount has been succesfully created.`,
+                text: 'Please check your mailbox.We send a information mail ...',
+                icon: 'success',
+              }).then(() => {
+                this.$router.push('login');
+              });
+            }
+          })
+          .catch((err) => {
+            if (err.response.status === 400) {
+              const message = err.response.data.errors
+                .map((e) => e.message)
+                .join('<br/>');
+              const content = document.createElement('div');
+              content.innerHTML = message;
+              swal({
+                title: 'Error!',
+                content,
+                icon: 'error',
+              });
+            }
+          });
       }
     },
   },

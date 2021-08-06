@@ -22,37 +22,9 @@
               >Benimkiler</router-link
             >
           </li>
-          <li class="nav-item dropdown">
-            <a
-              to="/kesfet"
-              class="nav-link dropdown-toggle"
-              id="navbarDropdown"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Keşfet
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Öneriler</a></li>
-              <li><a class="dropdown-item" href="#">Seçim Ödülleri</a></li>
-              <li><a class="dropdown-item" href="#">Eşantiyonlar</a></li>
-              <li><a class="dropdown-item" href="#">Yeni Sürümler</a></li>
-              <li><a class="dropdown-item" href="#">Listeler</a></li>
-              <li><a class="dropdown-item" href="#">Keşfet</a></li>
-              <li>
-                <a class="dropdown-item" href="#">Haberler ve Röportajlar</a>
-              </li>
-              <hr />
-              <font style="padding: 18px"><b>Favori Türler</b></font>
-              <li><a class="dropdown-item" href="#">Klasikler</a></li>
-              <li><a class="dropdown-item" href="#">Tarih</a></li>
-              <li><a class="dropdown-item" href="#">Felsefe</a></li>
-              <li><a class="dropdown-item" href="#">Psikoloji</a></li>
-              <li><a class="dropdown-item" href="#">Gerilim</a></li>
-              <li><a class="dropdown-item" href="#">Tüm Türler</a></li>
-            </ul>
+          <li class="nav-item">
+            <router-link to="/explore" class="nav-link"
+              >Keşfet</router-link>
           </li>
           <li class="nav-item dropdown">
             <router-link

@@ -23,7 +23,7 @@ export default {
         'x-access-token': window.localStorage.getItem('x-access-token'),
       },
     }).then((res) => {
-      this.contents = res.data.content;
+      this.contents = res.data.contents;
     });
   },
 };

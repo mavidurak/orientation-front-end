@@ -85,6 +85,12 @@ const routes = [
     component: () => import('../views/home/Review.vue'),
     meta: { layout: 'home' },
   },
+  {
+    path: '/explore',
+    name: 'Explore',
+    component: () => import('../views/home/Explore.vue'),
+    meta: { layout: 'home' },
+  },
 ];
 
 const router = new VueRouter({
