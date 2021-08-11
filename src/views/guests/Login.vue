@@ -1,106 +1,160 @@
 <template>
-  <div class="login row">
-    <div class="col-3 col-md-5 col-sm-4 "></div>
-    <div class="login-in col-6 col-md-2 col-sm-4">
-      <br />
-      <h1 class="login-h1">Login</h1>
-      <input
-        type="text"
-        id="username"
-        name="username"
-        v-model="username"
-        placeholder="Username"
-        require
-      />
-      <br />
-      <input
-        type="password"
-        id="password"
-        name="password"
-        v-model="password"
-        placeholder="Password"
-        require
-      />
-      <br />
+  <div class="login">
+    <div class="login-in">
+      <h1>WELCOME</h1>
+      <form>
+        <input
+          type="text"
+          id="username"
+          v-model="username"
+          placeholder=" "
+        />
+        <label for="email">Username</label>
+        <Password @password="emitPassword($event)" />
+      </form>
       <p class="warning-login">{{ alert }}</p>
-      <button
-        type="submit"
-        class="btn btn-success btn-lg mb-3"
-        @click="login()"
-      >
-        Login
+      <button type="submit" class="btn btn-info btn-lg mb-3" @click="login()">
+        <i class="fas fa-sign-in-alt"> Sign In</i>
       </button>
-      <br />
-      <router-link to="/forgot-password">Are you forgot password?</router-link>
+      <br /><br />
+      <p>
+        If you are not registered
+        <router-link to="/register">Sign Up</router-link>
+      </p>
+      <p>
+      <router-link to="/forgot-password">Forgotten your password?</router-link>
+      </p>
     </div>
-    <div class="col-3 col-md-5 col-sm-4"></div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+import swal from 'sweetalert';
+import Password from '@/components/Input/Password.vue';
+
 export default {
   name: 'Login',
+  components: {
+    Password,
+  },
   data() {
     return {
       alert: '',
       username: '',
       password: '',
-      users: [
-        {
-          username: 'deneme1',
-          password: '147258369',
-        },
-        {
-          username: 'deneme2',
-          password: '369258147',
-        },
-      ],
     };
   },
+  mounted() {
+    axios
+      .get('api/authentication/me', {
+        headers: {
+          'x-access-token': localStorage.getItem('x-access-token'),
+        },
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          this.$router.push('/home');
+        }
+      });
+  },
   methods: {
+    emitPassword(password) {
+      this.password = password;
+    },
     login() {
       if (this.username !== '' && this.password !== '') {
-        for (let i = 0; i < this.users.length; i += 1) {
-          if (
-            this.username === this.users[i].username
-            && this.password === this.users[i].password
-          ) {
-            this.$router.replace({ name: 'Home' });
-          } else {
-            this.alert = 'Incorrect username or password.';
-          }
-        }
+        axios
+          .post('api/authentication/login', {
+            username: this.username,
+            password: this.password,
+          })
+          .then((res) => {
+            if (res.status === 200) {
+              localStorage.setItem('x-access-token', res.data.token.value);
+              axios.get('api/authentication/me', {
+                headers: {
+                  'x-access-token': res.data.token.value,
+                },
+              });
+              this.$router.push('/home');
+              window.location.reload();
+            }
+          })
+          .catch((err) => {
+            const message = err.response.data.errors.map((e) => e.message);
+            const content = document.createElement('div');
+            content.innerHTML = message;
+            swal({
+              title: 'Validation Failed!',
+              content,
+              icon: 'error',
+            });
+          });
       } else {
-        this.alert = 'Please enter your username and password.';
+        this.alert = 'Please enter all fields!';
       }
     },
   },
 };
 </script>
 
-<style>
-input {
-  width: 80%;
+<style lang="scss" scoped>
+.login {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 10px 17px;
-  margin: 10px 0px;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+  font-size: 1.2rem;
+  background-color: rgb(236, 235, 233);
 }
 .login-in {
-  background: white;
-  border: 1px hsl(0, 5%, 73%) solid;
+  padding: 40px 50px;
   border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+  background-color: #fff;
 }
-.login-h1 {
+input {
+  height: 30px;
+  width: 300px;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  border: none;
+  border-bottom: 1px solid rgb(187, 179, 212);
+  font-size: 16px;
+  outline: none;
+}
+form {
+  position: relative;
+  margin-top: 15%;
+}
+label {
+  position: absolute;
+  left: 0;
+  color: rgb(68, 65, 65);
+  transform-origin: 0 0;
+  transition: transform 0.2s ease-in-out;
+  font-size: 16px;
+}
+input:focus + label,
+input:not(:placeholder-shown) + label {
+  transform: translateY(-0.5em) scale(0.8);
+  color: rgb(8, 84, 114);
+}
+input:focus {
+  border-bottom: 2px solid rgb(8, 84, 114);
+}
+h1 {
+  margin-top: 5%;
   color: #212529;
-}
-.login {
-  background-color: #f9f8f4;
 }
 .warning-login {
   color: rgba(255, 46, 67, 0.8);
+}
+p {
+  font-size: 16px;
 }
 </style>

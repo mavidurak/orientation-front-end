@@ -22,37 +22,9 @@
               >Benimkiler</router-link
             >
           </li>
-          <li class="nav-item dropdown">
-            <a
-              to="/kesfet"
-              class="nav-link dropdown-toggle"
-              id="navbarDropdown"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Keşfet
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Öneriler</a></li>
-              <li><a class="dropdown-item" href="#">Seçim Ödülleri</a></li>
-              <li><a class="dropdown-item" href="#">Eşantiyonlar</a></li>
-              <li><a class="dropdown-item" href="#">Yeni Sürümler</a></li>
-              <li><a class="dropdown-item" href="#">Listeler</a></li>
-              <li><a class="dropdown-item" href="#">Keşfet</a></li>
-              <li>
-                <a class="dropdown-item" href="#">Haberler ve Röportajlar</a>
-              </li>
-              <hr />
-              <font style="padding: 18px"><b>Favori Türler</b></font>
-              <li><a class="dropdown-item" href="#">Klasikler</a></li>
-              <li><a class="dropdown-item" href="#">Tarih</a></li>
-              <li><a class="dropdown-item" href="#">Felsefe</a></li>
-              <li><a class="dropdown-item" href="#">Psikoloji</a></li>
-              <li><a class="dropdown-item" href="#">Gerilim</a></li>
-              <li><a class="dropdown-item" href="#">Tüm Türler</a></li>
-            </ul>
+          <li class="nav-item">
+            <router-link to="/explore" class="nav-link"
+              >Keşfet</router-link>
           </li>
           <li class="nav-item dropdown">
             <router-link
@@ -74,11 +46,18 @@
             />
             <button class="btn" type="submit">Ara</button>
           </form>
-          <li class="nav-item">
-            <router-link to="/login" class="nav-link">Giriş Yap</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/register" class="nav-link">Kayıt</router-link>
+          <div v-if="!isLogin" style="display: flex">
+            <li class="nav-item">
+              <router-link to="/register" class="nav-link">Kayıt</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/login" class="nav-link">Giriş Yap</router-link>
+            </li>
+          </div>
+          <li class="nav-item" v-else>
+            <p class="nav-link" style="cursor: pointer" @click="logout()">
+              Çıkış Yap
+            </p>
           </li>
           <li class="nav-item">
             <router-link to="/about" class="nav-link">Hakkımda</router-link>
@@ -90,8 +69,34 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'Navbar',
+  data() {
+    return {
+      isLogin: '',
+    };
+  },
+  mounted() {
+    axios
+      .get('api/authentication/me', {
+        headers: {
+          'x-access-token': localStorage.getItem('x-access-token'),
+        },
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          this.isLogin = true;
+        }
+      });
+  },
+  methods: {
+    logout() {
+      localStorage.clear();
+      this.$router.push('/');
+    },
+  },
 };
 </script>
 <style lang="scss">
