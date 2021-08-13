@@ -34,6 +34,12 @@ const routes = [
     meta: { layout: 'AuthenticationLayout' },
   },
   {
+    path: '/reset-password',
+    name: 'ResetPassword',
+    component: () => import('../views/guests/ResetPassword.vue'),
+    meta: { layout: 'AuthenticationLayout' },
+  },
+  {
     path: '/home',
     name: 'Home',
     component: Home,

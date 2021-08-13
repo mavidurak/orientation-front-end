@@ -25,24 +25,25 @@
                 </div>
               </div>
               <div>
-                <label for="mail">E-posta</label>
+                <label for="email">E-posta</label>
                 <input
                   type="email"
                   required
-                  v-model="mail"
-                  id="mail"
+                  v-model="email"
+                  id="email"
                   class="form-control"
                   placeholder="e.g. name@domain.com"
                 />
               </div>
               <div>
                 <br />
-                <button type="submit" class="btn btn-outline-primary">
+                <button type="submit" class="btn btn-outline-primary" @click="resetPassword">
                   Giriş Bağlantısı Gönder
                 </button>
               </div>
             </form>
             <div v-show="isReset">
+            <div v-if="succes">
               <br />
               <div class="alert alert-success" role="alert">
                 <table>
@@ -63,7 +64,7 @@
                     <td>
                       <h5>
                         An email has been sent to "
-                        <b>{{ mail }}</b
+                        <b>{{ email }}</b
                         >".
                       </h5>
                       <h5>
@@ -75,7 +76,7 @@
                 </table>
               </div>
             </div>
-            <div v-show="isReset">
+            <div v-else>
               <br />
               <div class="alert alert-danger" role="alert">
                 <table>
@@ -96,7 +97,7 @@
                     <td>
                       <h5>
                         We are sorry."
-                        <b>{{ mail }}</b
+                        <b>{{ email }}</b
                         >" is incorrect or the account does not exist.Please
                         enter correct address
                       </h5>
@@ -108,31 +109,43 @@
                 Try Again
               </button>
             </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-sm-3"></div>
     </div>
   </div>
 </div>
 </template>
 <script>
+import axios from 'axios';
+
 export default {
   name: 'ForgotPassword',
   data: () => ({
-    mail: '',
+    email: '',
     password: '',
     isReset: false,
+    succes: false,
   }),
   methods: {
     onSubmit: function bar() {
-      // isMailCorrect = true => continue
       this.isReset = true;
     },
     tryAgain: function bar() {
       this.isReset = false;
-      this.mail = '';
-      // more code
+      this.email = '';
+    },
+    resetPassword() {
+      axios.post('/api/authentication/forgot-password/',
+        {
+          email: this.email,
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            this.succes = true;
+          }
+        });
     },
   },
   created: () => {},
