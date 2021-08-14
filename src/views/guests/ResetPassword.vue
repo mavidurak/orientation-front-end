@@ -77,8 +77,7 @@ export default {
       if (this.controlPass1 === ''
       && this.controlPass2 === ''
       && this.controlPass === false) {
-        const value = this.$route.query.token;
-        axios.post(`api/authentication/reset-password?token=${value}`, {
+        axios.post(`api/authentication/reset-password?token=${this.$route.query.token}`, {
           password: this.password,
         })
           .then((res) => {
