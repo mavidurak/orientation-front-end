@@ -167,6 +167,10 @@ export default {
   methods: {
     submit() {
       // eslint-disable-next-line
+      if( this.isSpoiler === null) {
+        this.isSpoiler = false;
+      }
+
       axios
         .post('/api/reviews/',
           {
