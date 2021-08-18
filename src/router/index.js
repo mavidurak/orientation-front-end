@@ -97,6 +97,12 @@ const routes = [
     component: () => import('../views/home/CommunityDetail.vue'),
     meta: { layout: 'HomeLayout' },
   },
+  {
+    path: '/communities/:communityId/:discussionId',
+    name: 'Discussions',
+    component: () => import('../views/home/Discussions.vue'),
+    meta: { layout: 'HomeLayout' },
+  },
 ];
 
 const router = new VueRouter({
