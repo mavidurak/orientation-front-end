@@ -73,12 +73,17 @@ const routes = [
     meta: { layout: 'home' },
   },
   {
+    path: '/contents-create',
+    name: 'ContentCreate',
+    component: () => import('../views/home/ContentCreate.vue'),
+    meta: { layout: 'home' },
+  },
+  {
     path: '/contents',
     name: 'ListContent',
     component: () => import('../views/home/ListContent.vue'),
     meta: { layout: 'home' },
   },
-
   {
     path: '/review/:content',
     name: 'Review',

@@ -11,7 +11,8 @@
         <router-link to="/contents">List Content</router-link> |
         <router-link to="/communities/1">Community Detail</router-link> |
         <router-link to="/login">Login</router-link> |
-        <router-link to="/Register">Register</router-link>
+        <router-link to="/register">Register</router-link> |
+        <router-link to="/contents-create">Content Create</router-link>
       </div>
               <v-main>
           <slot />
