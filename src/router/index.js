@@ -97,6 +97,12 @@ const routes = [
     component: () => import('../views/home/CommunityDetail.vue'),
     meta: { layout: 'HomeLayout' },
   },
+  {
+    path: '/mycontents',
+    name: 'MyContents',
+    component: () => import('../views/home/MyContents.vue'),
+    meta: { layout: 'HomeLayout' },
+  },
 ];
 
 const router = new VueRouter({
