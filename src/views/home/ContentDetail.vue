@@ -101,8 +101,8 @@
   </div>
 </template>
 <script>
-import RateAndWantedButton from '@/components/RateAndWantedButtons/RateAndWantedButton.vue';
 import axios from 'axios';
+import RateAndWantedButton from '@/components/RateAndWantedButtons/RateAndWantedButton.vue';
 
 export default {
   name: 'ContentDetail',

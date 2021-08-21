@@ -103,6 +103,12 @@ const routes = [
     component: () => import('../views/home/CommunityDetail.vue'),
     meta: { layout: 'HomeLayout' },
   },
+  {
+    path: '/messages',
+    name: 'Messages',
+    component: () => import('../views/home/Messages.vue'),
+    meta: { layout: 'HomeLayout' },
+  },
 ];
 
 const router = new VueRouter({
