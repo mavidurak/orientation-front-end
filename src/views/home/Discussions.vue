@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="discussion">
-      <h3>{{ discussion.communities.name }}</h3>
+      <h2>{{ discussion.communities.name }}</h2>
       <div class="card mb-3" >
         <div class="row g-0">
           <div class="col-md-8">
@@ -10,7 +10,7 @@
               <p class="card-text">{{discussion.text}}</p>
               <p class="card-text">
                 <small class="text-muted">Posted by {{discussion.user.name}}</small><br>
-                <small class="text-muted">{{ discussion.createdAt}}</small>
+                <small class="text-muted">{{ discussion.createdAt.slice(0,10)}}</small>
               </p>
             </div>
           </div>
@@ -66,13 +66,16 @@ export default {
 .discussion {
   margin: auto;
   max-width: 1000px;
-  border: 1px solid grey;
   overflow: hidden;
   padding: 20px;
   text-align: left;
+  border: 1px solid grey;
   .card{
     max-width: 800px;
     border: none;
+    position: relative;
+    right: 20px;
+    color: black;
   }
 }
 </style>

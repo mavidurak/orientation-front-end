@@ -1,9 +1,10 @@
 <template>
   <div>
-    <textarea cols="60" rows="5" v-model="comment_text" placeholder="What are you thinking?">
-    </textarea><br>
-    <input type="checkbox" v-model="is_spoiler"> <label>İs spoiler</label>
-    <button @click="shareComment">Share</button>
+    <div id="share">
+      <vue-simplemde v-model="text" ref="markdownEditor" id="vue-simplemde"/>
+      <input type="checkbox" v-model="isSpoiler"> <label>Is spoiler</label>
+      <button @click="shareComment">Share</button>
+    </div>
     <Comment :comment="comment" v-for="comment in comments" :key="comment.id"/>
   </div>
 </template>
@@ -11,6 +12,7 @@
 <script>
 import axios from 'axios';
 import swal from 'sweetalert';
+import VueSimplemde from 'vue-simplemde';
 import Comment from '@/components/Comment/Comment.vue';
 
 export default {
@@ -19,19 +21,20 @@ export default {
   },
   components: {
     Comment,
+    VueSimplemde,
   },
   data() {
     return {
-      comment_text: null,
-      is_spoiler: false,
+      text: null,
+      isSpoiler: false,
     };
   },
   methods: {
     shareComment() {
       axios.post('/api/comments/', {
-        text: this.comment_text,
+        text: this.text,
         discussion_id: this.$route.params.discussionId,
-        is_spoiler: this.is_spoiler,
+        is_spoiler: this.isSpoiler,
       },
       {
         headers: {
@@ -58,5 +61,24 @@ export default {
   },
 };
 </script>
-<style>
+<style lang="scss">
+ @import '~simplemde/dist/simplemde.min.css';
+ #vue-simplemde {
+   max-width: 800px;
+ }
+ #share {
+   margin-bottom: 20px;
+   color: black;
+   font-size: 16px;
+   button {
+   width: 80px;
+   height: 30px;
+   border: 1px solid blue;
+   color: white;
+   background-color: blue;
+   border-radius: 5px;
+   margin: 10px;
+  }
+ }
+
 </style>
