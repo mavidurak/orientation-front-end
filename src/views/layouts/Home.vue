@@ -11,31 +11,47 @@
         <router-link to="/contents">List Content</router-link> |
         <router-link to="/communities/1">Community Detail</router-link> |
         <router-link to="/login">Login</router-link> |
+        <router-link to="/messages">Messages</router-link> |
         <router-link to="/register">Register</router-link> |
-        <router-link to="/contents-create">Content Create</router-link>
+        <router-link to="/create-">Content Create</router-link>
       </div>
-              <v-main>
-          <slot />
-        </v-main>
+      <v-main>
+        <slot />
+      </v-main>
     </div>
     <Footer />
   </div>
 </template>
 <script>
+import axios from 'axios';
+
 import Navbar from '../../components/Layout/Navbar.vue';
 import Footer from '../../components/Layout/Footer.vue';
 
 export default {
-  name: 'Home',
+  name: 'HomeLayout',
   components: {
     Navbar,
     Footer,
+  },
+  beforeCreate() {
+    const token = localStorage.getItem('x-access-token');
+    axios
+      .get('/api/authentication/me', {
+        headers: {
+          'x-access-token': token,
+        },
+      })
+      .catch(() => {
+        this.$router.push('/login');
+      });
   },
 };
 </script>
 
 <style lang="scss">
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -47,7 +63,7 @@ html, body {
   text-align: center;
   color: #2c3e50;
 }
-.main-content{
+.main-content {
   padding: 10px;
   #routes {
     padding: 30px;
