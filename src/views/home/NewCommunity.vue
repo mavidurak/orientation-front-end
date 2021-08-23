@@ -133,7 +133,7 @@ export default {
         description: this.description,
         website: this.website,
         rules: this.rules,
-        tags: this.tags.name,
+        tags: this.tags.map((tag) => tag.name),
       }, {
         headers: {
           'x-access-token': window.localStorage.getItem('x-access-token'),
