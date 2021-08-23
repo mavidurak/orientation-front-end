@@ -3,14 +3,13 @@
     <div class="container">
       <div class="labels">
         <div class="name">
-          <label for="content-name">Name</label>
-          <div></div>
+          <label for="content-name">Name</label><br>
           <input
             type="text"
             v-model="name"
             class="text-box"
             maxlength="150"
-            placeholder="Name area"
+            placeholder="Content name"
           />
         </div>
         <br />
@@ -19,7 +18,7 @@
           <Multiselect
             class="text-box"
             :dataSource="types"
-            aria-placeholder="Select a platform"
+            aria-placeholder="Select a type"
             @getValue="update"
           />
         </div>
@@ -30,7 +29,7 @@
             v-model="description"
             class="text-box"
             maxlength="15000"
-            placeholder="Description area"
+            placeholder="Content description"
             rows="5"
             cols="35"
           ></textarea>
@@ -43,13 +42,12 @@
             v-model="img"
             class="text-box"
             maxlength="150"
-            placeholder="Name area"
+            placeholder="Image path"
           />
         </div><br>
         <div class="form-item">
           <input
             class="gr-button"
-            id="content_submit_for_52845775"
             type="submit"
             value="Create"
             @click="submit"
@@ -100,13 +98,6 @@ export default {
       this.type = text;
     },
     submit() {
-      // eslint-disable-next-line
-      console.log(          {
-        name: this.name,
-        type: this.type,
-        description: this.description,
-        image_path: this.img,
-      });
       axios
         .post('/api/contents/',
           {
