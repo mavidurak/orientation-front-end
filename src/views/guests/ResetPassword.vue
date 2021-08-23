@@ -26,11 +26,10 @@
   </div>
 </template>
 <script>
-import Password from '@/components/Input/Password.vue';
-import PasswordAgain from '@/components/Input/PasswordAgain.vue';
-
 import axios from 'axios';
 import swal from 'sweetalert';
+import Password from '@/components/Input/Password.vue';
+import PasswordAgain from '@/components/Input/PasswordAgain.vue';
 
 export default {
   name: 'ResetPassword',

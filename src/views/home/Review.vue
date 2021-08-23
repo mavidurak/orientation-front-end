@@ -142,10 +142,10 @@
   </div>
 </template>
 <script>
-import Rate from '@/components/RateAndWantedButtons/Rate.vue';
-import WantedButton from '@/components/RateAndWantedButtons/WantedButton.vue';
 import axios from 'axios';
 import swal from 'sweetalert';
+import Rate from '@/components/RateAndWantedButtons/Rate.vue';
+import WantedButton from '@/components/RateAndWantedButtons/WantedButton.vue';
 
 export default {
   name: 'Review',
