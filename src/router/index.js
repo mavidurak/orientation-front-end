@@ -34,6 +34,12 @@ const routes = [
     meta: { layout: 'AuthenticationLayout' },
   },
   {
+    path: '/reset-password',
+    name: 'ResetPassword',
+    component: () => import('../views/guests/ResetPassword.vue'),
+    meta: { layout: 'AuthenticationLayout' },
+  },
+  {
     path: '/home',
     name: 'Home',
     component: Home,
@@ -99,8 +105,14 @@ const routes = [
   },
   {
     path: '/communities/:communityId/:discussionId',
-    name: 'Discussions',
-    component: () => import('../views/home/Discussions.vue'),
+    name: 'Discussion',
+    component: () => import('../views/home/Discussion.vue'),
+    meta: { layout: 'HomeLayout' },
+  },
+  {
+    path: '/messages',
+    name: 'Messages',
+    component: () => import('../views/home/Messages.vue'),
     meta: { layout: 'HomeLayout' },
   },
 ];

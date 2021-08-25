@@ -12,7 +12,8 @@
         <router-link to="/communities/1">Community Detail</router-link> |
         <router-link to="/login">Login</router-link> |
         <router-link to="/Register">Register</router-link> |
-        <router-link to="/communities/1/1">Discussions</router-link>
+        <router-link to="/communities/1/1">Discussions</router-link> |
+         <router-link to="/messages">Messages</router-link>
       </div>
       <v-main>
         <slot />
