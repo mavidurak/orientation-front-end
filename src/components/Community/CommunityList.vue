@@ -8,7 +8,7 @@
     />
   </div>
   <div v-else>
-    <h4> Topluluk bulunamadı </h4>
+    <h4> Community not found </h4>
   </div>
   </div>
 </template>
