@@ -8,6 +8,7 @@ import axios from 'axios';
 import ContentDetailSmall from './ContentDetailSmall.vue';
 
 export default {
+  name: 'ContentList',
   components: {
     ContentDetailSmall,
   },
@@ -16,7 +17,6 @@ export default {
       contents: [],
     };
   },
-  name: 'ContentList',
   mounted() {
     axios.get('/api/contents', {
       headers: {

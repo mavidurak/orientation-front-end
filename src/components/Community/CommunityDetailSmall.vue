@@ -1,5 +1,5 @@
 <template>
-  <div class="community-detail-small">
+  <div class="community-detail-small" @click="goToDetail">
     <div class="card mb-3" style="max-width: 800px">
       <div class="row g-0">
         <div class="col-md-4" style="width: 100px; margin-top: 10px">
@@ -22,12 +22,18 @@
 </template>
 <script>
 export default {
+  name: 'CommunityDetailSmall',
   props: {
     community: Object,
   },
+  methods: {
+    goToDetail() {
+      this.$router.push(`communities/${this.community.id}`);
+    },
+  },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .community-detail-small {
   .card {
     position: relative;

@@ -17,6 +17,7 @@
 <script>
 import CommunityList from '@/components/Community/CommunityList.vue';
 import axios from 'axios';
+import swal from 'sweetalert';
 
 export default {
   name: 'Communities',
@@ -55,7 +56,19 @@ export default {
     }).then((response) => {
       this.communities = response.data.community;
       this.communitiesFilter = this.communities;
-    });
+    })
+      .catch((err) => {
+        const message = err.response.data.errors
+          .map((e) => e.message)
+          .join('<br/>');
+        const content = document.createElement('div');
+        content.innerHTML = message;
+        swal({
+          title: 'Error!',
+          content,
+          icon: 'error',
+        });
+      });
   },
 };
 </script>
