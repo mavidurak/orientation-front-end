@@ -98,9 +98,21 @@ const routes = [
     meta: { layout: 'HomeLayout' },
   },
   {
+    path: '/communities/new',
+    name: 'NewCommunity',
+    component: () => import('../views/home/NewCommunity.vue'),
+    meta: { layout: 'HomeLayout' },
+  },
+  {
     path: '/communities/:id',
     name: 'CommunityDetail',
     component: () => import('../views/home/CommunityDetail.vue'),
+    meta: { layout: 'HomeLayout' },
+  },
+  {
+    path: '/messages',
+    name: 'Messages',
+    component: () => import('../views/home/Messages.vue'),
     meta: { layout: 'HomeLayout' },
   },
 ];
