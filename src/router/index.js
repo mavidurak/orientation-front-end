@@ -73,7 +73,7 @@ const routes = [
     meta: { layout: 'HomeLayout' },
   },
   {
-    path: '/contents/:id',
+    path: '/contents/:slug',
     name: 'ContentDetail',
     component: () => import('../views/home/ContentDetail.vue'),
     meta: { layout: 'HomeLayout' },
@@ -84,7 +84,6 @@ const routes = [
     component: () => import('../views/home/ListContent.vue'),
     meta: { layout: 'HomeLayout' },
   },
-
   {
     path: '/review/:content',
     name: 'Review',
