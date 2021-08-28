@@ -7,7 +7,7 @@
         <router-link to="/axios">Axios</router-link> |
         <router-link to="/forgot-password">Forgot Password</router-link> |
         <router-link to="/review/1">Review</router-link> |
-        <router-link to="/contents/1">Content Detail</router-link> |
+        <router-link to="/contents/sd-league-of-legends-1cbaaa94">Content Detail</router-link> |
         <router-link to="/contents">List Content</router-link> |
         <router-link to="/communities/1">Community Detail</router-link> |
         <router-link to="/communities/new">New Community</router-link> |
