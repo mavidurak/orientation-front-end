@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="all-comment">
     <Comment :level="0" :comment="comment" v-for="comment in comments"
     :key="comment.id" @share="getComments"/>
   </div>
@@ -41,20 +41,11 @@ export default {
   },
 };
 </script>
-<style lang="scss">
- #share {
-   margin-bottom: 20px;
-   color: black;
-   font-size: 16px;
-   button {
-   width: 80px;
-   height: 30px;
-   border: 1px solid blue;
-   color: white;
-   background-color: blue;
-   border-radius: 5px;
-   margin: 10px;
-  }
- }
-
+<style scoped>
+.all-comment{
+  border: 1px solid rgb(226, 226, 226);
+  max-width: 900px;
+  margin: auto;
+  padding: 10px;
+}
 </style>

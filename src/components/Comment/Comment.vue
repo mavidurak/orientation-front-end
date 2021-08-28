@@ -2,7 +2,7 @@
   <div>
     <div
       class="comment mb-3"
-      v-show="comment.is_spoiler === false || isSpoilerClick"
+      v-show="!comment.is_spoiler || isSpoilerClick"
     >
     <span v-if="isSpoilerClick" @click="isSpoilerClick = !isSpoilerClick"
     id="hide">Hide comment</span>
@@ -27,7 +27,7 @@
               <b> Reply</b>
             </button>
             <button
-              v-show="level>=2 && comment.comments.length !== 0"
+              v-show="level>=6 && comment.comments.length !== 0"
               class="comment-button"
               @click="levelControl = !levelControl"
             >
@@ -48,7 +48,7 @@
         </div>
       </div>
       <div
-        v-show="comment.comments.length !== 0 && (level<2 || levelControl)"
+        v-show="comment.comments.length !== 0 && (level<6 || levelControl)"
         class="nested-comments"
         v-for="nestedComment in comment.comments"
         :key="nestedComment.id"
@@ -56,9 +56,9 @@
         <Comment :level = "level+1" :comment="nestedComment" @share="emitNestedComment" />
       </div>
     </div>
-      <div class="spoiler"
-      v-show="comment.is_spoiler === true && isSpoilerClick === false">
-        <button @click="isSpoilerClick = true">View spoiler</button>
+      <div class="spoiler" @click="isSpoilerClick = true"
+      v-show="comment.is_spoiler && !isSpoilerClick">
+        <button>View spoiler</button>
       </div>
   </div>
 </template>
@@ -88,7 +88,7 @@ export default {
   },
   methods: {
     emitNestedComment() {
-      this.$emit('shareComment');
+      this.$emit('share');
     },
     share() {
       axios
@@ -134,11 +134,9 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .comment {
-  padding: 10px;
   margin: auto;
-  margin-bottom: 15px;
   max-width: 900px;
   background-color: white;
   color: black;
@@ -170,6 +168,7 @@ export default {
       button {
         width: 80px;
         height: 30px;
+        color: white;
         border: 1px solid #345461;
         background-color: #345461;
         border-radius: 5px;
@@ -188,12 +187,13 @@ export default {
     }
   }
   .nested-comments {
-    margin-left: 10px;
+    margin-left: 15px;
     border-left: 1px solid rgb(189, 189, 189);
   }
 }
 .spoiler {
   margin: auto;
+  display: flex;
   margin-bottom: 15px;
   max-width: 900px;
   background-color: #B9C3C2;
@@ -203,9 +203,7 @@ export default {
     border: 1px solid rgb(225, 225, 225);
     background-color: white;
     border-radius: 10px;
-    margin: 5px;
-    position: relative;
-    left: 380px;
+    margin: 5px auto;
   }
 }
 </style>

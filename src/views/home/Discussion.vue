@@ -2,9 +2,6 @@
   <div>
     <div class="discussion">
       <div class="card mb-3">
-        <h1>
-          <b>{{ discussion.communities.name }}</b>
-        </h1>
         <div class="row g-0">
           <div class="col-md-8">
             <div class="card-body">
@@ -14,7 +11,8 @@
               <p class="card-text">{{ discussion.text }}</p>
               <p class="card-text">
                 <small class="text-muted"
-                  >Posted by {{ discussion.user.username }}</small
+                  >Posted by {{ discussion.user.username }} on
+                   {{ discussion.communities.name }}</small
                 ><br />
                 <small class="text-muted">{{
                   discussion.createdAt.slice(0, 10)
@@ -137,20 +135,17 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "~simplemde/dist/simplemde.min.css";
-#vue-simplemde {
-  max-width: 750px;
-}
-body {
-  background-color: rgb(238, 238, 238);
-}
 .discussion {
   margin: auto;
   max-width: 1000px;
   overflow: hidden;
   padding: 20px;
   text-align: left;
+  #vue-simplemde {
+    max-width: 750px;
+  }
   .card {
     h1 {
       text-align: center;
@@ -163,6 +158,7 @@ body {
     #share {
       color: black;
       font-size: 16px;
+      margin-bottom: 5px;
       label {
         color: grey;
         font-size: 16px;
@@ -170,6 +166,7 @@ body {
       button {
         width: 80px;
         height: 30px;
+        color: white;
         border: 1px solid #345461;
         background-color: #345461;
         border-radius: 5px;
