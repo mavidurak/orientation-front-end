@@ -3,9 +3,9 @@
      <div>
        <Tooltip
        :text="{
-         header:`${content.name}` ,
-         body: `${content.type} Views: ${content.views} Rate: ${content.rate}
-        ${content.description}`
+        header:`${content.name}` ,
+        subtitle: `${content.type} Views: ${content.views} Rate: ${content.rate}`,
+        body: `${content.description}`
          }"
          position="right">
             <span>
@@ -36,9 +36,9 @@ export default {
   padding-left: 10px;
 }
 span{
-    padding-left: 10px;
+  padding-left: 10px;
   }
-   .iconDiv{
-     display: inline-block;
-   }
+.iconDiv{
+  display: inline-block;
+  }
 </style>

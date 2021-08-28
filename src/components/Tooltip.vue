@@ -1,10 +1,11 @@
 <template>
-  <div :class="`tooltip-component tooltip ${position}`">
+  <div :class="`tooltip-component ${position}`">
     <slot></slot>
   <span class="tooltip-text">
-    <div class="text-left" id="tooltip">
-      <div class="head"><b><h5>{{text.header}}</h5> </b></div>
-      <div class="body"><p>{{text.body}} </p></div>
+    <div class="text-left">
+      <div class="head"><h6><b>{{ text.header }}</b></h6></div>
+      <div class="subtitle">{{ text.subtitle }}</div>
+      <div class="body"><p>{{ text.body }} </p></div>
     </div>
   </span>
 </div>
@@ -38,6 +39,10 @@ export default {
     position: absolute;
     transition: opacity 0s;
     border: 5px solid #BCBEC2;
+    z-index: 1;
+    p{
+      font-size: 0.875rem;
+    }
 
     &::after {
       content: "";
@@ -59,7 +64,7 @@ export default {
 }
 .top {
     .tooltip-text {
-      bottom: 100%;
+      bottom: 105%;
       left: 0%;
       &::after {
         margin-left: -5px;
@@ -72,7 +77,7 @@ export default {
 .right {
   .tooltip-text {
     top: -5px;
-    left: 90%;
+    left: 105%;
       &::after {
       top: 50%;
       right: 100%;
@@ -83,11 +88,10 @@ export default {
 .bottom {
   .tooltip-text {
     top: 100%;
-    left: 50%;
+    left: 0%;
       &::after {
-      margin-left: -5px;
-      bottom: 100%;
-      left: 50%;
+      bottom: 102%;
+      left: 40%;
       border-color: transparent transparent #BCBEC2 transparent;
     }
   }
