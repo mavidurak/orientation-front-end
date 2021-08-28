@@ -113,7 +113,8 @@ const routes = [
     path: '/my-contents',
     name: 'MyContents',
     component: () => import('../views/home/MyContents.vue'),
-
+  },
+  {
     path: '/messages',
     name: 'Messages',
     component: () => import('../views/home/Messages.vue'),
