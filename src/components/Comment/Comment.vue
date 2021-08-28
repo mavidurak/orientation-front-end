@@ -4,6 +4,8 @@
       class="comment mb-3"
       v-show="comment.is_spoiler === false || isSpoilerClick"
     >
+    <span v-if="isSpoilerClick" @click="isSpoilerClick = !isSpoilerClick"
+    id="hide">Hide comment</span>
       <div class="row g-0">
         <div class="col-md-8">
           <div class="card-body">
@@ -51,16 +53,13 @@
         v-for="nestedComment in comment.comments"
         :key="nestedComment.id"
       >
-        <Comment :level = "level+1" :comment="nestedComment" />
+        <Comment :level = "level+1" :comment="nestedComment" @share="emitNestedComment" />
       </div>
     </div>
-    <div
-      v-show="comment.is_spoiler === true && isSpoilerClick === false"
-    >
-      <div class="comment mb-3">
-        <button id="spoiler" @click="isSpoilerClick = true">View spoiler</button>
+      <div class="spoiler"
+      v-show="comment.is_spoiler === true && isSpoilerClick === false">
+        <button @click="isSpoilerClick = true">View spoiler</button>
       </div>
-    </div>
   </div>
 </template>
 <script>
@@ -88,6 +87,9 @@ export default {
     };
   },
   methods: {
+    emitNestedComment() {
+      this.$emit('shareComment');
+    },
     share() {
       axios
         .post(
@@ -105,6 +107,8 @@ export default {
         )
         .then((res) => {
           if (res.status === 200) {
+            this.replyIsClick = false;
+            this.$emit('share');
             swal({
               icon: 'success',
               text: 'comment created successfully',
@@ -132,22 +136,30 @@ export default {
 </script>
 <style lang="scss">
 .comment {
-  padding-bottom: 10px;
+  padding: 10px;
   margin: auto;
+  margin-bottom: 15px;
   max-width: 900px;
   background-color: white;
+  color: black;
+  #hide{
+    color: #114A52;
+    font-size: 16px;
+    margin-left: 20px;
+    cursor: no-drop;
+  }
   .card-body {
+    max-width: 800px;
     #person {
       font-size: 35px;
-      color: rgb(0, 0, 128);
+      color: #345461;
     }
     h5 {
       position: relative;
       left: 50px;
       bottom: 40px;
-      color: rgb(0, 0, 128);
+      color: #345461;
     }
-    max-width: 800px;
     #share {
       color: black;
       font-size: 16px;
@@ -158,14 +170,14 @@ export default {
       button {
         width: 80px;
         height: 30px;
-        border: 1px solid rgb(0, 0, 128);
-        background-color: rgb(0, 0, 128);
+        border: 1px solid #345461;
+        background-color: #345461;
         border-radius: 5px;
         margin-left: 10px;
       }
       button:hover {
-        border: 1px solid blue;
-        background-color: blue;
+        border: 1px solid rgb(39, 63, 73);
+        background-color: rgb(39, 63, 73);
       }
     }
     .comment-button {
@@ -176,17 +188,24 @@ export default {
     }
   }
   .nested-comments {
-    margin-left: 30px;
-    border-left: 1px solid grey;
+    margin-left: 10px;
+    border-left: 1px solid rgb(189, 189, 189);
   }
 }
-#spoiler {
-  margin: 20px;
-  border: none;
-  background-color: white;
-  color: blue;
-}
-#spoiler:hover {
-  color: rgb(0, 16, 67);
+.spoiler {
+  margin: auto;
+  margin-bottom: 15px;
+  max-width: 900px;
+  background-color: #B9C3C2;
+  color: black;
+  button{
+    padding: 5px;
+    border: 1px solid rgb(225, 225, 225);
+    background-color: white;
+    border-radius: 10px;
+    margin: 5px;
+    position: relative;
+    left: 380px;
+  }
 }
 </style>

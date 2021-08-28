@@ -1,10 +1,14 @@
 <template>
   <div>
-    <Comment :level="0" :comment="comment" v-for="comment in comments" :key="comment.id"/>
+    <Comment :level="0" :comment="comment" v-for="comment in comments"
+    :key="comment.id" @share="getComments"/>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+import swal from 'sweetalert';
+
 import Comment from '@/components/Comment/Comment.vue';
 
 export default {
@@ -14,6 +18,26 @@ export default {
   },
   components: {
     Comment,
+  },
+  methods: {
+    getComments() {
+      axios
+        .get(`/api/discussions/${this.$route.params.discussionId}/comments`, {
+          headers: {
+            'x-access-token': window.localStorage.getItem('x-access-token'),
+          },
+        })
+        .then((res) => {
+          this.comments = res.data.comments;
+        })
+        .catch((err) => {
+          const message = err.response.data.errors.map((e) => e.message);
+          swal({
+            icon: 'error',
+            text: `${message}`,
+          });
+        });
+    },
   },
 };
 </script>

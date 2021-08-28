@@ -61,6 +61,24 @@ export default {
     };
   },
   methods: {
+    getComments() {
+      axios
+        .get(`/api/discussions/${this.$route.params.discussionId}/comments`, {
+          headers: {
+            'x-access-token': window.localStorage.getItem('x-access-token'),
+          },
+        })
+        .then((res) => {
+          this.comments = res.data.comments;
+        })
+        .catch((err) => {
+          const message = err.response.data.errors.map((e) => e.message);
+          swal({
+            icon: 'error',
+            text: `${message}`,
+          });
+        });
+    },
     shareComment() {
       axios
         .post(
@@ -82,6 +100,7 @@ export default {
               icon: 'success',
               text: 'comment created successfully',
             });
+            this.getComments();
           }
         })
         .catch((err) => {
@@ -105,15 +124,6 @@ export default {
       )
       .then((res) => {
         this.discussion = res.data;
-      });
-    axios
-      .get(`/api/discussions/${this.$route.params.discussionId}/comments`, {
-        headers: {
-          'x-access-token': window.localStorage.getItem('x-access-token'),
-        },
-      })
-      .then((res) => {
-        this.comments = res.data.comments;
       })
       .catch((err) => {
         const message = err.response.data.errors.map((e) => e.message);
@@ -122,6 +132,7 @@ export default {
           text: `${message}`,
         });
       });
+    this.getComments();
   },
 };
 </script>
@@ -132,7 +143,7 @@ export default {
   max-width: 750px;
 }
 body {
-  background-color: rgb(220, 220, 220);
+  background-color: rgb(238, 238, 238);
 }
 .discussion {
   margin: auto;
@@ -159,14 +170,14 @@ body {
       button {
         width: 80px;
         height: 30px;
-        border: 1px solid rgb(0, 0, 128);
-        background-color: rgb(0, 0, 128);
+        border: 1px solid #345461;
+        background-color: #345461;
         border-radius: 5px;
         margin-left: 10px;
       }
       button:hover {
-        border: 1px solid blue;
-        background-color: blue;
+        border: 1px solid rgb(39, 63, 73);
+        background-color: rgb(39, 63, 73);
       }
     }
   }
