@@ -25,9 +25,17 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Rules *</label>
-                <textarea class="form-control" id="rules" rows="5"
-                v-model="rules" data-placement="top" data-toggle="tooltip" placeholder="Rules"
-                data-html="true" :title="tooltip()" required></textarea>
+                  <Tooltip
+                  :text="{
+                  header: 'What are rules?',
+                  body:`Rules are guidelines
+                  you would like members of the group to follow.
+                  They will show up in the group home page as well as in a tooltip (like this one)
+                  to people who comment for the first time in a group.`}"
+                  position="top">
+                    <textarea class="form-control" id="rules" rows="5"
+                    v-model="rules" placeholder="Rules" required></textarea>
+                  </Tooltip>
               </div>
             </div>
           </div>
@@ -93,9 +101,9 @@
 <script>
 import axios from 'axios';
 import swal from 'sweetalert';
-import $ from 'jquery';
 
 import Multiselect from '@/components/Multiselect.vue';
+import Tooltip from '@/components/Tooltip.vue';
 
 import { CONTENT_TYPES } from '@/constants';
 
@@ -103,6 +111,7 @@ export default {
   name: 'NewCommunity',
   components: {
     Multiselect,
+    Tooltip,
   },
   data() {
     return {
@@ -167,19 +176,6 @@ export default {
     update(text) {
       this.tags = text;
     },
-    tooltip() {
-      return `
-      <div class="text-left" id="tooltip">
-      <div class="head"><h6>What are rules?</h6></div>
-      <div class="text"><p>Rules are guidelines you would like members of the group to follow.
-        They will show up in the group home page as well as in a tooltip (like this one)
-        to people who comment for the first time in a group. </p></div>`;
-    },
-  },
-  mounted() {
-    $(document).ready(() => {
-      $('[data-toggle="tooltip"]').tooltip();
-    });
   },
 };
 </script>
@@ -187,23 +183,4 @@ export default {
 .info{
   font-size: 12px;
 }
-.tooltip {
-    background-color: #BCBEC2;
-    color: black;
-    padding: 6px;
-    border-radius: 10px;
-  }
-  .tooltip-inner {
-    background-color: #f4f4f4;
-    color: black;
-    max-width: 300px;
-    max-height: 200px;
-  }
-  .reset{
-    color: #525252;
-    text-decoration: underline;
-  }
-  .arrow{
-    border-color: blue;
-  }
 </style>
