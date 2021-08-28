@@ -13,15 +13,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr  v-for="reviews in review" :key="reviews.id">
+      <tr  v-for="review in reviews" :key="review.id">
         <td><ContentIcon :content="reviews.contents" /></td>
-        <td >{{reviews.contents.name}}</td>
-        <td >{{reviews.contents.rate}}/10</td>
-        <td ><Rate :rate='reviews.score'/></td>
-        <td >{{reviews.contents.name}}</td>
-        <td >{{reviews.text}}</td>
-        <td >{{reviews.createdAt.slice(0, 10)+" " +
-           reviews.createdAt.slice(11, 19)}}
+        <td >{{review.contents.name}}</td>
+        <td >{{review.contents.rate}}/10</td>
+        <td ><Rate :rate='review.score'/></td>
+        <td >{{review.contents.name}}</td>
+        <td >{{review.text}}</td>
+        <td >{{review.createdAt.slice(0, 10)+" " +
+           review.createdAt.slice(11, 19)}}
         </td>
       </tr>
     </tbody>
