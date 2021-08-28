@@ -26,9 +26,9 @@
   </div>
 </template>
 <script>
-import RateAndWantedButton from '@/components/RateAndWantedButtons/RateAndWantedButton.vue';
 import axios from 'axios';
 import swal from 'sweetalert';
+import RateAndWantedButton from '@/components/RateAndWantedButtons/RateAndWantedButton.vue';
 
 export default {
   name: 'ContentDetailSmall',
