@@ -14,7 +14,7 @@
     </thead>
     <tbody>
       <tr  v-for="review in reviews" :key="review.id">
-        <td><ContentIcon :content="reviews.contents" /></td>
+        <td><ContentIcon :content="review.contents" /></td>
         <td >{{review.contents.name}}</td>
         <td >{{review.contents.rate}}/10</td>
         <td ><Rate :rate='review.score'/></td>
