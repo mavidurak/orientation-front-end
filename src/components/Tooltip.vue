@@ -1,25 +1,28 @@
 <template>
   <div :class="`tooltip-component ${position}`">
     <slot></slot>
-  <span class="tooltip-text">
-    <div class="text-left">
-      <div class="head"><h6><b>{{ text.header }}</b></h6></div>
-      <div class="subtitle">{{ text.subtitle }}</div>
-      <div class="body"><p>{{ text.body }} </p></div>
-    </div>
-  </span>
-</div>
+    <span class="tooltip-text">
+      <div class="text-left">
+        <div class="head">
+          <h6>
+            <b>{{ text.header }}</b>
+          </h6>
+        </div>
+        <div class="subtitle">{{ text.subtitle }}</div>
+        <div class="body">
+          <p>{{ text.body }}</p>
+        </div>
+      </div>
+    </span>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'Tooltip',
   props: {
-    text: {
-      type: Object,
-    },
+    text: Object,
     position: String,
-
   },
 };
 </script>
@@ -38,9 +41,9 @@ export default {
     padding: 5px 5px;
     position: absolute;
     transition: opacity 0s;
-    border: 5px solid #BCBEC2;
+    border: 5px solid #bcbec2;
     z-index: 1;
-    p{
+    p {
       font-size: 0.875rem;
     }
 
@@ -48,40 +51,40 @@ export default {
       content: "";
       position: absolute;
       border-style: solid;
-      border-color: #BCBEC2 transparent transparent transparent;
+      border-color: #bcbec2 transparent transparent transparent;
       content: "";
       position: absolute;
       border-width: 10px;
       border-style: solid;
+    }
+  }
+  &:hover {
+    .tooltip-text {
+      visibility: visible;
+      opacity: 0.9;
+    }
   }
 }
-    &:hover {
-      .tooltip-text {
-        visibility: visible;
-        opacity: 0.9;
-      }
-    }
-}
 .top {
-    .tooltip-text {
-      bottom: 105%;
-      left: 0%;
-      &::after {
-        margin-left: -5px;
-        left: 50%;
-        top: 100%;
-        border-color: #BCBEC2 transparent transparent transparent;
-      }
+  .tooltip-text {
+    bottom: 105%;
+    left: 0%;
+    &::after {
+      margin-left: -5px;
+      left: 50%;
+      top: 100%;
+      border-color: #bcbec2 transparent transparent transparent;
     }
+  }
 }
 .right {
   .tooltip-text {
     top: -5px;
     left: 105%;
-      &::after {
+    &::after {
       top: 50%;
       right: 100%;
-      border-color: transparent #BCBEC2 transparent transparent;
+      border-color: transparent #bcbec2 transparent transparent;
     }
   }
 }
@@ -89,10 +92,10 @@ export default {
   .tooltip-text {
     top: 100%;
     left: 0%;
-      &::after {
+    &::after {
       bottom: 102%;
       left: 40%;
-      border-color: transparent transparent #BCBEC2 transparent;
+      border-color: transparent transparent #bcbec2 transparent;
     }
   }
 }
@@ -100,11 +103,11 @@ export default {
   .tooltip-text {
     top: -5px;
     right: 90%;
-      &::after {
-        top: 50%;
-        left: 100%;
-        border-color: transparent transparent transparent #BCBEC2;
-      }
+    &::after {
+      top: 50%;
+      left: 100%;
+      border-color: transparent transparent transparent #bcbec2;
+    }
   }
 }
 </style>

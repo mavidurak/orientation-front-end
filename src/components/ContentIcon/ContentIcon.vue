@@ -1,19 +1,22 @@
 <template>
-<div class="iconDiv">
-     <div>
-       <Tooltip
-       :text="{
-        header:`${content.name}` ,
+  <div class="iconDiv">
+    <Tooltip
+      :text="{
+        header: `${content.name}`,
         subtitle: `${content.type} Views: ${content.views} Rate: ${content.rate}`,
         body: `${content.description}`
-         }"
-         position="right">
-            <span>
-            <img class="img-fluid icon" :src="content.image.path" :alt="content.image.name"/>
-          </span>
-        </Tooltip>
-    </div>
-</div>
+      }"
+      position="right"
+    >
+      <span>
+        <img
+          class="img-fluid icon"
+          :src="content.image.path"
+          :alt="content.image.name"
+        />
+      </span>
+    </Tooltip>
+  </div>
 </template>
 <script>
 import Tooltip from '@/components/Tooltip.vue';
@@ -29,16 +32,16 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.icon{
-  height: 200px;
-  width: 130px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-}
-span{
-  padding-left: 10px;
-  }
-.iconDiv{
+.iconDiv {
   display: inline-block;
+  .icon {
+    height: 200px;
+    width: 130px;
+    padding-bottom: 10px;
+    padding-left: 10px;
   }
+  span {
+    padding-left: 10px;
+  }
+}
 </style>
