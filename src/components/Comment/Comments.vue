@@ -41,11 +41,31 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style lang="scss">
 .all-comment{
   border: 1px solid rgb(226, 226, 226);
   max-width: 900px;
   margin: auto;
   padding: 10px;
+  img {
+    max-width: 100%;
+  }
+  table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+  }
+  code {
+    background-color: rgb(220, 220, 220);
+    border-radius: 3px;
+    padding: 5px;
+    color: black;
+  }
+  blockquote{
+    font-style: italic;
+    padding: 5px;
+    border-left: 2px solid grey;
+    background-color: rgb(240, 240, 240);
+  }
 }
 </style>
