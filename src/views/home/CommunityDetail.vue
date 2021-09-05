@@ -106,6 +106,7 @@
 
 <script>
 export default {
+  name: 'CommunityDetail',
   components: {},
   data() {
     return {

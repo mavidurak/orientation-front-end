@@ -73,7 +73,7 @@ const routes = [
     meta: { layout: 'HomeLayout' },
   },
   {
-    path: '/contents/:id',
+    path: '/contents/:slug',
     name: 'ContentDetail',
     component: () => import('../views/home/ContentDetail.vue'),
     meta: { layout: 'HomeLayout' },
@@ -84,7 +84,6 @@ const routes = [
     component: () => import('../views/home/ListContent.vue'),
     meta: { layout: 'HomeLayout' },
   },
-
   {
     path: '/review/:content',
     name: 'Review',
@@ -113,6 +112,12 @@ const routes = [
     path: '/communities/:communityId/:discussionId',
     name: 'Discussion',
     component: () => import('../views/home/Discussion.vue'),
+    meta: { layout: 'HomeLayout' },
+  },
+  {
+    path: '/my-contents',
+    name: 'MyContents',
+    component: () => import('../views/home/MyContents.vue'),
     meta: { layout: 'HomeLayout' },
   },
   {

@@ -118,7 +118,7 @@ export default {
   },
   mounted() {
     axios
-      .get(`/api/contents/${this.$route.params.id}`, {
+      .get(`/api/contents/${this.$route.params.slug}`, {
         headers: {
           'x-access-token': window.localStorage.getItem('x-access-token'),
         },
