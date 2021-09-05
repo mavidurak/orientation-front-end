@@ -1,63 +1,47 @@
 <template>
-<div class="iconDiv">
-     <div>
-      <img class="img-fluid icon" :src="content.image.path" :alt="content.image.name"
-      data-placement="right" data-toggle="tooltip" data-html="true" :title="tooltip(content)"/>
-    </div>
-</div>
+  <div class="iconDiv">
+    <Tooltip
+      :text="{
+        header: `${content.name}`,
+        subtitle: `${content.type} Views: ${content.views} Rate: ${content.rate}`,
+        body: `${content.description}`
+      }"
+      position="right"
+    >
+      <span>
+        <img
+          class="img-fluid icon"
+          :src="content.image.path"
+          :alt="content.image.name"
+        />
+      </span>
+    </Tooltip>
+  </div>
 </template>
 <script>
-import $ from 'jquery';
+import Tooltip from '@/components/Tooltip.vue';
 
 export default {
   name: 'ContentIcon',
   props: {
     content: Object,
   },
-  methods: {
-    tooltip(content) {
-      return `
-      <div id="tooltip" class="text-left">
-        <div>
-        <h4> <b>${content.name}</b></h4>
-        <span class="badge badge-info"> ${content.type}</span> 
-        <span>Views: ${content.views}</span>
-        <span>Rate: ${content.rate}</span>
-            <p>${content.description}</p> 
-        </div>
-      </div>`;
-    },
-  },
-  mounted() {
-    $(document).ready(() => {
-      $('[data-toggle="tooltip"]').tooltip();
-    });
+  components: {
+    Tooltip,
   },
 };
 </script>
-<style lang="scss" >
-.icon{
-  height: 200px;
-  width: 130px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-}
-span{
+<style lang="scss" scoped>
+.iconDiv {
+  display: inline-block;
+  .icon {
+    height: 200px;
+    width: 130px;
+    padding-bottom: 10px;
     padding-left: 10px;
   }
-   .iconDiv{
-     display: inline-block;
-   }
-  .tooltip {
-    background-color: #BCBEC2;
-    color: black;
-    padding: 6px;
-    border-radius: 10px;
+  span {
+    padding-left: 10px;
   }
-  .tooltip-inner {
-    background-color: #f4f4f4;
-    color: black;
-    max-width: 350px;
-    max-height: 300px;
-  }
+}
 </style>
