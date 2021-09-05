@@ -1,20 +1,20 @@
 <template>
 <div class="row">
-    <table class="table table-striped col-12  col-md-8" style="  margin:auto;">
+    <table class="table col-12  col-md-8" style="  margin:auto;">
     <thead>
       <tr>
         <th scope="col">Cover</th>
         <th scope="col">Title</th>
         <th scope="col">Average Rating</th>
-        <th scope="col">Your rating</th>
+        <th scope="col">Your Rating</th>
         <th scope="col">Shelves</th>
-        <th scope="col">Rewiev</th>
-        <th scope="col">Date review</th>
+        <th scope="col">Review</th>
+        <th scope="col">Review Date</th>
       </tr>
     </thead>
     <tbody>
       <tr  v-for="review in reviews" :key="review.id">
-        <td><ContentIcon :content="review.contents" /></td>
+        <td><ContentIcon :content="review.contents" class="Contenticon" /></td>
         <td >{{review.contents.name}}</td>
         <td >{{review.contents.rate}}/10</td>
         <td ><Rate :rate='review.score'/></td>
@@ -65,5 +65,12 @@ export default {
 <style lang='scss' scoped>
 td{
   vertical-align: middle;
+  margin :0px;
+  padding:0px;
+  padding-top:5px;
+}
+.Contenticon{
+  width: 200px;
+  height: 200px;
 }
 </style>
