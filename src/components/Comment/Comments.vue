@@ -56,7 +56,7 @@ export default {
   padding: 5px;
   }
   code {
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(242, 242, 242);
     border-radius: 3px;
     padding: 5px;
     color: black;
@@ -64,8 +64,9 @@ export default {
   blockquote{
     font-style: italic;
     padding: 5px;
-    border-left: 2px solid grey;
-    background-color: rgb(240, 240, 240);
+    border-left: 2px solid rgb(232, 43, 43);
+    background-color: rgb(252, 252, 252);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   }
 }
 </style>
