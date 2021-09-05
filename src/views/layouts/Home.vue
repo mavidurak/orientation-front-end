@@ -10,6 +10,7 @@
         <router-link to="/contents/sd-league-of-legends-1cbaaa94">Content Detail</router-link> |
         <router-link to="/contents">List Content</router-link> |
         <router-link to="/communities/1">Community Detail</router-link> |
+        <router-link to="/my-contents">My Contents</router-link> |
         <router-link to="/communities/new">New Community</router-link> |
         <router-link to="/login">Login</router-link> |
         <router-link to="/Register">Register</router-link> |
