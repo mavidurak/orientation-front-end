@@ -109,6 +109,12 @@ const routes = [
     meta: { layout: 'HomeLayout' },
   },
   {
+    path: '/communities/:communityId/:discussionId',
+    name: 'Discussion',
+    component: () => import('../views/home/Discussion.vue'),
+    meta: { layout: 'HomeLayout' },
+  },
+  {
     path: '/my-contents',
     name: 'MyContents',
     component: () => import('../views/home/MyContents.vue'),
