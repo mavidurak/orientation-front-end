@@ -1,15 +1,15 @@
 <template>
-  <div class="community-detail-small">
+  <div class="community-detail-small" @click="goToDetail">
     <div class="card mb-3" style="max-width: 800px">
       <div class="row g-0">
         <div class="col-md-4" style="width: 100px; margin-top: 10px">
-          <img :src="community.image" id="img" />
+          <img :src="community.image.path" id="img" />
         </div>
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title">{{ community.name }}</h5>
             <p class="card-text">
-              <small class="text-muted">{{ community.members }} üye</small>
+              <small class="text-muted">{{ community.members.length }} üye</small>
             </p>
             <p class="card-text" id="comment">
               {{ community.detail }}
@@ -22,12 +22,18 @@
 </template>
 <script>
 export default {
+  name: 'CommunityDetailSmall',
   props: {
     community: Object,
   },
+  methods: {
+    goToDetail() {
+      this.$router.push(`communities/${this.community.id}`);
+    },
+  },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .community-detail-small {
   .card {
     position: relative;

@@ -2,11 +2,11 @@
   <div>
     <div class="container">
       <div class="row">
-        <div class="col-md-auto">
-          <img :src="content.image" /><br /><br />
+        <div class="col-md-6 col-sm-12 col-12 mb-3" >
+          <img :src="content.image.path" class="imagediv" /><br /><br />
           <RateAndWantedButton :content="content" @select="changeStatus" @rate="rated"/>
         </div>
-        <div class="col-md-auto" style="width: 40%; text-align: left">
+        <div class="col-md-6 col-sm-12 col-12 mb-3" style=" width: 40%; text-align: left">
           <h3>
             <b>{{ content.name }}</b>
           </h3>
@@ -48,17 +48,18 @@
           <hr />
           <p>GET A COPY</p>
           <div class="container">
-            <div class="row">
-              <div class="col-md-auto">
+            <div class="row" >
+              <div class="col-md-auto col-sm-4">
                 <button
+                align=center
                   type="button"
-                  class="btn btn-outline-warning"
+                  class="btn btn-outline-warning "
                   onclick="window.location.href='#'"
                 >
                   Amazon
                 </button>
               </div>
-              <div class="col-md-auto">
+              <div class="col-md-auto col-sm-4">
                 <div class="dropdown">
                   <button
                     class="btn btn-outline-warning dropdown-toggle"
@@ -81,16 +82,18 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-auto">
-                <button type="button" class="btn btn-outline-warning">
+              <div class="col-md-auto col-sm-4" >
+                <button type="button" class="btn btn-outline-warning ">
                   Libraries
                 </button>
               </div>
             </div>
           </div>
         </div>
-        <div class="reviews" style="width: 70%; float: left; text-align: left">
-          <h6>COMMUNITY REVIEWS</h6>
+      </div>
+      <div class="row mt-5">
+              <div class="reviews" style="width: 100%; float: left; text-align: center">
+          <h6 >COMMUNITY REVIEWS</h6>
           <hr />
         </div>
       </div>
@@ -98,8 +101,8 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
 import RateAndWantedButton from '@/components/RateAndWantedButtons/RateAndWantedButton.vue';
-import { WANTED_STATUS, CONTENT_TYPES } from '@/constants';
 
 export default {
   name: 'ContentDetail',
@@ -110,24 +113,19 @@ export default {
     return {
       readMoreActivated: false,
       status: null,
-      content: {
-        id: '1',
-        name: 'Minor Feelings: An Asian American Reckoning',
-        image:
-          'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1580788273l/52845775._SX318_SY475_.jpg',
-        rate: 6.5,
-        description:
-          'Poet and essayist Cathy Park Hong blends memoir, cultural criticism, and history to expose the truth of racialized consciousness in America. Binding these essays together is Hongs theory of "minor feelings".As the daughter of Korean immigrants, Cathy Park Hong grew up steeped in shame, suspicion, and melancholy. She would later understand that these "minor feelings" occur when American optimism contradicts your own reality—when you believe the lies you are told about your own racial identity.Hong uses her own story as a portal into a deeper examination of racial consciousness in America today. This book traces her relationship to the English language, to shame and depression, to poetry and artmaking, and to family and female friendship in a search to both uncover and speak the truth.',
-        user: {
-          name: 'Cathy Park Hong',
-        },
-        createdAt: 'February 25th 2020',
-        updatedAt: '',
-        page: '210',
-        type: CONTENT_TYPES.BOOK,
-        wantedStatus: WANTED_STATUS[CONTENT_TYPES.BOOK].CURRENTLY_READING,
-      },
+      content: {},
     };
+  },
+  mounted() {
+    axios
+      .get(`/api/contents/${this.$route.params.slug}`, {
+        headers: {
+          'x-access-token': window.localStorage.getItem('x-access-token'),
+        },
+      })
+      .then((res) => {
+        this.content = res.data;
+      });
   },
   methods: {
     activateReadMore() {
@@ -149,4 +147,22 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.imagediv{
+    @media only screen and (max-width: 600px) {
+    width:150px;
+  }
+  @media only screen and (min-width: 600px) {
+    width:200px;
+  }
+    @media only screen and (min-width: 768px) {
+    width:250px;
+  }
+    @media only screen and (min-width: 992px) {
+    width:350px;
+  }
+      @media only screen and (min-width: 1200px) {
+    width:400px;
+  }
+}
+
 </style>
