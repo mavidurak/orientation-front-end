@@ -103,7 +103,7 @@ const routes = [
     meta: { layout: 'HomeLayout' },
   },
   {
-    path: '/communities/:id',
+    path: '/communities/:communitySlug',
     name: 'CommunityDetail',
     component: () => import('../views/home/CommunityDetail.vue'),
     meta: { layout: 'HomeLayout' },
@@ -112,6 +112,12 @@ const routes = [
     path: '/communities/:communityId/:discussionId',
     name: 'Discussion',
     component: () => import('../views/home/Discussion.vue'),
+    meta: { layout: 'HomeLayout' },
+  },
+  {
+    path: '/communities/:communitySlug/discussion/new',
+    name: 'NewDiscussion',
+    component: () => import('../views/home/NewDiscussion.vue'),
     meta: { layout: 'HomeLayout' },
   },
   {
