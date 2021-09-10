@@ -88,7 +88,7 @@
         <div class="row">
           <div class="discussion">
             <b>Discussion Board</b>
-            <p @click="newDiscussion">new</p>
+            <p @click="newDiscussion" id="new">new</p>
             <hr />
             <a href="">POSTS</a><br />
             <a href="">POSTS</a><br />
@@ -195,7 +195,18 @@ export default {
     p {
       float:right;
       cursor:pointer;
+      font-weight: bold;
     }
+  }
+  #new {
+    font:bold;
+    border: 2px solid rgb(11, 104, 11);
+    padding: 1px 3px 1px 3px;
+    border-radius: 5px;
+  }
+  #new:hover {
+      background-color:rgb(11, 104, 11);
+      color: #fff
   }
 }
 

@@ -35,7 +35,7 @@
           </Tooltip>
           <input type="checkbox" v-model="isPrivate" />
           <label>Is private</label><br /><br />
-          <button @click="shareDiscussion" class="btn btn-warning">
+          <button @click="shareDiscussion" class="btn btn-outline-success">
             Share
           </button>
         </div>
@@ -98,7 +98,7 @@ export default {
               icon: 'success',
             }).then((click) => {
               if (click) {
-                this.$router.push(`/communities/${this.community.slug}`);
+                this.$router.push(`/communities/${this.community.slug}/${this.discussion_id}`);
               }
             });
           }

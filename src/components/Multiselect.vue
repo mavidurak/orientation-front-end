@@ -1,6 +1,5 @@
 <template>
   <div align="center">
-    <label class="typo__label">Tagging</label>
     <multiselect
       v-model="value"
       tag-placeholder="Add this as new tag"
@@ -8,9 +7,9 @@
       label="name"
       track-by="code"
       :options="options"
-      :multiple="true"
+      :multiple="multiple"
       :taggable="true"
-      @tag="addTag"
+      @tag="addable ? addTag: () =>{} "
     ></multiselect>
   </div>
 </template>
@@ -22,6 +21,8 @@ export default {
   name: 'Multiselect',
   props: {
     dataSource: Array,
+    multiple: Boolean, // default value: false
+    addable: Boolean, // default value: false
   },
   components: {
     multiselect,
