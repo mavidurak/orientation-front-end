@@ -13,9 +13,10 @@
         <router-link to="/my-contents">My Contents</router-link> |
         <router-link to="/communities/new">New Community</router-link> |
         <router-link to="/login">Login</router-link> |
-        <router-link to="/Register">Register</router-link> |
+        <router-link to="/messages">Messages</router-link> |
+        <router-link to="/register">Register</router-link> |
+        <router-link to="/create-content">Content Create</router-link>
         <router-link to="/communities/1/1">Discussions</router-link> |
-         <router-link to="/messages">Messages</router-link>
       </div>
       <v-main>
         <slot />
