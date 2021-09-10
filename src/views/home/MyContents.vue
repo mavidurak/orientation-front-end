@@ -30,9 +30,9 @@
 </template>
 
 <script>
+import axios from 'axios';
 import ContentIcon from '@/components/ContentIcon/ContentIcon.vue';
 import Rate from '@/components/RateAndWantedButtons/Rate.vue';
-import axios from 'axios';
 
 export default {
   name: 'MyContents',

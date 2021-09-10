@@ -15,9 +15,9 @@
   </div>
 </template>
 <script>
-import CommunityList from '@/components/Community/CommunityList.vue';
 import axios from 'axios';
 import swal from 'sweetalert';
+import CommunityList from '@/components/Community/CommunityList.vue';
 
 export default {
   name: 'Communities',
@@ -54,7 +54,7 @@ export default {
         'x-access-token': window.localStorage.getItem('x-access-token'),
       },
     }).then((response) => {
-      this.communities = response.data.community;
+      this.communities = response.data.communities;
       this.communitiesFilter = this.communities;
     })
       .catch((err) => {
