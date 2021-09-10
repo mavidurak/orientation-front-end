@@ -57,10 +57,10 @@
   </div>
 </template>
 <script>
-import Multiselect from '@/components/Multiselect.vue';
-import { CONTENT_TYPES } from '@/constants';
 import axios from 'axios';
 import swal from 'sweetalert';
+import Multiselect from '@/components/Multiselect.vue';
+import { CONTENT_TYPES } from '@/constants';
 
 export default {
   name: 'ContentCreate',

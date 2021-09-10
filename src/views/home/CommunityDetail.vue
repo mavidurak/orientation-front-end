@@ -1,5 +1,4 @@
 <template>
-
   <div class="community-detail">
     <div class="content">
     <div class="row">
@@ -88,7 +87,8 @@
         </div>
         <div class="row">
           <div class="discussion">
-            <p>Discussion Board</p>
+            <b>Discussion Board</b>
+            <p @click="newDiscussion" id="new">new</p>
             <hr />
             <a href="">POSTS</a><br />
             <a href="">POSTS</a><br />
@@ -140,6 +140,9 @@ export default {
     join() {
       this.$router.replace({ name: 'Home' });
     },
+    newDiscussion() {
+      this.$router.push(`/communities/${this.$route.params.communitySlug}/discussion/new`);
+    },
   },
 };
 </script>
@@ -188,8 +191,23 @@ export default {
   .discussion {
     width: 50%;
     margin-left: 20%;
-    font-weight: bolder;
     text-align: left;
+    p {
+      float:right;
+      cursor:pointer;
+      font-weight: bold;
+    }
+  }
+  #new {
+    font:bold;
+    border: 2px solid rgb(11, 104, 11);
+    padding: 1px 3px 1px 3px;
+    border-radius: 5px;
+  }
+  #new:hover {
+      background-color:rgb(11, 104, 11);
+      color: #fff
   }
 }
+
 </style>
