@@ -11,8 +11,9 @@
         <router-link to="/communities/new">New Community</router-link> |
         <router-link to="/communities/series-e72204a6">Community Detail</router-link> |
         <router-link to="/communities/series-e72204a6/discussion/new">New Discussion</router-link> |
-        <router-link to="/communities/1/1">Discussions</router-link> |
-        <router-link to="/messages">Messages</router-link>
+        <router-link to="/communities/pc-gamer-68a0295a/sd-nausea-fde4e066">
+        Discussions</router-link> |
+        <router-link to="/messages">Messages</router-link> |
       </div>
       <div>
         <slot />

@@ -91,14 +91,13 @@ export default {
         )
         .then((response) => {
           if (response.status === 201) {
-            this.discussion_id = response.data.discussion.id;
             swal({
               title: 'Success!',
               text: 'Discussion created successfully',
               icon: 'success',
             }).then((click) => {
               if (click) {
-                this.$router.push(`/communities/${this.community.slug}/${this.discussion_id}`);
+                this.$router.push(`/communities/${this.community.slug}/${response.data.discussion.slug}`);
               }
             });
           }
