@@ -7,8 +7,8 @@
           :src="community.image.path"
           :alt="community.name"
         />
-        <lable id="communityName">{{ community.name }}</lable
-        ><br />
+        <label id="community-name">{{ community.name }}</label>
+        <br />
         <div class="form-group">
           <label>Header <b>*</b></label>
           <input
@@ -138,7 +138,7 @@ button {
 .form-group {
   margin-top: 20px;
 }
-#communityName {
+#community-name {
   margin-left: 15px;
   font-size: 16px;
 }
