@@ -61,7 +61,7 @@ export default {
   methods: {
     getComments() {
       axios
-        .get(`/api/discussions/${this.$route.params.discussionId}/comments`, {
+        .get(`/api/discussions/${this.$route.params.discussionSlug}/comments`, {
           headers: {
             'x-access-token': window.localStorage.getItem('x-access-token'),
           },
@@ -83,7 +83,7 @@ export default {
           '/api/comments/',
           {
             text: this.text,
-            discussion_id: this.$route.params.discussionId,
+            discussion_id: this.discussion.id,
             is_spoiler: this.isSpoiler,
           },
           {
@@ -113,7 +113,7 @@ export default {
   mounted() {
     axios
       .get(
-        `/api/communites/${this.$route.params.communityId}/${this.$route.params.discussionId}`,
+        `/api/communities/${this.$route.params.communitySlug}/${this.$route.params.discussionSlug}`,
         {
           headers: {
             'x-access-token': window.localStorage.getItem('x-access-token'),
@@ -121,7 +121,7 @@ export default {
         },
       )
       .then((res) => {
-        this.discussion = res.data;
+        this.discussion = res.data.discussion;
       })
       .catch((err) => {
         const message = err.response.data.errors.map((e) => e.message);
