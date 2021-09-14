@@ -1,15 +1,15 @@
 <template>
   <div align="center">
     <multiselect
-      v-model="value"
+      v-model="values"
       tag-placeholder="Add this as new tag"
-      placeholder="Search or add a tag"
+      :placeholder="placeholder"
       label="name"
       track-by="code"
       :options="options"
       :multiple="multiple"
-      :taggable="true"
-      @tag="addable ? addTag: () =>{} "
+      :taggable="addable"
+      @tag="addTag"
     ></multiselect>
   </div>
 </template>
@@ -20,16 +20,29 @@ import multiselect from 'vue-multiselect';
 export default {
   name: 'Multiselect',
   props: {
-    dataSource: Array,
-    multiple: Boolean, // default value: false
-    addable: Boolean, // default value: false
+    dataSource: {
+      type: Array,
+      required: true,
+    },
+    placeholder: {
+      type: String,
+      default: '',
+    },
+    multiple: {
+      type: Boolean,
+      default: false,
+    },
+    addable: {
+      type: Boolean,
+      default: false,
+    },
   },
   components: {
     multiselect,
   },
   data() {
     return {
-      value: '',
+      values: [],
       options: this.dataSource,
     };
   },
@@ -40,11 +53,11 @@ export default {
         code: newTag.substring(0, 2) + Math.floor(Math.random() * 10000000),
       };
       this.options.push(tag);
-      this.value.push(tag);
+      this.values.push(tag);
     },
   },
   updated() {
-    this.$emit('getValue', this.value);
+    this.$emit('getValue', this.values);
   },
 };
 </script>

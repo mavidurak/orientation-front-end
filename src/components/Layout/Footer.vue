@@ -117,7 +117,7 @@ $white: #fff;
 $shadow: #e7ebf0;
 $smoke: #818a91;
 $snow: #eceeef;
-$grey: #d0d7dd;
+$grey: #c0c7ce;
 
 footer {
   .social-icons {
@@ -153,14 +153,6 @@ footer {
     -webkit-transition: all 0.2s linear;
     -o-transition: all 0.2s linear;
     transition: all 0.2s linear;
-    &:active {
-      color: $white;
-      background-color: $grey;
-    }
-    &:focus {
-      color: $white;
-      background-color: $grey;
-    }
     &:hover {
       color: $white;
       background-color: $grey;
