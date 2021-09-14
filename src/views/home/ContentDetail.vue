@@ -124,7 +124,7 @@ export default {
         },
       })
       .then((res) => {
-        this.content = res.data;
+        this.content = res.data.content;
       });
   },
   methods: {
