@@ -3,25 +3,20 @@
     <Navbar />
     <div class="main-content">
       <div id="routes">
-        <router-link to="/multiselect">Multiselect</router-link> |
-        <router-link to="/axios">Axios</router-link> |
-        <router-link to="/forgot-password">Forgot Password</router-link> |
-        <router-link to="/review/1">Review</router-link> |
         <router-link to="/create-content">Content Create</router-link> |
         <router-link to="/contents/sd-league-of-legends-1cbaaa94">Content Detail</router-link> |
         <router-link to="/contents">List Content</router-link> |
+        <router-link to="/review/1">Review</router-link> |
         <router-link to="/my-contents">My Contents</router-link> |
-        <router-link to="/communities/series-e72204a6">Community Detail</router-link> |
         <router-link to="/communities/new">New Community</router-link> |
+        <router-link to="/communities/series-e72204a6">Community Detail</router-link> |
         <router-link to="/communities/series-e72204a6/discussion/new">New Discussion</router-link> |
         <router-link to="/communities/1/1">Discussions</router-link> |
-        <router-link to="/login">Login</router-link> |
-        <router-link to="/register">Register</router-link> |
         <router-link to="/messages">Messages</router-link>
       </div>
-      <v-main>
+      <div>
         <slot />
-      </v-main>
+      </div>
     </div>
     <Footer />
   </div>
