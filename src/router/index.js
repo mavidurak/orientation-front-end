@@ -79,6 +79,12 @@ const routes = [
     meta: { layout: 'HomeLayout' },
   },
   {
+    path: '/create-content',
+    name: 'ContentCreate',
+    component: () => import('../views/home/ContentCreate.vue'),
+    meta: { layout: 'HomeLayout' },
+  },
+  {
     path: '/contents',
     name: 'ListContent',
     component: () => import('../views/home/ListContent.vue'),

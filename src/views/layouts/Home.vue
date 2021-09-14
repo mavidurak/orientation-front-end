@@ -16,7 +16,7 @@
         <router-link to="/communities/pc-gamer-68a0295a/sd-nausea-fde4e066">
         Discussions</router-link> |
         <router-link to="/login">Login</router-link> |
-        <router-link to="/Register">Register</router-link> |
+        <router-link to="/register">Register</router-link> |
         <router-link to="/messages">Messages</router-link> |
       </div>
       <v-main>
