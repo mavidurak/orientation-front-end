@@ -41,7 +41,8 @@
             "
           >
             (less)</a
-          >
+          ><br>
+          <button type="button" class="btn btn-success" @click="goToReview">New Review</button>
           <hr />
           <p>{{ content.page }} pages</p>
           <p>Published on {{ content.createdAt }}</p>
@@ -92,9 +93,9 @@
         </div>
       </div>
       <div class="row mt-5">
-              <div class="reviews" style="width: 100%; float: left; text-align: center">
+        <div class="reviews" style="width: 100%; float: left; text-align: center">
           <h6 >COMMUNITY REVIEWS</h6>
-          <hr />
+          <Reviews :reviews="reviews"/>
         </div>
       </div>
     </div>
@@ -103,17 +104,20 @@
 <script>
 import axios from 'axios';
 import RateAndWantedButton from '@/components/RateAndWantedButtons/RateAndWantedButton.vue';
+import Reviews from '../../components/Review/Reviews.vue';
 
 export default {
   name: 'ContentDetail',
   components: {
     RateAndWantedButton,
+    Reviews,
   },
   data() {
     return {
       readMoreActivated: false,
       status: null,
       content: {},
+      reviews: [],
     };
   },
   mounted() {
@@ -125,6 +129,16 @@ export default {
       })
       .then((res) => {
         this.content = res.data;
+        axios.get(`/api/contents/${this.content.id}/reviews`,
+          {
+            headers: {
+              'x-access-token': window.localStorage.getItem('x-access-token'),
+            },
+          })
+          .then((response) => {
+            console.log(response.data);
+            this.reviews = response.data.reviews;
+          });
       });
   },
   methods: {
@@ -142,6 +156,9 @@ export default {
     rated(rate) {
       this.content.rate = rate;
       alert(rate);
+    },
+    goToReview() {
+      this.$router.push(`/review/${this.content.slug}`);
     },
   },
 };
