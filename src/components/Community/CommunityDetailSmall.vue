@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     goToDetail() {
-      this.$router.push(`communities/${this.community.id}`);
+      this.$router.push(`communities/${this.community.slug}`);
     },
   },
 };

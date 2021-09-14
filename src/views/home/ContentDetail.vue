@@ -42,7 +42,7 @@
           >
             (less)</a
           ><br>
-          <button type="button" class="btn btn-success" @click="goToReview">New Review</button>
+          <button @click="goToReview" id="newreview">New Review</button><br>
           <hr />
           <p>{{ content.page }} pages</p>
           <p>Published on {{ content.createdAt }}</p>
@@ -128,7 +128,7 @@ export default {
         },
       })
       .then((res) => {
-        this.content = res.data;
+        this.content = res.data.content;
         axios.get(`/api/contents/${this.content.id}/reviews`,
           {
             headers: {
@@ -179,6 +179,17 @@ export default {
   }
       @media only screen and (min-width: 1200px) {
     width:400px;
+  }
+}
+
+#newreview{
+  border: 1px solid green;
+  border-radius: 5px;
+  background-color: green;
+  color: white;
+  float: right;
+  &:hover{
+    background-color: rgb(0, 94, 0);
   }
 }
 
