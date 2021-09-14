@@ -112,12 +112,18 @@ export default {
   name: 'Footer',
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
+$white: #fff;
+$shadow: #e7ebf0;
+$smoke: #818a91;
+$snow: #eceeef;
+$grey: #d0d7dd;
+
 footer {
   .social-icons {
     text-align: center;
   }
-  border: 1px solid #e7ebf0;
+  border: 1px solid $shadow;
 }
 .social-icons {
   padding-left: 0;
@@ -130,13 +136,12 @@ footer {
   li.title {
     margin-right: 15px;
     text-transform: uppercase;
-    color: #144585;
     font-weight: 700;
     font-size: 13px;
   }
   a {
-    background-color: #eceeef;
-    color: #818a91;
+    background-color: $snow;
+    color: $smoke;
     font-size: 16px;
     display: inline-block;
     line-height: 44px;
@@ -149,16 +154,16 @@ footer {
     -o-transition: all 0.2s linear;
     transition: all 0.2s linear;
     &:active {
-      color: #fff;
-      background-color: rgb(208, 215, 221);
+      color: $white;
+      background-color: $grey;
     }
     &:focus {
-      color: #fff;
-      background-color: rgb(208, 215, 221);
+      color: $white;
+      background-color: $grey;
     }
     &:hover {
-      color: #fff;
-      background-color: rgb(208, 215, 221);
+      color: $white;
+      background-color: $grey;
     }
   }
 }
