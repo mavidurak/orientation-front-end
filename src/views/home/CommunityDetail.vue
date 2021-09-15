@@ -90,20 +90,8 @@
             <b>Discussion Board</b>
             <p @click="newDiscussion" id="new">new</p>
             <hr />
-            <a href="">POSTS</a><br />
-            <a href="">POSTS</a><br />
-            <a href="">POSTS</a><br />
-            <a href="">POSTS</a><br />
-            <a href="">POSTS</a><br />
-            <a href="">POSTS</a><br />
           </div>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="discussion">
-        <p>Discussion Board</p>
-        <hr/>
       </div>
     </div>
     <div class="row">
@@ -183,7 +171,7 @@ export default {
       this.$router.replace({ name: 'Home' });
     },
     newDiscussion() {
-      this.$router.push(`/communities/${this.$route.params.communitySlug}/discussion/new`);
+      this.$router.push(`/communities/${this.$route.params.slug}/discussion/new`);
     },
   },
 };
