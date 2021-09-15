@@ -103,13 +103,13 @@ const routes = [
     meta: { layout: 'HomeLayout' },
   },
   {
-    path: '/communities/:id',
+    path: '/communities/:slug',
     name: 'CommunityDetail',
     component: () => import('../views/home/CommunityDetail.vue'),
     meta: { layout: 'HomeLayout' },
   },
   {
-    path: '/communities/:communityId/:discussionId',
+    path: '/communities/:communitySlug/:discussionSlug',
     name: 'Discussion',
     component: () => import('../views/home/Discussion.vue'),
     meta: { layout: 'HomeLayout' },

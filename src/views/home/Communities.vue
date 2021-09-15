@@ -15,9 +15,9 @@
   </div>
 </template>
 <script>
-import CommunityList from '@/components/Community/CommunityList.vue';
 import axios from 'axios';
 import swal from 'sweetalert';
+import CommunityList from '@/components/Community/CommunityList.vue';
 
 export default {
   name: 'Communities',

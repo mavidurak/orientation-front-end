@@ -86,25 +86,42 @@
             <hr />
           </div>
         </div>
-        <div class="row">
-          <div class="discussion">
-            <p>Discussion Board</p>
-            <hr />
-            <a href="">POSTS</a><br />
-            <a href="">POSTS</a><br />
-            <a href="">POSTS</a><br />
-            <a href="">POSTS</a><br />
-            <a href="">POSTS</a><br />
-            <a href="">POSTS</a><br />
-          </div>
-        </div>
       </div>
+    </div>
+    <div class="row">
+      <div class="discussion">
+        <p>Discussion Board</p>
+        <hr/>
+      </div>
+    </div>
+    <div class="row">
+      <table class="table col-12  col-md-12" style="  margin:auto;">
+        <thead>
+          <tr>
+            <th scope="col">Header</th>
+            <th scope="col">Text</th>
+            <th scope="col">Create Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  v-for="discussion in discussions" :key="discussion.id">
+            <td ><a :href="'http://localhost:8080/communities/'+discussion.communities.slug+'/'+discussion.slug">
+            {{discussion.header}}</a></td>
+            <td> {{ discussion.text }} </td>
+            <td >{{discussion.createdAt.slice(0, 10)+" " +
+              discussion.createdAt.slice(11, 19)}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'CommunityDetail',
   components: {},
@@ -128,7 +145,20 @@ export default {
         // createdAt: date,
         // updatedAt: date,
       },
+      discussions: [],
     };
+  },
+  mounted() {
+    axios
+      .get(`/api/communities/${this.$route.params.slug}/discussions`, {
+        headers: {
+          'x-access-token': window.localStorage.getItem('x-access-token'),
+        },
+      })
+      .then((res) => {
+        this.discussions = res.data.discussions;
+        console.log(this.discussions);
+      });
   },
   methods: {
     activateReadMore() {

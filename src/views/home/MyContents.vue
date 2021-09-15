@@ -1,6 +1,6 @@
 <template>
 <div class="row">
-    <table class="table col-12  col-md-8" style="  margin:auto;">
+  <table class="table col-12  col-md-8" style="  margin:auto;">
     <thead>
       <tr>
         <th scope="col">Cover</th>
@@ -25,14 +25,14 @@
         </td>
       </tr>
     </tbody>
-    </table>
+  </table>
 </div>
 </template>
 
 <script>
+import axios from 'axios';
 import ContentIcon from '@/components/ContentIcon/ContentIcon.vue';
 import Rate from '@/components/RateAndWantedButtons/Rate.vue';
-import axios from 'axios';
 
 export default {
   name: 'MyContents',
