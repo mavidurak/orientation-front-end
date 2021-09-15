@@ -54,7 +54,7 @@ export default {
         'x-access-token': window.localStorage.getItem('x-access-token'),
       },
     }).then((response) => {
-      this.communities = response.data.community;
+      this.communities = response.data.communities;
       this.communitiesFilter = this.communities;
     })
       .catch((err) => {

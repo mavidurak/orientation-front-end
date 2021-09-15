@@ -55,18 +55,6 @@ const routes = [
     meta: { layout: 'HomeLayout' },
   },
   {
-    path: '/axios',
-    name: 'Axios',
-    component: () => import('../views/others/Axios.vue'),
-    meta: { layout: 'HomeLayout' },
-  },
-  {
-    path: '/multiselect',
-    name: 'MultiselectView',
-    component: () => import('../views/others/Multiselect.vue'),
-    meta: { layout: 'HomeLayout' },
-  },
-  {
     path: '/communities',
     name: 'Communities',
     component: () => import('../views/home/Communities.vue'),
@@ -76,6 +64,12 @@ const routes = [
     path: '/contents/:slug',
     name: 'ContentDetail',
     component: () => import('../views/home/ContentDetail.vue'),
+    meta: { layout: 'HomeLayout' },
+  },
+  {
+    path: '/create-content',
+    name: 'ContentCreate',
+    component: () => import('../views/home/ContentCreate.vue'),
     meta: { layout: 'HomeLayout' },
   },
   {
@@ -112,6 +106,12 @@ const routes = [
     path: '/communities/:communitySlug/:discussionSlug',
     name: 'Discussion',
     component: () => import('../views/home/Discussion.vue'),
+    meta: { layout: 'HomeLayout' },
+  },
+  {
+    path: '/communities/:communitySlug/discussion/new',
+    name: 'NewDiscussion',
+    component: () => import('../views/home/NewDiscussion.vue'),
     meta: { layout: 'HomeLayout' },
   },
   {

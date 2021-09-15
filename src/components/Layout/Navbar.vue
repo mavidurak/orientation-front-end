@@ -1,32 +1,36 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <router-link to="/home" class="navbar-brand"
-        ><b>MaviDurak-IO</b></router-link
+  <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+    <div class="container">
+      <router-link to="/home" class="navbar-brand">
+        <img
+          src="../../assets/MaviDurak-IO.svg"
+          width="30"
+          height="30"
+          class="d-inline-block align-top logo"
+          alt=""
+        />
+        <b> MaviDurak-IO</b></router-link
       >
       <button
         class="navbar-toggler"
         type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
+        data-toggle="collapse"
+        data-target="#navbarResponsive"
+        aria-controls="navbarResponsive"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mb-2 mb-lg-0">
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto text-center">
           <li class="nav-item">
-            <router-link to="/benimkiler" class="nav-link"
-              >Benimkiler</router-link
-            >
+            <router-link to="/benimkiler" class="nav-link">Mine</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/explore" class="nav-link"
-              >Keşfet</router-link>
+            <router-link to="/explore" class="nav-link">Explore</router-link>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item">
             <router-link
               to="/communities"
               class="nav-link"
@@ -34,33 +38,39 @@
               role="button"
               aria-expanded="false"
             >
-              Topluluk
+              Communities
             </router-link>
           </li>
-          <form class="d-flex">
+          <form class="form-inline my-2 my-lg-0">
             <input
-              class="input"
+              class="form-control mr-sm-2"
               type="search"
-              placeholder="İçerik Ara"
+              placeholder="Search"
               aria-label="Search"
-            />
-            <button class="btn" type="submit">Ara</button>
+            /><i class="fas fa-search"></i>
           </form>
           <div v-if="!isLogin" style="display: flex">
             <li class="nav-item">
-              <router-link to="/register" class="nav-link">Kayıt</router-link>
+              <router-link to="/register" class="nav-link"
+                >Register</router-link
+              >
             </li>
             <li class="nav-item">
-              <router-link to="/login" class="nav-link">Giriş Yap</router-link>
+              <router-link to="/login" class="nav-link"
+                ><i class="fas fa-lock"></i> Log In</router-link
+              >
             </li>
           </div>
-          <li class="nav-item" v-else>
-            <p class="nav-link" style="cursor: pointer" @click="logout()">
-              Çıkış Yap
-            </p>
-          </li>
+          <div v-else>
+            <li class="nav-item">
+              <a class="nav-link" style="cursor: pointer" @click="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                Log Out
+              </a>
+            </li>
+          </div>
           <li class="nav-item">
-            <router-link to="/about" class="nav-link">Hakkımda</router-link>
+            <router-link to="/about" class="nav-link">About</router-link>
           </li>
         </ul>
       </div>
@@ -99,43 +109,14 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-nav {
-  height: 60px;
-  padding: 0;
-  max-height: 60px;
 
-  .navbar-brand {
-    font-size: 25px;
+<style scoped lang='scss'>
+.navbar {
+  li {
+    padding-left: 20px;
   }
-
-  .nav-item {
-    font-size: 18px;
-    margin-right: 40px;
-  }
-
-  .btn {
-    margin-right: 40px;
-    width: 80px;
-    height: 35px;
-    border: 1px solid grey;
-    color: grey;
-    margin-top: 5px;
-  }
-
-  .btn:hover {
-    background-color: grey;
-    color: white;
-  }
-
-  .input {
-    width: 300px;
-    border-radius: 5px;
-    border: 1px solid grey;
-    margin-right: 10px;
-    margin-top: 5px;
-    height: 35px;
-    padding: 10px;
+  form {
+    padding-left: 20px;
   }
 }
 </style>
