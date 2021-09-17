@@ -24,22 +24,55 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto text-center">
-          <li class="nav-item">
-            <router-link to="/benimkiler" class="nav-link">Mine</router-link>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Content
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <router-link to="/contents" class="dropdown-item"
+                >Content List</router-link
+              >
+              <router-link to="/my-contents" class="dropdown-item"
+                >My Contents</router-link
+              >
+              <router-link to="/review/1" class="dropdown-item"
+                >Reviews</router-link
+              >
+            </div>
           </li>
           <li class="nav-item">
             <router-link to="/explore" class="nav-link">Explore</router-link>
           </li>
-          <li class="nav-item">
-            <router-link
-              to="/communities"
-              class="nav-link"
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
               id="navbarDropdown"
               role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
               aria-expanded="false"
             >
-              Communities
-            </router-link>
+              Community
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <router-link to="/communities" class="dropdown-item"
+                >Groups</router-link
+              >
+              <router-link
+                to="/communities/pc-gamer-68a0295a/sd-nausea-fde4e066"
+                class="dropdown-item"
+                >Discussions</router-link
+              >
+            </div>
           </li>
           <form class="form-inline my-2 my-lg-0">
             <input
@@ -72,6 +105,11 @@
           <li class="nav-item">
             <router-link to="/about" class="nav-link">About</router-link>
           </li>
+          <li class="nav-item">
+            <router-link to="/messages" class="nav-link">
+              <i class="far fa-comments"></i
+            ></router-link>
+          </li>
         </ul>
       </div>
     </div>
@@ -85,7 +123,7 @@ export default {
   name: 'Navbar',
   data() {
     return {
-      isLogin: '',
+      isLogin: false,
     };
   },
   mounted() {
@@ -96,7 +134,7 @@ export default {
         },
       })
       .then((res) => {
-        if (res.status === 200) {
+        if (res.data.id) {
           this.isLogin = true;
         }
       });
@@ -110,7 +148,7 @@ export default {
 };
 </script>
 
-<style scoped lang='scss'>
+<style lang='scss' scoped>
 .navbar {
   li {
     padding-left: 20px;

@@ -1,6 +1,9 @@
 <template>
   <div>
-    <ContentList/>
+    <div class="new">
+      <router-link class="link" to="/create-content">Create a Content</router-link>
+    </div>
+    <ContentList />
   </div>
 </template>
 
@@ -14,3 +17,12 @@ export default {
   },
 };
 </script>
+
+<style lang='scss' scoped>
+.new {
+  padding-left: 80%;
+  .link {
+    color: rgb(12, 116, 12);
+  }
+}
+</style>

@@ -1,6 +1,13 @@
 <template>
   <div>
     <div class="discussion">
+      <div class="py-2 new">
+        <router-link
+          class="link"
+          to="/communities/series-e72204a6/discussion/new"
+          >Create a Discussion</router-link
+        >
+      </div>
       <div class="card mb-3">
         <div class="row g-0">
           <div class="col-md-8">
@@ -12,7 +19,7 @@
               <p class="card-text">
                 <small class="text-muted"
                   >Posted by {{ discussion.user.username }} on
-                   {{ discussion.communities.name }}</small
+                  {{ discussion.communities.name }}</small
                 ><br />
                 <small class="text-muted">{{
                   discussion.createdAt.slice(0, 10)
@@ -176,6 +183,12 @@ export default {
         border: 1px solid rgb(39, 63, 73);
         background-color: rgb(39, 63, 73);
       }
+    }
+  }
+  .new {
+    padding-left: 80%;
+    .link {
+      color: rgb(12, 116, 12);
     }
   }
 }
