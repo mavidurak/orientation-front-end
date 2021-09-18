@@ -14,6 +14,7 @@
         <router-link to="/communities/pc-gamer-68a0295a/sd-nausea-fde4e066">
         Discussions</router-link> |
         <router-link to="/messages">Messages</router-link> |
+        <router-link to="/user/:username">Profile</router-link>
       </div>
       <div>
         <slot />

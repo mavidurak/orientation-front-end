@@ -126,6 +126,12 @@ const routes = [
     component: () => import('../views/home/Messages.vue'),
     meta: { layout: 'HomeLayout' },
   },
+  {
+    path: '/user/:username',
+    name: 'Profile',
+    component: () => import('../views/home/Profile.vue'),
+    meta: { layout: 'HomeLayout' },
+  },
 ];
 
 const router = new VueRouter({
