@@ -88,7 +88,8 @@
         <div class="row">
           <div class="discussion">
             <b>Discussion Board</b>
-            <p @click="newDiscussion" id="new">new</p>
+            <button type="button" class="new btn btn-link" @click="newDiscussion">
+              Create a Discussion</button>
             <hr />
             <a href="">POSTS</a><br />
             <a href="">POSTS</a><br />
@@ -192,22 +193,10 @@ export default {
     width: 50%;
     margin-left: 20%;
     text-align: left;
-    p {
-      float:right;
-      cursor:pointer;
-      font-weight: bold;
+    .new {
+      padding-left: 40%;
+      color: rgb(12, 116, 12);
     }
   }
-  #new {
-    font:bold;
-    border: 2px solid rgb(11, 104, 11);
-    padding: 1px 3px 1px 3px;
-    border-radius: 5px;
-  }
-  #new:hover {
-      background-color:rgb(11, 104, 11);
-      color: #fff
-  }
 }
-
 </style>

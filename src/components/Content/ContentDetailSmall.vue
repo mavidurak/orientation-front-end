@@ -6,7 +6,7 @@
           <div class="col-md-1">
             <strong>{{ content.id }}</strong>
           </div>
-          <div class="col-md-1" @click="route()">
+          <div class="col-md-1" @click="goToDetail">
             <img
               class="img-fluid"
               :src="content.image.path"
@@ -16,13 +16,9 @@
           <div class="col-md-6 text-left">
             <p id="type" class="badge badge-info">{{ content.type }}</p>
             <h2>
-              <b @click="route()">{{ content.name }}</b>
-              <span class="badge badge-success">
-                Views: {{ content.views }}</span
-              >
-              <span class="badge badge-secondary">
-                Rate: {{ content.rate }}</span
-              >
+              <b @click="goToDetail">{{ content.name }}</b> <span class="badge badge-success">
+                Views: {{ content.views }}</span> <span class="badge badge-secondary">
+                Rate: {{ content.rate }}</span>
             </h2>
             <p>{{ content.description }}</p>
           </div>
@@ -130,7 +126,7 @@ export default {
       // eslint-disable-next-line
       console.log("rate", r);
     },
-    route() {
+    goToDetail() {
       this.$router.push(`/contents/${this.content.slug}`);
     },
   },

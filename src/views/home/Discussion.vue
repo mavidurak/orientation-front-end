@@ -1,13 +1,6 @@
 <template>
   <div>
     <div class="discussion">
-      <div class="py-2 new">
-        <router-link
-          class="link"
-          to="/communities/series-e72204a6/discussion/new"
-          >Create a Discussion</router-link
-        >
-      </div>
       <div class="card mb-3">
         <div class="row g-0">
           <div class="col-md-8">
@@ -183,12 +176,6 @@ export default {
         border: 1px solid rgb(39, 63, 73);
         background-color: rgb(39, 63, 73);
       }
-    }
-  }
-  .new {
-    padding-left: 80%;
-    .link {
-      color: rgb(12, 116, 12);
     }
   }
 }
