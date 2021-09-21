@@ -44,14 +44,16 @@
             maxlength="150"
             placeholder="Image path"
           />
-        </div><br>
+        </div>
+        <br>
         <div class="form-item">
           <input
             class="gr-button"
             type="submit"
             value="Create"
             @click="submit"
-          /></div>
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -99,7 +101,8 @@ export default {
     },
     submit() {
       axios
-        .post('/api/contents/',
+        .post(
+          '/api/contents',
           {
             name: this.name,
             type: this.type.code,
@@ -110,18 +113,23 @@ export default {
             headers: {
               'x-access-token': window.localStorage.getItem('x-access-token'),
             },
-          })
+          },
+        )
         .then((res) => {
           if (res.status === 200) {
             swal({
+              title: 'Success!',
+              text: `${this.name} created successfully`,
               icon: 'success',
-              text: `${this.content.name} review created successfully`,
+            }).then((click) => {
+              if (click) {
+                this.$router.push(`/contents/${res.data.content.slug}`);
+              }
             });
           }
         })
         .catch((err) => {
-          const message = err.response.data.errors
-            .map((e) => e.message);
+          const message = err.response.data.errors.map((e) => e.message);
           swal({
             icon: 'error',
             text: `${message}`,
