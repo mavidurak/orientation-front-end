@@ -11,9 +11,9 @@
           <small class="text-muted">{{
             review.createdAt.slice(0, 10)
           }}</small>
-        <button v-if="reviewComment.length !== 0">
+        <button v-if="reviewComments.length !== 0">
           <i class="bi bi-chat-square"></i>
-          {{reviewComment.length}} comment
+          {{reviewComments.length}} comment
         </button>
         </p>
       </div>
@@ -34,7 +34,7 @@ export default {
   },
   data() {
     return {
-      reviewComment: null,
+      reviewComments: null,
     };
   },
   mounted() {
@@ -44,7 +44,7 @@ export default {
       },
     })
       .then((res) => {
-        this.reviewComment = res.data.comments;
+        this.reviewComments = res.data.comments;
       });
   },
 };
