@@ -13,6 +13,7 @@
           class="img-fluid icon"
           :src="content.image.path"
           :alt="content.image.name"
+          @click="$router.push(`/contents/${content.slug}`)"
         />
       </span>
     </Tooltip>

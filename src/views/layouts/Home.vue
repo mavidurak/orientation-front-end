@@ -14,8 +14,7 @@
         <router-link to="/communities/pc-gamer-68a0295a/sd-nausea-fde4e066">
         Discussions</router-link> |
         <router-link to="/messages">Messages</router-link> |
-        <router-link to="/communities/pc-gamer-68a0295a/management">
-        Community Management</router-link> |
+        <router-link to="/communities/pc-gamer-68a0295a/management">Community Management</router-link> |
       </div>
       <div>
         <slot />
@@ -67,15 +66,5 @@ body {
 }
 .main-content {
   padding: 10px;
-  #routes {
-    padding: 30px;
-    a {
-      font-weight: bold;
-      color: #2c3e50;
-      &.router-link-exact-active {
-        color: #42b983;
-      }
-    }
-  }
 }
 </style>

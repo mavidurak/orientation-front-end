@@ -1,12 +1,19 @@
 <template>
   <div class="communities">
     <div class="input">
-      <h1 id="grup">Gruplar</h1>
+      <div class="row">
+        <div class="col-md-8"><h1>Groups</h1></div>
+        <div class="col-md-4">
+          <router-link class="new" to="/communities/new"
+            >Create a Group</router-link
+          >
+        </div>
+      </div>
       <input
         type="text"
         v-model="grup"
         id="grup-ismi"
-        placeholder="Grup ismi"
+        placeholder="Group Name"
         @input="filtred"
       />
     </div>
@@ -49,14 +56,16 @@ export default {
     },
   },
   mounted() {
-    axios.get('/api/communities/', {
-      headers: {
-        'x-access-token': window.localStorage.getItem('x-access-token'),
-      },
-    }).then((response) => {
-      this.communities = response.data.communities;
-      this.communitiesFilter = this.communities;
-    })
+    axios
+      .get('/api/communities/', {
+        headers: {
+          'x-access-token': window.localStorage.getItem('x-access-token'),
+        },
+      })
+      .then((response) => {
+        this.communities = response.data.communities;
+        this.communitiesFilter = this.communities;
+      })
       .catch((err) => {
         const message = err.response.data.errors
           .map((e) => e.message)
@@ -73,7 +82,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .communities {
   #grup {
     margin-bottom: 20px;
@@ -90,6 +99,9 @@ export default {
       padding: 10px;
       margin-right: 10px;
     }
+  }
+  .new {
+    color: rgb(12, 116, 12);
   }
 }
 </style>
