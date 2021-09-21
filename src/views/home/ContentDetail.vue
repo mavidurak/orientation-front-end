@@ -42,7 +42,7 @@
           >
             (less)</a
           ><br>
-          <button @click="goToReview" id="newreview">New Review</button><br>
+          <button @click="createReview" id="new-review">New Review</button><br>
           <hr />
           <p>{{ content.page }} pages</p>
           <p>Published on {{ content.createdAt }}</p>
@@ -156,7 +156,7 @@ export default {
       this.content.rate = rate;
       alert(rate);
     },
-    goToReview() {
+    createReview() {
       this.$router.push(`/review/${this.content.slug}`);
     },
   },
@@ -181,7 +181,7 @@ export default {
   }
 }
 
-#newreview{
+#new-review{
   border: 1px solid green;
   border-radius: 5px;
   background-color: green;
