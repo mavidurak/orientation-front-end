@@ -7,7 +7,7 @@
             <div class="card-body row">
               <div class="col-4">
                 <div class="avatar">
-                  <Gravatar :email="user.email" id="image" size="120" />
+                  <Gravatar :email="user.email" id="gravatar-user" :size=120 />
                 </div>
               </div>
               <div class="col-md-8">
@@ -59,12 +59,16 @@
                   <hr />
                   <p v-if="friends.length === 0">no friends yet</p>
                   <div
+                    v-else
                     v-for="friend in friends"
                     :key="friend.id"
                     id="friend"
                   >
-                    <Gravatar :email="friend.email" id="image" size="20" />
-                    {{ friend.name}}
+                    <div class="friend" @click="$router.push(`/user/${friend.username}`);"
+                    v-on:click="refresh">
+                      <Gravatar :email="friend.email" id="gravatar-friend" :size=20 />
+                      {{ friend.name }}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -102,10 +106,15 @@ export default {
         this.friends = res.data.friends;
       });
   },
+  methods: {
+    refresh() {
+      window.location.reload();
+    },
+  },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .profile {
   span {
     font-weight: bold;
@@ -114,10 +123,14 @@ export default {
     margin: 0;
   }
   .card {
-    padding:15px;
+    padding: 15px;
     text-align: left;
     .avatar {
       text-align: center;
+      #gravatar-user {
+      border-radius: 50%;
+      border: 1px solid #dfdfdf;
+      }
     }
     .name {
       margin-top: 10px;
@@ -138,12 +151,12 @@ export default {
       font-size: 14px;
     }
   }
-  #image {
-    border-radius: 50%;
-    text-align: center;
-  }
-  #friend {
+  .friend {
     margin-left: 10px;
+    #gravatar-friend {
+      border-radius: 50%;
+      border: 1px solid #dfdfdf;
+    }
   }
 }
 </style>
