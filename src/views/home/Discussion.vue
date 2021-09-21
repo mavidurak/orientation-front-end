@@ -12,7 +12,7 @@
               <p class="card-text">
                 <small class="text-muted"
                   >Posted by {{ discussion.user.username }} on
-                   {{ discussion.communities.name }}</small
+                  {{ discussion.communities.name }}</small
                 ><br />
                 <small class="text-muted">{{
                   discussion.createdAt.slice(0, 10)
