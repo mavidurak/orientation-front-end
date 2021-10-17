@@ -6,6 +6,12 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: '/communities/:slug/management',
+    name: 'CommunityManagement',
+    component: () => import('../views/home/CommunityManagement.vue'),
+    meta: { layout: 'HomeLayout' },
+  },
+  {
     path: '*',
     name: 'NotFound',
     component: () => import('../views/guests/NotFound.vue'),
