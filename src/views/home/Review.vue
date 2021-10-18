@@ -190,6 +190,7 @@ export default {
               icon: 'success',
               text: `${this.content.name} review created successfully`,
             });
+            this.$router.push(`/contents/${this.content.slug}`);
           }
         })
         .catch((err) => {

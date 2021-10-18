@@ -41,7 +41,8 @@
             "
           >
             (less)</a
-          >
+          ><br>
+          <button @click="createReview" id="new-review">New Review</button><br>
           <hr />
           <p>{{ content.page }} pages</p>
           <p>Published on {{ content.createdAt }}</p>
@@ -92,9 +93,9 @@
         </div>
       </div>
       <div class="row mt-5">
-              <div class="reviews" style="width: 100%; float: left; text-align: center">
+        <div class="reviews" style="width: 100%; float: left; text-align: center">
           <h6 >COMMUNITY REVIEWS</h6>
-          <hr />
+          <Reviews :reviews="reviews"/>
         </div>
       </div>
     </div>
@@ -103,17 +104,20 @@
 <script>
 import axios from 'axios';
 import RateAndWantedButton from '@/components/RateAndWantedButtons/RateAndWantedButton.vue';
+import Reviews from '../../components/Review/Reviews.vue';
 
 export default {
   name: 'ContentDetail',
   components: {
     RateAndWantedButton,
+    Reviews,
   },
   data() {
     return {
       readMoreActivated: false,
       status: null,
       content: {},
+      reviews: [],
     };
   },
   mounted() {
@@ -125,6 +129,15 @@ export default {
       })
       .then((res) => {
         this.content = res.data.content;
+        axios.get(`/api/contents/${this.content.id}/reviews`,
+          {
+            headers: {
+              'x-access-token': window.localStorage.getItem('x-access-token'),
+            },
+          })
+          .then((response) => {
+            this.reviews = response.data.reviews;
+          });
       });
   },
   methods: {
@@ -142,6 +155,9 @@ export default {
     rated(rate) {
       this.content.rate = rate;
       alert(rate);
+    },
+    createReview() {
+      this.$router.push(`/review/${this.content.slug}`);
     },
   },
 };
@@ -162,6 +178,17 @@ export default {
   }
       @media only screen and (min-width: 1200px) {
     width:400px;
+  }
+}
+
+#new-review{
+  border: 1px solid green;
+  border-radius: 5px;
+  background-color: green;
+  color: white;
+  float: right;
+  &:hover{
+    background-color: rgb(0, 94, 0);
   }
 }
 
