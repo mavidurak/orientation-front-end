@@ -217,7 +217,15 @@ export default {
         },
       })
       .then((res) => {
-        this.content = res.data;
+        this.content = res.data.content;
+      })
+      .catch((err) => {
+        const message = err.response.data.errors
+          .map((e) => e.message);
+        swal({
+          icon: 'error',
+          text: `${message}`,
+        });
       });
   },
 };
