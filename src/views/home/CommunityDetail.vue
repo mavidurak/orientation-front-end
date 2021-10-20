@@ -99,9 +99,9 @@
       <table class="table col-12  col-md-12" style="  margin:auto;">
         <thead>
           <tr>
-            <th scope="col">Header</th>
-            <th scope="col">Text</th>
-            <th scope="col">Create Date</th>
+            <th scope="col"> Header </th>
+            <th scope="col"> Text </th>
+            <th scope="col"> Create Date </th>
           </tr>
         </thead>
         <tbody>
