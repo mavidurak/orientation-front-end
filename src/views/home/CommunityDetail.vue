@@ -158,7 +158,6 @@ export default {
       })
       .then((res) => {
         this.discussions = res.data.discussions;
-        console.log(this.discussions);
       });
   },
   methods: {
